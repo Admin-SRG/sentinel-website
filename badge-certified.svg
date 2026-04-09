@@ -17,10 +17,10 @@
   <!-- Inner decorative ring - teal, subtle -->
   <circle cx="200" cy="200" r="178" fill="none" stroke="#3D8B7A" stroke-width="2" opacity="0.4"/>
   
-  <!-- Curved text top: SENTINAL RISK GROUP -->
+  <!-- Curved text top: SENTINEL RISK GROUP -->
   <path id="topArc" d="M 42,200 A 158,158 0 0,1 358,200" fill="none"/>
   <text font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#0C1B2E" letter-spacing="8">
-    <textPath href="#topArc" startOffset="50%" text-anchor="middle">SENTINAL RISK GROUP</textPath>
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">SENTINEL RISK GROUP</textPath>
   </text>
   
   <!-- Curved text bottom: AI GOVERNANCE SHIELD -->
