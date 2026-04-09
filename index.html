@@ -193,7 +193,7 @@ nav>*{position:relative;z-index:1}
 /* FOOTER */
 footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.04);padding:2.5rem 0 1.2rem}
 .foot-top{max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
-.foot-brand-name{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600}
+.foot-brand-name{font-family:var(--serif);font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:700}
 .foot-tagline{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;font-style:italic}
 .foot-desc{font-size:0.78rem;color:rgba(255,255,255,0.25);margin-top:0.8rem;line-height:1.6}
 .foot-col h5{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:0.8rem}
@@ -346,10 +346,10 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 
 <nav><div class="nav-inner">
 <a href="#hero" class="nav-brand"><div class="nav-shield"><svg viewBox="0 0 72 84" fill="none"><defs><linearGradient id="navG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A2E45"/><stop offset="48%" stop-color="#1E3A52"/><stop offset="52%" stop-color="#389680"/><stop offset="100%" stop-color="#4BA08E"/></linearGradient><linearGradient id="navEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="rgba(255,255,255,0.02)"/><stop offset="100%" stop-color="rgba(255,255,255,0.06)"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#navG)"/><path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#navEdge)" stroke-width="0.8"/><line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/><circle cx="36" cy="40" r="13" fill="none" stroke="rgba(200,215,230,0.6)" stroke-width="1.8"/><line x1="36" y1="25" x2="36" y2="27" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="36" y1="53" x2="36" y2="55" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="21" y1="40" x2="23" y2="40" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="49" y1="40" x2="51" y2="40" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div><div class="nav-text"><span class="nav-name">Sentinel Risk Group</span></div></a>
-<div class="nav-links"><a href="#insurance">Insurance</a><a href="#regulatory">Laws</a><a href="#telehealth">Telehealth</a><a href="#reality">Coding Risk</a><a href="#penalties">Penalties</a><a href="#faq">FAQ</a><a href="#pricing">Pricing</a><a href="risk-assessment.html" class="nav-cta-link">Start Certification</a></div>
+<div class="nav-links"><a href="#insurance">Insurance</a><a href="#regulatory">Laws</a><a href="#telehealth">Telehealth</a><a href="#reality">Coding Risk</a><a href="#penalties">Penalties</a><a href="#faq">FAQ</a><a href="#pricing">Pricing</a><a href="risk-assessment.html" class="nav-cta-link">Get Certified</a></div>
 <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
 </div></nav>
-<div class="nav-mobile"><a href="#insurance" onclick="this.parentElement.classList.remove('open')">Insurance</a><a href="#regulatory" onclick="this.parentElement.classList.remove('open')">Laws</a><a href="#telehealth" onclick="this.parentElement.classList.remove('open')">Telehealth</a><a href="#reality" onclick="this.parentElement.classList.remove('open')">Coding Risk</a><a href="#penalties" onclick="this.parentElement.classList.remove('open')">Penalties</a><a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a><a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a><a href="risk-assessment.html" class="nav-cta-mobile" onclick="this.parentElement.classList.remove('open')">Start Certification</a></div>
+<div class="nav-mobile"><a href="#insurance" onclick="this.parentElement.classList.remove('open')">Insurance</a><a href="#regulatory" onclick="this.parentElement.classList.remove('open')">Laws</a><a href="#telehealth" onclick="this.parentElement.classList.remove('open')">Telehealth</a><a href="#reality" onclick="this.parentElement.classList.remove('open')">Coding Risk</a><a href="#penalties" onclick="this.parentElement.classList.remove('open')">Penalties</a><a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a><a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a><a href="risk-assessment.html" class="nav-cta-mobile" onclick="this.parentElement.classList.remove('open')">Get Certified</a></div>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
@@ -382,7 +382,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 </div>
 </div>
 </div>
-<div class="hero-actions"><a href="#pricing" class="btn-primary">Start Certification</a><a href="risk-assessment.html" class="btn-exposure" style="display:inline-block;padding:12px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)">Free Risk Assessment &rarr;</a></div>
+<div class="hero-actions"><a href="#pricing" class="btn-primary">Get Certified</a><a href="risk-assessment.html" class="btn-exposure" style="display:inline-block;padding:12px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)">Free Risk Assessment &rarr;</a></div>
 </div>
 <div class="hero-card">
 <div class="hero-card-label">2025–2026 Threat Landscape</div>
@@ -1048,7 +1048,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 
 <div style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;font-weight:600;line-height:1.25;margin-bottom:2rem">None of them are waiting.<br><em style="color:var(--teal-light);font-style:italic">Neither should you.</em></div>
 
-<a href="risk-assessment.html" class="btn-primary bridge-cta-btn" style="font-size:0.88rem;padding:16px 40px;letter-spacing:1.2px;box-shadow:0 4px 20px rgba(46,122,105,0.35)">Start Certification &rarr;</a>
+<a href="risk-assessment.html" class="btn-primary bridge-cta-btn" style="font-size:0.88rem;padding:16px 40px;letter-spacing:1.2px;box-shadow:0 4px 20px rgba(46,122,105,0.35)">Get Certified &rarr;</a>
 
 </div>
 </section>
@@ -1218,7 +1218,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 <div class="ca-detail" style="font-size:0.72rem;color:var(--silver);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid var(--ice)">Full assessment or certification report with scored findings · Complete governance documentation · Patient-facing disclosure materials · AI governance staff training · Ongoing monitoring tools · Implementation guidance</div>
 </div>
 </div>
-<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/4gM28tajz5yT4Xr10W5EY02" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/4gM28tajz5yT4Xr10W5EY02" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Get Certified &rarr;</a></div>
 </div>
 
 <div class="price-card featured">
@@ -1236,7 +1236,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 <div class="ca-detail" style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid rgba(255,255,255,0.1)">Each AI system assessed individually · Provider-level workflow variance analysis · Vendor-specific risk evaluation · Phased remediation roadmap with ownership assignments · Expanded governance documentation</div>
 </div>
 </div>
-<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/8x2bJ377n8L575z4d85EY04" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/8x2bJ377n8L575z4d85EY04" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Get Certified &rarr;</a></div>
 </div>
 
 <div class="price-card">
@@ -1253,7 +1253,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 <div class="ca-detail" style="font-size:0.72rem;color:var(--silver);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid var(--ice)">Cross-location governance analysis · Executive-level deliverables · Ongoing advisory relationship · Named point of contact · Are different locations handling AI differently?</div>
 </div>
 </div>
-<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/3cI6oJ77n4uP0Hb6lg5EY06" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/3cI6oJ77n4uP0Hb6lg5EY06" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Get Certified &rarr;</a></div>
 </div>
 
 </div>
