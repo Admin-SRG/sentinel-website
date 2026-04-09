@@ -126,40 +126,23 @@ AI Governance Shield&trade; certification verifies that a practice has completed
 
 <script>
 /*
-  AIRTABLE-POWERED CERTIFICATION DIRECTORY
-  ─────────────────────────────────────────
-  No manual updates needed. This fetches certified practices
-  directly from Airtable when the page loads.
+  CERTIFICATION DIRECTORY — Secure proxy via Make.com
+  No API tokens exposed. Data fetched through server-side webhook.
 */
-var AIRTABLE_TOKEN = "patJrXFdbj3xbY2Pk.b7bf25dafca55012d8431512b005fe60011f1a178494a4d96dc6cc09e93e1527";
-var BASE_ID = "appblZxamYg5Plbhu";
-var TABLE_ID = "tblou112HK8ywJ3bI";
-
+var VERIFY_PROXY = "https://hook.us2.make.com/umnj83gssdpv2xu2ya93f3abq08bii6s";
 var certData = [];
 
 (function loadCertData() {
-  var url = "https://api.airtable.com/v0/" + BASE_ID + "/" + TABLE_ID
-    + "?filterByFormula=" + encodeURIComponent('{Status}="Certified"')
-    + "&fields[]=" + encodeURIComponent("Practice Name")
-    + "&fields[]=" + encodeURIComponent("Primary State")
-    + "&fields[]=" + encodeURIComponent("Reference Number")
-    + "&fields[]=" + encodeURIComponent("Certification Date")
-    + "&fields[]=" + encodeURIComponent("Expiration Date")
-    + "&fields[]=" + encodeURIComponent("Status");
-
-  fetch(url, {
-    headers: { "Authorization": "Bearer " + AIRTABLE_TOKEN }
-  })
+  fetch(VERIFY_PROXY)
   .then(function(res) { return res.json(); })
   .then(function(data) {
-    certData = (data.records || []).map(function(r) {
-      var f = r.fields;
+    certData = (Array.isArray(data) ? data : []).map(function(r) {
       return {
-        name: f["Practice Name"] || "",
-        location: f["Primary State"] || "",
-        cert: f["Reference Number"] || "",
-        date: f["Certification Date"] || "",
-        expiry: f["Expiration Date"] || "",
+        name: r.name || "",
+        location: r.location || "",
+        cert: r.cert || "",
+        date: r.date || "",
+        expiry: r.expiry || "",
         status: "Active"
       };
     });
