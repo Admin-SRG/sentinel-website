@@ -27,8 +27,7 @@ nav>*{position:relative;z-index:1}
 .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}.nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.35)) drop-shadow(0 6px 8px rgba(0,0,0,0.15))}
 .nav-text{display:flex;flex-direction:column}
-.nav-name{font-family:var(--serif);font-weight:700;font-size:0.85rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1}
-.nav-product{font-size:0.68rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal-light);font-weight:500}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:0.95rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1;text-rendering:geometricPrecision}
 .nav-links{display:flex;gap:0;align-items:center}
 .nav-links a{font-size:0.76rem;letter-spacing:0.6px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s}
 .nav-links a:hover{color:#fff}
@@ -1048,7 +1047,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 
 <div style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;font-weight:600;line-height:1.25;margin-bottom:2rem">None of them are waiting.<br><em style="color:var(--teal-light);font-style:italic">Neither should you.</em></div>
 
-<a href="risk-assessment.html" class="btn-primary bridge-cta-btn" style="font-size:0.88rem;padding:16px 40px;letter-spacing:1.2px;box-shadow:0 4px 20px rgba(46,122,105,0.35)">Get Certified &rarr;</a>
+<a href="#pricing" class="btn-primary bridge-cta-btn" style="font-size:0.88rem;padding:16px 40px;letter-spacing:1.2px;box-shadow:0 4px 20px rgba(46,122,105,0.35)">Get Certified &rarr;</a>
 
 </div>
 </section>
@@ -1260,6 +1259,28 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 
 <div style="text-align:center;margin-top:0.8rem;font-size:0.75rem;color:var(--steel);line-height:1.6">By proceeding to payment, you agree to our <a href="terms.html" style="color:var(--teal);text-decoration:underline">Terms of Service</a> and <a href="privacy.html" style="color:var(--teal);text-decoration:underline">Privacy Policy</a>.</div>
 
+<!-- HOW IT WORKS — integrated into pricing section -->
+<div style="max-width:700px;margin:2.5rem auto 0;text-align:center">
+<div style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:1.2rem">How It Works</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem">
+<div style="padding:1rem 1rem 1rem 1.2rem;background:var(--teal-pale);border:1px solid rgba(46,122,105,0.18);border-left:3px solid var(--teal);border-radius:8px;text-align:left">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem">Select</div>
+<div style="font-size:0.82rem;color:var(--navy);font-weight:600">Pay Deposit</div>
+<div style="font-size:0.72rem;color:var(--steel);margin-top:0.25rem;line-height:1.5">Choose your tier above. Deposit reserves your assessment.</div>
+</div>
+<div style="padding:1rem 1rem 1rem 1.2rem;background:var(--teal-pale);border:1px solid rgba(46,122,105,0.18);border-left:3px solid var(--teal);border-radius:8px;text-align:left">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem">Complete</div>
+<div style="font-size:0.82rem;color:var(--navy);font-weight:600">Intake &amp; Terms</div>
+<div style="font-size:0.72rem;color:var(--steel);margin-top:0.25rem;line-height:1.5">Terms, BAA, and practice intake — all in one form.</div>
+</div>
+<div style="padding:1rem 1rem 1rem 1.2rem;background:var(--teal-pale);border:1px solid rgba(46,122,105,0.18);border-left:3px solid var(--teal);border-radius:8px;text-align:left">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem">Receive</div>
+<div style="font-size:0.82rem;color:var(--navy);font-weight:600">Assessment &amp; Certification</div>
+<div style="font-size:0.72rem;color:var(--steel);margin-top:0.25rem;line-height:1.5">We begin within 48 hours. Balance due upon report delivery.</div>
+</div>
+</div>
+</div>
+
 <!-- BRIDGE — STACKED & CENTERED -->
 <div style="text-align:center;margin-top:2rem;margin-bottom:2.5rem">
 <div style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.4">Same rigorous methodology at every tier.</div>
@@ -1358,7 +1379,7 @@ nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgb
 <h2 class="stitle" style="color:#fff;max-width:none;margin-bottom:0.5rem">Ready to Certify Your Practice?</h2>
 <p class="lead" style="color:rgba(255,255,255,0.5);margin-bottom:1.5rem;max-width:none">Select your tier, complete payment through our secure portal, and begin your intake.<br>No scheduling required.</p>
 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
-<a href="#pricing" class="btn-primary" style="padding:14px 36px">Start Your Certification</a>
+<a href="#pricing" class="btn-primary" style="padding:14px 36px">Get Certified</a>
 <a href="risk-assessment.html" class="btn-exposure" style="display:inline-block;padding:13px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)">Free Risk Assessment &rarr;</a>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-top:1rem">
