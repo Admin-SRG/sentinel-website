@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Sentinel Risk Group — AI Governance Shield™</title>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--navy:#0C1B2E;--navy-mid:#122240;--slate:#2E3F5C;--steel:#546380;--silver:#8A96A8;--mist:#B8C4D4;--cloud:#D6DDE8;--ice:#E8EDF4;--snow:#F2F5F9;--white:#FAFBFD;--teal:#2E7A69;--teal-light:#3D8B7A;--teal-pale:#E8F2EF;--blue:#1E5A9E;--amber:#C27D19;--amber-pale:#FDF6E9;--red-muted:#9B3B3B;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;color-scheme:light only;background:#FAFBFD!important}
+body{font-family:var(--sans);background:#FAFBFD!important;color:var(--slate);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#152535;border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.3s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+nav::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 42px center,transparent 0%,rgba(4,8,14,0.3) 30%,rgba(4,8,14,0.6) 55%,rgba(4,8,14,0.85) 80%,rgba(2,4,8,0.95) 100%);pointer-events:none;z-index:0}
+nav>*{position:relative;z-index:1}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}
+.nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 4px 5px rgba(0,0,0,0.5)) drop-shadow(0 7px 10px rgba(0,0,0,0.25))}
+.nav-text{display:flex;flex-direction:column}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:0.85rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1}
+.nav-product{font-size:0.68rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal-light);font-weight:500}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:0.76rem;letter-spacing:0.6px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta-link{font-size:0.7rem!important;letter-spacing:1.5px!important;text-transform:uppercase;color:var(--teal-light)!important;border:1px solid rgba(61,139,122,0.35);padding:7px 16px!important;border-radius:4px;font-weight:600!important;transition:all 0.2s!important;margin-left:0.5rem}
+.nav-cta-link:hover{background:rgba(61,139,122,0.1)!important;border-color:rgba(61,139,122,0.5)!important;color:#fff!important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:all 0.3s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:1rem 0;z-index:999}
+.nav-mobile.open{display:block}
+.nav-mobile a{display:block;padding:0.7rem 2rem;font-size:0.86rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;transition:background 0.2s}
+.nav-mobile a:hover{background:rgba(255,255,255,0.04);color:#fff}
+
+/* UTILITY */
+.container-narrow{max-width:780px;margin:0 auto;padding:0 2rem}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.04);padding:2.5rem 0 1.2rem}
+.foot-top{max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+.foot-brand-name{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600}
+.foot-tagline{font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:0.3rem;font-style:italic}
+.foot-desc{font-size:0.78rem;color:rgba(255,255,255,0.25);margin-top:0.8rem;line-height:1.6}
+.foot-col h5{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:0.8rem}
+.foot-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.35);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s}
+.foot-col a:hover{color:rgba(255,255,255,0.7)}
+.foot-bottom{max-width:1100px;margin:0 auto;padding:0 2rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center}
+.foot-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+.foot-legal-links{display:flex;gap:1.5rem}
+.foot-legal-links a{font-size:0.7rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.foot-legal-links a:hover{color:rgba(255,255,255,0.5)}
+
+/* CONTENT */
+.hero-section{background:var(--navy);min-height:300px;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(61,139,122,0.06) 0%,transparent 55%),radial-gradient(ellipse at 20% 75%,rgba(30,90,158,0.04) 0%,transparent 50%)}
+.hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 2rem}
+#hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4vw,3rem);line-height:1.15;color:#fff;margin-bottom:1rem;letter-spacing:-0.5px}
+.breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:1rem;letter-spacing:0.5px}
+.breadcrumb a{color:var(--teal-light);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+
+.content-section{background:#fff;padding:4rem 0}
+.legal-content{max-width:780px;margin:0 auto;padding:0 2rem}
+.section-number{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);margin-top:2rem;margin-bottom:0.8rem}
+.section-number:first-of-type{margin-top:0}
+.subsection{margin-left:1.5rem;margin-bottom:1.2rem}
+.subsection-title{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem}
+p{font-size:0.92rem;color:var(--slate);line-height:1.75;margin-bottom:0.8rem}
+p strong{color:var(--navy);font-weight:600}
+p em{font-style:italic;color:var(--steel)}
+ul, ol{font-size:0.92rem;color:var(--slate);line-height:1.75;margin-bottom:0.8rem;margin-left:1.5rem}
+li{margin-bottom:0.5rem}
+li strong{color:var(--navy);font-weight:600}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;gap:1rem;text-align:center}
+  .foot-legal-links{flex-wrap:wrap;justify-content:center}
+}
+@media(max-width:600px){
+  .section{padding:1.5rem 0}
+  .hero-section{min-height:auto;padding-bottom:3rem}
+  #hero h1{font-size:1.8rem}
+  .container-narrow{padding:0 1.2rem}
+  .legal-content{padding:0 1.2rem}
+  .subsection{margin-left:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+<a href="index.html" class="nav-brand">
+<div class="nav-shield">
+<svg viewBox="0 0 72 84" fill="none">
+<defs><linearGradient id="navG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0C1B2E"/><stop offset="48%" stop-color="#132D42"/><stop offset="52%" stop-color="#2E7A69"/><stop offset="100%" stop-color="#3D8B7A"/></linearGradient><linearGradient id="navEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="rgba(255,255,255,0.02)"/><stop offset="100%" stop-color="rgba(255,255,255,0.06)"/></linearGradient></defs>
+<path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#navG)"/>
+<path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#navEdge)" stroke-width="0.8"/>
+<line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/>
+<circle cx="36" cy="40" r="13" fill="none" stroke="rgba(160,175,190,0.5)" stroke-width="1.8"/>
+<line x1="36" y1="25" x2="36" y2="27" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="36" y1="53" x2="36" y2="55" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="21" y1="40" x2="23" y2="40" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="49" y1="40" x2="51" y2="40" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/>
+<path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M36 26L40 40H32Z" fill="#fff"/>
+<circle cx="36" cy="40" r="2" fill="#fff"/>
+</svg>
+</div>
+<div class="nav-text">
+<span class="nav-name">Sentinel Risk Group</span>
+</div>
+</a>
+<div class="nav-links">
+<a href="index.html#insurance">Insurance</a>
+<a href="index.html#regulatory">Laws</a>
+<a href="index.html#telehealth">Telehealth</a>
+<a href="index.html#reality">Coding Risk</a>
+<a href="index.html#penalties">Penalties</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#pricing">Pricing</a>
+<a href="risk-assessment.html" class="nav-cta-link">Start Certification</a>
+</div>
+<button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<div class="nav-mobile">
+<a href="index.html#insurance" onclick="this.parentElement.classList.remove('open')">Insurance</a>
+<a href="index.html#regulatory" onclick="this.parentElement.classList.remove('open')">Laws</a>
+<a href="index.html#telehealth" onclick="this.parentElement.classList.remove('open')">Telehealth</a>
+<a href="index.html#reality" onclick="this.parentElement.classList.remove('open')">Coding Risk</a>
+<a href="index.html#penalties" onclick="this.parentElement.classList.remove('open')">Penalties</a>
+<a href="index.html#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+<a href="index.html#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+<a href="risk-assessment.html" class="nav-cta-link" onclick="this.parentElement.classList.remove('open')">Start Certification</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-section">
+<div class="hero-content">
+<div class="breadcrumb">
+<a href="index.html">Home</a> / Privacy Policy
+</div>
+<h1>Privacy Policy</h1>
+<p style="color:rgba(255,255,255,0.7);margin-bottom:0;font-size:0.95rem">Sentinel Risk Group | AI Governance Shield™<br>Effective Date: March 15, 2026</p>
+</div>
+</section>
+
+<!-- CONTENT -->
+<section class="content-section">
+<div class="legal-content">
+
+<div class="section-number">1. Introduction</div>
+<p>Sentinel Risk Group ("we," "our," "us") operates the website <strong>www.sentinelriskgrp.com</strong> and provides AI governance assessment services under the brand <strong>AI Governance Shield™</strong>. This Privacy Policy describes how we collect, use, disclose, and protect information obtained through our website and services.</p>
+
+<div class="section-number">2. Information We Collect</div>
+
+<div class="subsection">
+<div class="subsection-title">2.1 Information You Provide</div>
+<ul>
+<li>Contact information: name, email address, phone number, job title, organization name</li>
+<li>Inquiry details submitted through our website contact form</li>
+<li>Engagement documentation: signed agreements, payment information</li>
+<li>Evidence materials submitted for governance assessment (which may include Protected Health Information under HIPAA)</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">2.2 Information Collected Automatically</div>
+<ul>
+<li>Device and browser information (type, version, operating system)</li>
+<li>IP address and approximate geographic location</li>
+<li>Pages visited, time spent, referring URLs</li>
+<li>Cookies and similar tracking technologies (see Cookie Policy)</li>
+</ul>
+</div>
+
+<div class="section-number">3. How We Use Information</div>
+<p>We use collected information for the following purposes:</p>
+<ul>
+<li>To respond to inquiries and schedule consultations</li>
+<li>To prepare and deliver governance assessment services</li>
+<li>To communicate regarding engagements, deliverables, and renewals</li>
+<li>To process payments</li>
+<li>To improve our website and services</li>
+<li>To comply with legal and regulatory obligations</li>
+</ul>
+<p>We do not sell, rent, or trade personal information to third parties for marketing purposes.</p>
+
+<div class="section-number">4. Protected Health Information (PHI)</div>
+<p>In the course of providing AI Governance Shield™ assessment services, clients may submit materials containing Protected Health Information as defined under HIPAA.</p>
+<ul>
+<li>All PHI is handled exclusively under a signed Business Associate Agreement (BAA)</li>
+<li>PHI is used solely for the purpose of conducting the governance assessment described in the BAA and Client Service Agreement</li>
+<li>PHI is not collected through the website contact form — it is submitted only through secure client workspaces after BAA execution</li>
+<li>PHI is retained only for the duration specified in the BAA and is destroyed in accordance with HIPAA requirements</li>
+</ul>
+
+<div class="section-number">5. Information Sharing and Disclosure</div>
+<p>We do not share personal information except in the following circumstances:</p>
+<ul>
+<li>With your consent</li>
+<li>To comply with legal obligations, subpoenas, or court orders</li>
+<li>To enforce our agreements or protect our legal rights</li>
+<li>With service providers who assist in our operations (e.g., payment processors, cloud storage providers), subject to confidentiality obligations</li>
+</ul>
+
+<div class="section-number">6. Data Security</div>
+<p>We implement administrative, technical, and physical safeguards designed to protect information from unauthorized access, use, or disclosure. These measures include:</p>
+<ul>
+<li>Encrypted data transmission (TLS/SSL) for all website communications</li>
+<li>Access controls limiting information access to authorized personnel</li>
+<li>Secure client workspaces with access controls for evidence submission</li>
+<li>Regular review of security practices</li>
+</ul>
+<p>No method of electronic transmission or storage is 100% secure. While we strive to protect information, we cannot guarantee absolute security.</p>
+
+<div class="section-number">7. Data Retention</div>
+<ul>
+<li><strong>Website inquiry data:</strong> Retained for 24 months from date of collection, then deleted</li>
+<li><strong>Client engagement records:</strong> Retained for 7 years per professional record retention requirements</li>
+<li><strong>PHI submitted for assessment:</strong> Retained and destroyed per the terms of the applicable BAA</li>
+</ul>
+
+<div class="section-number">8. Your Rights</div>
+
+<div class="subsection">
+<div class="subsection-title">8.1 All Users</div>
+<ul>
+<li>Request access to personal information we hold about you</li>
+<li>Request correction of inaccurate information</li>
+<li>Request deletion of personal information (subject to legal retention requirements)</li>
+<li>Opt out of non-essential communications</li>
+</ul>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">8.2 California Residents (CCPA/CPRA)</div>
+<p>If you are a California resident, you have additional rights under the California Consumer Privacy Act and California Privacy Rights Act:</p>
+<ul>
+<li>Right to know what personal information is collected, used, and shared</li>
+<li>Right to delete personal information</li>
+<li>Right to opt out of the sale or sharing of personal information (we do not sell personal information)</li>
+<li>Right to non-discrimination for exercising privacy rights</li>
+</ul>
+<p>To exercise these rights, contact us at: <strong>admin@sentinelriskgrp.com</strong></p>
+</div>
+
+<div class="subsection">
+<div class="subsection-title">8.3 Colorado Residents (CPA)</div>
+<p>Colorado residents have rights under the Colorado Privacy Act, including rights to access, correct, delete, and opt out of targeted advertising and data sales. Contact us to exercise these rights.</p>
+</div>
+
+<div class="section-number">9. Cookies</div>
+<p>Our website uses cookies and similar technologies. Please see our separate Cookie Policy for details on what cookies we use and how to manage your preferences.</p>
+
+<div class="section-number">10. Third-Party Links</div>
+<p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of those websites. We encourage you to review their privacy policies.</p>
+
+<div class="section-number">11. Children's Privacy</div>
+<p>Our website and services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children.</p>
+
+<div class="section-number">12. Changes to This Policy</div>
+<p>We may update this Privacy Policy from time to time. We will post the revised policy on our website with an updated effective date. Material changes will be communicated via email to active clients.</p>
+
+<div class="section-number">13. Contact Information</div>
+<p>For privacy-related inquiries or to exercise your rights:</p>
+<p><strong>Sentinel Risk Group</strong><br>
+Email: <strong>admin@sentinelriskgrp.com</strong></p>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="foot-top">
+<div>
+<div class="foot-brand-name">Sentinel Risk Group</div>
+<div class="foot-tagline">Governance defines defensibility.</div>
+<div class="foot-desc">Independent AI governance evaluation, clinical workflow risk assessment, and defensibility certification for healthcare organizations.</div>
+</div>
+<div class="foot-col">
+<h5>Services</h5>
+<a href="index.html#process">Certification Process</a>
+<a href="index.html#pricing">Assessment Packages</a>
+<a href="risk-assessment.html">Risk Assessment</a>
+</div>
+<div class="foot-col">
+<h5>Resources</h5>
+<a href="index.html#regulatory">Regulatory Landscape</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#about">About Our Team</a>
+</div>
+</div>
+<div class="foot-bottom">
+<div class="foot-copy">2026 Sentinel Risk Group. All rights reserved. AI Governance Shield&trade; is a trademark of Sentinel Risk Group.</div>
+<div class="foot-legal-links">
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms of Service</a>
+</div>
+</div>
+<div style="padding:1.2rem 2rem 0;max-width:1100px;margin:0 auto">
+<p style="font-size:0.62rem;color:rgba(255,255,255,0.15);line-height:1.6"><strong>Disclaimer:</strong> The information on this website is provided for general informational purposes only and does not constitute legal, financial, insurance, or compliance advice. AI Governance Shield™ certification is an independent governance evaluation service and does not guarantee regulatory compliance, insurance coverage, legal protection, or immunity from enforcement actions. Applicable laws, regulations, and insurance policy terms vary by jurisdiction and are subject to change. Specific penalty amounts, enforcement provisions, and statutory requirements referenced on this site reflect publicly available information as of the date of publication and may have been amended. Practices should consult qualified legal counsel for advice specific to their circumstances. Sentinel Risk Group is not a law firm, insurance company, or government agency.</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]:not(.no-smooth)').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h.length>1){e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth'})}})});
+</script>
+
+</body>
+</html>

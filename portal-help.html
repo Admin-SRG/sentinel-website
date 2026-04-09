@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Help &amp; FAQ | AI Governance Shield™</title>
+<meta name="color-scheme" content="light">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+:root{--navy:#0C1B2E;--teal:#2E7A69;--teal-light:#3D8B7A;--teal-pale:#E8F2EF;--steel:#546380;--silver:#8A96A8;--ice:#E8EDF4;--snow:#F2F5F9;--white:#FAFBFD;--red:#DC2626;--amber:#C27D19;--amber-pale:#FDF6E9;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--white);font-size:16px}
+body{font-family:var(--sans);background:var(--white);color:var(--steel);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#152535;border-bottom:1px solid rgba(255,255,255,0.06)}
+nav::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 42px center,transparent 0%,rgba(4,8,14,0.3) 30%,rgba(4,8,14,0.6) 55%,rgba(4,8,14,0.85) 80%,rgba(2,4,8,0.95) 100%);pointer-events:none;z-index:0}
+nav>*{position:relative;z-index:1}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}.nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 4px 5px rgba(0,0,0,0.5)) drop-shadow(0 7px 10px rgba(0,0,0,0.25))}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:0.85rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff}
+.nav-back{font-size:0.76rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:rgba(255,255,255,0.7)}
+
+.main{max-width:760px;margin:0 auto;padding:108px 2rem 80px}
+
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.4rem);color:var(--navy);font-weight:600;margin-bottom:8px;line-height:1.2}
+.subtitle{font-size:0.95rem;color:var(--steel);margin-bottom:2rem}
+
+/* SECTION DIVIDERS */
+.section-header{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:700;margin:2.5rem 0 1rem;padding-top:2rem;border-top:1px solid var(--ice)}
+.section-header:first-of-type{border-top:none;padding-top:0;margin-top:0}
+
+/* FAQ ITEMS */
+.faq-item{background:#fff;border:1px solid var(--ice);border-radius:10px;padding:0;margin-bottom:0.8rem;cursor:pointer;transition:border-color 0.2s,box-shadow 0.2s;overflow:hidden}
+.faq-item:hover{border-color:var(--teal);box-shadow:0 2px 12px rgba(12,27,46,0.04)}
+.faq-q{display:flex;align-items:center;gap:10px;padding:1rem 1.2rem;font-size:0.92rem;font-weight:600;color:var(--navy)}
+.faq-q::before{content:'Q';flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;background:var(--teal-pale);color:var(--teal);font-size:0.65rem;font-weight:700}
+.faq-q::after{content:'+';margin-left:auto;font-size:1.1rem;color:var(--silver);font-weight:400;transition:transform 0.2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--teal)}
+.faq-a{display:none;padding:0 1.2rem 1.2rem 1.2rem;font-size:0.86rem;color:var(--steel);line-height:1.7;border-top:1px solid var(--ice);padding-top:1rem}
+.faq-a strong{color:var(--navy);font-weight:600}
+.faq-item.open .faq-a{display:block}
+.faq-item.open{border-color:var(--teal);background:rgba(232,242,239,0.3)}
+
+/* SUPPORTED FORMATS TABLE */
+.format-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.84rem}
+.format-table th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-size:0.72rem;letter-spacing:0.5px;text-transform:uppercase;font-weight:600}
+.format-table td{padding:8px 12px;border-bottom:1px solid var(--ice)}
+.format-table tr:nth-child(even) td{background:var(--snow)}
+.tag-yes{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--teal-pale);color:var(--teal)}
+.tag-no{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:3px;background:rgba(220,38,38,0.08);color:var(--red)}
+
+/* CALLOUT BOXES */
+.callout{padding:14px 18px;border-radius:8px;margin:1rem 0;font-size:0.86rem;line-height:1.7}
+.callout-red{background:rgba(220,38,38,0.05);border-left:3px solid var(--red);color:var(--navy)}
+.callout-teal{background:var(--teal-pale);border-left:3px solid var(--teal);color:var(--steel)}
+.callout-amber{background:var(--amber-pale);border-left:3px solid var(--amber);color:var(--navy)}
+.callout strong{font-weight:700}
+
+/* STEP-BY-STEP */
+.steps-box{background:var(--snow);border:1px solid var(--ice);border-radius:10px;padding:1.2rem;margin:1rem 0}
+.step-row{display:flex;gap:10px;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--ice)}
+.step-row:last-child{border-bottom:none}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.72rem;flex-shrink:0;margin-top:2px}
+.step-text{font-size:0.84rem;color:var(--steel);line-height:1.5}
+.step-text strong{color:var(--navy)}
+
+/* PROCESS BOX (at bottom) */
+.process-box{background:var(--navy);border-radius:12px;padding:2rem;margin-top:2.5rem;color:#fff}
+.process-box h2{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;margin-bottom:1rem}
+.proc-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.proc-step{text-align:center;padding:1rem 0.5rem}
+.proc-num{width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;margin:0 auto 0.8rem}
+.proc-label{font-size:0.82rem;font-weight:600;color:#fff;margin-bottom:4px}
+.proc-desc{font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.4}
+
+/* STILL STUCK */
+.stuck-box{background:var(--snow);border:1px solid var(--ice);border-radius:12px;padding:2rem;text-align:center;margin-top:2.5rem}
+.stuck-box h3{font-family:var(--serif);font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:0.5rem}
+.stuck-box p{font-size:0.88rem;color:var(--steel);margin-bottom:1rem}
+.stuck-box a{display:inline-block;padding:10px 24px;background:var(--teal);color:#fff;font-size:0.8rem;letter-spacing:0.8px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:background 0.2s}
+.stuck-box a:hover{background:#097565}
+
+@media(max-width:700px){
+.proc-steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-brand"><div class="nav-shield"><svg viewBox="0 0 72 84" fill="none"><defs><linearGradient id="navG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0C1B2E"/><stop offset="48%" stop-color="#132D42"/><stop offset="52%" stop-color="#2E7A69"/><stop offset="100%" stop-color="#3D8B7A"/></linearGradient><linearGradient id="navEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="rgba(255,255,255,0.02)"/><stop offset="100%" stop-color="rgba(255,255,255,0.06)"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#navG)"/><path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#navEdge)" stroke-width="0.8"/><line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/><circle cx="36" cy="40" r="13" fill="none" stroke="rgba(160,175,190,0.5)" stroke-width="1.8"/><line x1="36" y1="25" x2="36" y2="27" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="36" y1="53" x2="36" y2="55" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="21" y1="40" x2="23" y2="40" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><line x1="49" y1="40" x2="51" y2="40" stroke="rgba(160,175,190,0.5)" stroke-width="1.5"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div><span class="nav-name">Sentinel Risk Group</span></a>
+<a href="index.html" class="nav-back">&larr; Back to Main Site</a>
+</div></nav>
+
+<div class="main">
+
+<h1>Portal Help &amp; FAQ</h1>
+<p class="subtitle">Answers to the most common questions about uploading documents and completing your intake form.</p>
+
+<!-- ═══════════ FILE UPLOADS ═══════════ -->
+<div class="section-header" style="border-top:none;padding-top:0;margin-top:0">Document Uploads</div>
+
+<div class="faq-item">
+<div class="faq-q">What file formats can I upload?</div>
+<div class="faq-a">
+<table class="format-table">
+<tr><th>Format</th><th>Extension</th><th>Accepted</th></tr>
+<tr><td>PDF documents</td><td>.pdf</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>Word documents</td><td>.doc, .docx</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>Images (photos of documents)</td><td>.jpg, .jpeg, .png</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>Spreadsheets</td><td>.xlsx, .csv</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>Plain text</td><td>.txt</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>PowerPoint</td><td>.pptx</td><td><span class="tag-yes">Yes</span></td></tr>
+<tr><td>HEIC (iPhone default)</td><td>.heic</td><td><span class="tag-no">Convert first</span></td></tr>
+<tr><td>Zip / compressed</td><td>.zip, .rar</td><td><span class="tag-no">Unzip first</span></td></tr>
+</table>
+<div class="callout callout-teal"><strong>Best practice:</strong> PDF is always the safest choice. If you're unsure, save or print your document as a PDF before uploading.</div>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">What is the file size limit?</div>
+<div class="faq-a">
+<p>Each file can be up to <strong>25 MB</strong>. Most documents and phone photos are well under this.</p>
+<p><strong>If a file is too large:</strong> Use a free tool like <strong>smallpdf.com</strong> or <strong>ilovepdf.com</strong> to compress PDFs. For photos, email the photo to yourself — most email apps auto-compress images. Upload files one at a time, not zipped together.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Can I take a photo of a document with my phone and upload it?</div>
+<div class="faq-a">
+<p><strong>Yes.</strong> Phone photos of printed documents, policy binders, or vendor contracts are perfectly fine. Just make sure the text is readable — lay the document flat, use good lighting, hold your phone directly above (not at an angle), and photograph one page at a time.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">My iPhone photos won't upload — they're .HEIC files</div>
+<div class="faq-a">
+<p>iPhones save photos in .HEIC format by default, which our portal doesn't accept. Here's how to fix it:</p>
+<div class="steps-box">
+<div class="step-row"><div class="step-num">1</div><div class="step-text"><strong>Change your iPhone settings (recommended):</strong> Go to <strong>Settings &gt; Camera &gt; Formats</strong> and select <strong>"Most Compatible."</strong> All future photos will save as .JPG.</div></div>
+<div class="step-row"><div class="step-num">2</div><div class="step-text"><strong>Or convert existing photos:</strong> Open the photo, tap Share, then <strong>"Save to Files."</strong> Choose a location and save. The saved file will be .JPG.</div></div>
+<div class="step-row"><div class="step-num">3</div><div class="step-text"><strong>Or email it to yourself:</strong> Attach the photo to an email and send it to yourself. When you download the attachment, it will be .JPG automatically.</div></div>
+</div>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">What documents should I upload?</div>
+<div class="faq-a">
+<p>Upload whatever you have. Don't worry if you're missing some — identifying gaps is part of the assessment. The more you provide, the more thorough the result.</p>
+<p><strong>Helpful documents include:</strong> Any existing AI use policy or acceptable use policy. Vendor contracts or terms of service for AI tools (ambient documentation, clinical decision support, coding/billing AI, chatbots). Business Associate Agreements (BAAs) for AI tools. Staff training materials about AI use. Internal memos or communications about AI policy. Screenshots of AI tool settings. Your current malpractice insurance policy declarations page (the summary page showing coverage and exclusions).</p>
+<div class="callout callout-teal"><strong>Don't have any of these?</strong> That's completely fine — and more common than you'd think. Just complete the intake form to the best of your ability. The assessment identifies what's needed.</div>
+</div>
+</div>
+
+<!-- ═══════════ PHI / NAMES ═══════════ -->
+<div class="section-header">Patient Information &amp; Privacy</div>
+
+<div class="faq-item">
+<div class="faq-q">Do I need to remove patient names before uploading?</div>
+<div class="faq-a">
+<p><strong>Yes — remove any Protected Health Information (PHI)</strong> before uploading. This means patient names, dates of birth, medical record numbers, Social Security numbers, or any other individually identifiable health information.</p>
+<p>We don't need patient records. We need your <strong>policies, contracts, and workflow documentation</strong> — none of which should normally contain patient data.</p>
+<p>If a document happens to show a patient name (for example, a screenshot of an AI tool), just black it out. Use a marker on a printed page, or your phone's photo editor to draw over it.</p>
+<div class="callout callout-amber"><strong>Don't let this slow you down.</strong> We have a BAA in place to protect any information you submit. If you accidentally include a name in a screenshot, we'll flag it and ask you to resubmit that one document — it won't delay your entire assessment. The BAA you signed at intake covers incidental exposure. Just make a reasonable effort to de-identify.</div>
+</div>
+</div>
+
+<!-- ═══════════ INTAKE FORM ═══════════ -->
+<div class="section-header">Intake Form</div>
+
+<div class="faq-item">
+<div class="faq-q">I don't know all the answers — can I still submit?</div>
+<div class="faq-a">
+<p><strong>Yes.</strong> Answer what you can. If you don't know whether a particular AI tool has a BAA or what its data retention policy is, write "unsure" or "I don't know." That's useful information — it tells us where the gaps are. You don't need to research anything before submitting.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Can I save my progress and come back later?</div>
+<div class="faq-a">
+<p><strong>Yes.</strong> The form saves automatically. If you close the browser or navigate away, your responses are preserved. Return to the same form link to pick up where you left off.</p>
+<div class="callout callout-amber"><strong>Use the same device and browser.</strong> Your progress is saved locally. If you started on your desktop, come back on your desktop — not your phone.</div>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Can I update my answers after I submit?</div>
+<div class="faq-a">
+<p>Once submitted, you can't edit the form directly. If you need to add information or correct something, email us at <strong>admin@sentinelriskgrp.com</strong> and we'll update your file before the assessment begins.</p>
+</div>
+</div>
+
+<!-- ═══════════ TECHNICAL ═══════════ -->
+<div class="section-header">Technical Issues</div>
+
+<div class="faq-item">
+<div class="faq-q">My upload failed — what do I do?</div>
+<div class="faq-a">
+<p><strong>File too large:</strong> Compress it or split into smaller parts. Limit is 25 MB per file.</p>
+<p><strong>Wrong format:</strong> Must be PDF, DOCX, JPG, PNG, XLSX, CSV, or TXT. HEIC files need to be converted to JPG first (see the HEIC question above).</p>
+<p><strong>Slow connection:</strong> Try Wi-Fi instead of cellular data.</p>
+<p><strong>Browser issue:</strong> Refresh the page. If it persists, try Chrome, Safari, or Edge. Clear your cache if needed.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">The form looks broken on my phone</div>
+<div class="faq-a">
+<p>The form works on mobile but is best on a tablet or desktop. Try rotating to landscape mode, or switch to a larger screen for the best experience.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">I didn't receive my confirmation email</div>
+<div class="faq-a">
+<p>Check your spam or junk folder first — our emails come from the sentinelriskgrp.com domain. If you still don't see it after 15 minutes, email <strong>admin@sentinelriskgrp.com</strong> with your name and the approximate time you submitted, and we'll confirm receipt.</p>
+</div>
+</div>
+
+<!-- ═══════════ SECURITY ═══════════ -->
+<div class="section-header">Security &amp; Privacy</div>
+
+<div class="faq-item">
+<div class="faq-q">Is my data secure?</div>
+<div class="faq-a">
+<p>Yes. All submissions and uploads are encrypted in transit (TLS/SSL) and at rest. Your documents are stored in a secure environment accessible only to your assigned assessment team. We do not share your information with third parties.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Who sees my uploaded documents?</div>
+<div class="faq-a">
+<p>Only the Sentinel Risk Group assessment team assigned to your engagement. Documents are not shared with other clients, partners, or external parties. The assessment is confidential per the engagement terms you accepted at intake.</p>
+</div>
+</div>
+
+<!-- ═══════════ HOW IT WORKS (at bottom) ═══════════ -->
+<div class="process-box">
+<h2>How the Certification Process Works</h2>
+<div class="proc-steps">
+<div class="proc-step"><div class="proc-num">1</div><div class="proc-label">Complete Intake Form</div><div class="proc-desc">Answer questions about your practice's AI use, clinical workflows, and current policies.</div></div>
+<div class="proc-step"><div class="proc-num">2</div><div class="proc-label">Upload Documents</div><div class="proc-desc">Upload your existing AI policies, vendor contracts, and workflow documentation.</div></div>
+<div class="proc-step"><div class="proc-num">3</div><div class="proc-label">We Assess</div><div class="proc-desc">Our team reviews everything and delivers your draft assessment report for review.</div></div>
+</div>
+</div>
+
+<!-- STILL STUCK -->
+<div class="stuck-box">
+<h3>Still need help?</h3>
+<p>If your question isn't answered here, reach out and we'll get back to you within one business day.</p>
+<a href="mailto:admin@sentinelriskgrp.com">Email Us</a>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.querySelector('.faq-q').addEventListener('click',()=>{
+const wasOpen=item.classList.contains('open');
+document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+if(!wasOpen)item.classList.add('open');
+});
+});
+</script>
+
+</body>
+</html>

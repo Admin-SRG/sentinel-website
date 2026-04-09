@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Certification — AI Governance Shield | Sentinel Risk Group</title>
+<meta name="description" content="Verify the AI Governance Shield certification status of any healthcare practice.">
+<meta name="color-scheme" content="light">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+:root{--navy:#0C1B2E;--teal:#2E7A69;--teal-light:#3D8B7A;--teal-pale:#E8F2EF;--steel:#546380;--silver:#8A96A8;--ice:#E8EDF4;--snow:#F2F5F9;--white:#FAFBFD;--red-bright:#DC2626;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;background:var(--white)}
+body{font-family:var(--sans);background:var(--white);color:var(--steel);-webkit-font-smoothing:antialiased}
+
+nav{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;height:60px;gap:12px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-name{font-weight:700;font-size:0.82rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff}
+.nav-back{font-size:0.76rem;color:rgba(255,255,255,0.4);text-decoration:none;margin-left:auto;transition:color 0.2s}
+.nav-back:hover{color:rgba(255,255,255,0.7)}
+
+.hero{background:var(--navy);padding:40px 2rem 56px;text-align:center}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(22px,4.5vw,32px);line-height:1.2;color:#fff;margin-bottom:10px}
+.hero p{font-size:14px;color:rgba(255,255,255,0.4);max-width:440px;margin:0 auto}
+
+.search-wrap{max-width:480px;margin:-24px auto 0;position:relative;z-index:10;padding:0 2rem}
+.search-box{background:#fff;border-radius:10px;box-shadow:0 8px 40px rgba(12,27,46,0.12);padding:24px;border:1px solid var(--ice)}
+.search-box input{width:100%;padding:14px 16px;border:1px solid var(--ice);border-radius:6px;font-size:15px;font-family:var(--sans);color:var(--navy);outline:none;transition:border-color 0.2s}
+.search-box input:focus{border-color:var(--teal)}
+.search-box input::placeholder{color:var(--silver)}
+.search-btn{width:100%;padding:13px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;font-family:var(--sans);cursor:pointer;margin-top:10px;letter-spacing:0.5px;transition:background 0.2s}
+.search-btn:hover{background:var(--teal-light)}
+.search-hint{font-size:12px;color:var(--silver);margin-top:8px;text-align:center}
+
+.result{max-width:480px;margin:24px auto 0;padding:0 2rem;display:none}
+.result-found{border:2px solid var(--teal);border-radius:10px;overflow:hidden;background:#fff}
+.result-found .rh{background:var(--teal-pale);padding:14px 20px;display:flex;align-items:center;gap:12px}
+.result-found .rh-check{width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center}
+.result-found .rh-text{font-weight:700;color:var(--teal);font-size:14px}
+.result-found .rb{padding:16px 20px}
+.rr{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--ice);font-size:13px}
+.rr:last-child{border-bottom:none}
+.rr-l{color:var(--silver);font-weight:500}
+.rr-v{color:var(--navy);font-weight:600;text-align:right}
+
+.result-notfound{border:1px solid var(--ice);border-radius:10px;overflow:hidden;background:var(--snow)}
+.result-notfound .rh{background:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--ice)}
+.result-notfound .rh-icon{width:28px;height:28px;border-radius:50%;background:var(--ice);display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:14px;font-weight:700}
+.result-notfound .rh-text{color:var(--silver);font-size:14px;font-weight:600}
+.result-notfound .rb{padding:16px 20px}
+.result-notfound .rb p{font-size:13px;color:var(--steel);line-height:1.7;margin-bottom:12px}
+.result-notfound .rb p:last-child{margin-bottom:0}
+.result-notfound .rb a{color:var(--teal);font-weight:600;text-decoration:none}
+.result-notfound .rb strong{color:var(--navy)}
+
+.disclaimer{max-width:480px;margin:24px auto 40px;padding:0 2rem;font-size:11px;color:var(--silver);line-height:1.6;text-align:center}
+
+footer{padding:20px 2rem;text-align:center;font-size:11px;color:var(--silver);border-top:1px solid var(--ice)}
+footer a{color:var(--teal);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+<a href="index.html" class="nav-brand">
+<svg viewBox="0 0 72 84" fill="none" width="22" height="26"><defs><linearGradient id="sG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3D8B7A"/><stop offset="100%" stop-color="#6BB5A4"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#sG)" opacity="0.9"/><circle cx="36" cy="40" r="14" fill="none" stroke="#fff" stroke-width="2" opacity="0.3"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg>
+<span class="nav-name">Sentinel Risk Group</span>
+</a>
+<a href="index.html" class="nav-back">&larr; Back to Main Site</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>Verify Certification</h1>
+<p>Confirm the AI Governance Shield&trade; certification status of a healthcare practice.</p>
+</div>
+
+<div class="search-wrap">
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Practice name or certification number...">
+<button class="search-btn" id="searchBtn">Verify Certification</button>
+<div class="search-hint">Enter a practice name or certificate number (e.g., AGS-2026-0001)</div>
+</div>
+</div>
+
+<div class="result" id="resultFound">
+<div class="result-found">
+<div class="rh">
+<div class="rh-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+<div class="rh-text">Certification Verified — Active</div>
+</div>
+<div class="rb">
+<div class="rr"><span class="rr-l">Practice</span><span class="rr-v" id="rPractice"></span></div>
+<div class="rr"><span class="rr-l">Location</span><span class="rr-v" id="rLocation"></span></div>
+<div class="rr"><span class="rr-l">Certification Number</span><span class="rr-v" id="rCert"></span></div>
+<div class="rr"><span class="rr-l">Certification Date</span><span class="rr-v" id="rDate"></span></div>
+<div class="rr"><span class="rr-l">Valid Through</span><span class="rr-v" id="rExpiry"></span></div>
+<div class="rr"><span class="rr-l">Status</span><span class="rr-v" id="rStatus" style="color:#2E7A69"></span></div>
+</div>
+</div>
+</div>
+
+<div class="result" id="resultNotFound">
+<div class="result-notfound">
+<div class="rh">
+<div class="rh-icon">&mdash;</div>
+<div class="rh-text">No Certification Record Found</div>
+</div>
+<div class="rb">
+<p>We do not have an active AI Governance Shield&trade; certification on file for this search. This may mean the practice has not yet pursued independent AI governance certification, or uses an alternative governance method not tracked in this registry.</p>
+<p><strong>If you are this practice:</strong> AI governance certification documents how your practice governs AI tools — for your insurer, your patients, and your legal protection. <a href="risk-assessment.html">See where you stand in 2 minutes &rarr;</a></p>
+<p><strong>If you are verifying this practice:</strong> The absence of a record in this registry does not indicate non-compliance. Practices may employ governance frameworks not reflected here. For questions, contact <a href="mailto:admin@sentinelriskgrp.com">admin@sentinelriskgrp.com</a>.</p>
+</div>
+</div>
+</div>
+
+<div class="disclaimer">
+AI Governance Shield&trade; certification verifies that a practice has completed an independent assessment of its AI governance practices. Certification does not constitute legal, insurance, or compliance advice. The absence of a record does not indicate non-compliance or inadequate governance.
+</div>
+
+<footer>
+2026 Sentinel Risk Group. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="index.html">Main Site</a>
+</footer>
+
+<script>
+/*
+  AIRTABLE-POWERED CERTIFICATION DIRECTORY
+  ─────────────────────────────────────────
+  No manual updates needed. This fetches certified practices
+  directly from Airtable when the page loads.
+*/
+var AIRTABLE_TOKEN = "patJrXFdbj3xbY2Pk.b7bf25dafca55012d8431512b005fe60011f1a178494a4d96dc6cc09e93e1527";
+var BASE_ID = "appblZxamYg5Plbhu";
+var TABLE_ID = "tblou112HK8ywJ3bI";
+
+var certData = [];
+
+(function loadCertData() {
+  var url = "https://api.airtable.com/v0/" + BASE_ID + "/" + TABLE_ID
+    + "?filterByFormula=" + encodeURIComponent('{Status}="Certified"')
+    + "&fields[]=" + encodeURIComponent("Practice Name")
+    + "&fields[]=" + encodeURIComponent("Primary State")
+    + "&fields[]=" + encodeURIComponent("Reference Number")
+    + "&fields[]=" + encodeURIComponent("Certification Date")
+    + "&fields[]=" + encodeURIComponent("Expiration Date")
+    + "&fields[]=" + encodeURIComponent("Status");
+
+  fetch(url, {
+    headers: { "Authorization": "Bearer " + AIRTABLE_TOKEN }
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    certData = (data.records || []).map(function(r) {
+      var f = r.fields;
+      return {
+        name: f["Practice Name"] || "",
+        location: f["Primary State"] || "",
+        cert: f["Reference Number"] || "",
+        date: f["Certification Date"] || "",
+        expiry: f["Expiration Date"] || "",
+        status: "Active"
+      };
+    });
+  })
+  .catch(function(err) {
+    console.error("Failed to load certification data:", err);
+  });
+})();
+
+document.getElementById('searchBtn').addEventListener('click', doSearch);
+document.getElementById('searchInput').addEventListener('keypress', function(e){ if(e.key==='Enter') doSearch(); });
+
+function doSearch(){
+  var q = document.getElementById('searchInput').value.trim().toLowerCase();
+  if(!q) return;
+  document.getElementById('resultFound').style.display = 'none';
+  document.getElementById('resultNotFound').style.display = 'none';
+
+  var match = null;
+  for(var i=0; i<certData.length; i++){
+    var c = certData[i];
+    if(c.name.toLowerCase().indexOf(q) !== -1 || c.cert.toLowerCase() === q){
+      match = c;
+      break;
+    }
+  }
+
+  if(match){
+    document.getElementById('rPractice').textContent = match.name;
+    document.getElementById('rLocation').textContent = match.location;
+    document.getElementById('rCert').textContent = match.cert;
+    document.getElementById('rDate').textContent = match.date;
+    document.getElementById('rExpiry').textContent = match.expiry;
+    document.getElementById('rStatus').textContent = match.status;
+    document.getElementById('rStatus').style.color = match.status === 'Active' ? '#2E7A69' : '#DC2626';
+    document.getElementById('resultFound').style.display = 'block';
+  } else {
+    document.getElementById('resultNotFound').style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Governance Risk Assessment | Sentinel Risk Group</title>
+<meta name="description" content="7-question screening tool to assess your healthcare practice's AI governance risk exposure. Free. 2 minutes.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FAFBFD!important;font-family:'DM Sans',-apple-system,sans-serif}
+.rc{max-width:700px;margin:0 auto;padding:28px 20px 60px}
+@media(max-width:640px){.rc{padding:20px 16px 48px}.ra-r{flex-direction:column!important}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const C = {
+  navy: "#0C1B2E", slate: "#2E3F5C", steel: "#546380",
+  silver: "#8A96A8", mist: "#B8C4D4", ice: "#E8EDF4", snow: "#F2F5F9",
+  white: "#FAFBFD", teal: "#2E7A69", tealLight: "#3D8B7A", tealPale: "#E8F2EF",
+  amber: "#C27D19", amberPale: "#FDF6E9", red: "#DC2626",
+};
+const serif = "'Cormorant Garamond',Georgia,serif";
+const sans = "'DM Sans',-apple-system,sans-serif";
+
+const QUESTIONS = [
+  {
+    id: "q1", category: "AI Deployment",
+    question: "Does your practice currently use AI-assisted tools in clinical documentation, coding, scheduling, or patient communication?",
+    note: "Includes ambient scribes (DAX, Abridge, Suki, Freed), AI coding tools, patient chatbots, or AI-assisted scheduling.",
+    qualifying: true,
+  },
+  {
+    id: "q2", category: "Liability Allocation",
+    question: "Does your AI vendor agreement specify who bears liability when AI-generated clinical content contains fabricated findings that become part of the permanent medical record?",
+    note: "Most vendor agreements disclaim accuracy entirely or limit warranties to vague \"commercially reasonable\" standards. The vendor\u2019s BAA governs your relationship with the vendor \u2014 it does nothing for your liability to patients, payers, or regulators.",
+    weight: 18, gapTitle: "Unallocated AI liability",
+    gapRisk: "If your AI scribe fabricates an exam finding and it reaches the signed record, your vendor agreement almost certainly places that liability on you \u2014 not the vendor. This is a contractual and legal analysis, not a setting you can change.",
+    exposureLow: 150000, exposureHigh: 500000,
+    exposureSource: "Based on average medical malpractice indemnity payments ($250K\u2013$500K, NPDB 2023) and vendor indemnification gaps in standard AI scribe agreements.",
+  },
+  {
+    id: "q3", category: "Evidentiary Standard",
+    question: "Can your practice produce time-stamped, documented evidence that each provider independently verified the clinical accuracy of AI-generated documentation before signing \u2014 at a standard that would withstand a malpractice deposition?",
+    note: "\u201CThe doctor reviews everything\u201D is not evidence. Plaintiff attorneys will ask for the documented process, the verification records, and the audit trail. \u201CWe look at it\u201D does not survive cross-examination.",
+    weight: 18, gapTitle: "No defensible verification evidence",
+    gapRisk: "In litigation, the question is not whether your provider reviewed the note \u2014 it\u2019s whether you can prove it. Without time-stamped, structured verification records, the assumption is that the AI output was signed without independent clinical review.",
+    exposureLow: 250000, exposureHigh: 1000000,
+    exposureSource: "Based on malpractice defense costs ($100K\u2013$350K per claim, AMA) plus indemnity exposure when verification evidence is absent. Cases with no documentation of review process result in higher settlements.",
+  },
+  {
+    id: "q4", category: "Insurance Exposure",
+    question: "Do you know \u2014 with certainty \u2014 whether an AI-related malpractice claim filed against your practice tomorrow would be covered, denied, or subject to a reservation of rights under your current policy?",
+    note: "Ask your broker \u2014 you should know where you stand today. But AI exclusion endorsements are now available to every malpractice carrier in the US, and carriers are starting to evaluate AI governance at renewal. Documented governance is what keeps you insurable.",
+    weight: 18, gapTitle: "Insurance coverage uncertainty",
+    gapRisk: "AI exclusions are spreading across malpractice carriers. Whether you\u2019re covered today or not, documented governance is what keeps you insurable at renewal \u2014 and what gives you leverage if coverage tightens.",
+    exposureLow: 200000, exposureHigh: 750000,
+    exposureSource: "Based on full self-funded defense and indemnity costs when AI exclusion applies. Average malpractice claim costs $200K\u2013$400K to defend; indemnity payments average $250K\u2013$350K (NPDB).",
+  },
+  {
+    id: "q5", category: "Output Integrity",
+    question: "Has your practice ever conducted a structured, documented test of your AI system\u2019s clinical output accuracy \u2014 using controlled scenarios with known-correct outputs, not informal spot-checks?",
+    note: "Checking a few notes is not validation. A defensible test uses controlled clinical scenarios, documents pass/fail rates across visit types, and establishes a measurable baseline \u2014 one that becomes meaningless the moment your vendor pushes a model update without notice.",
+    weight: 16, gapTitle: "No validated accuracy testing",
+    gapRisk: "Without structured testing documentation, there is no evidence your AI system produces accurate clinical content \u2014 only an assumption. And that assumption resets every time the vendor updates the underlying model, which they do without notifying you.",
+    exposureLow: 100000, exposureHigh: 400000,
+    exposureSource: "Based on False Claims Act exposure from systematically inaccurate AI-generated coding ($11K\u2013$23K per false claim, treble damages) and DOJ algorithmic auditing initiatives targeting AI-generated billing patterns.",
+  },
+  {
+    id: "q6", category: "Regulatory Complexity",
+    question: "If you conduct telehealth visits with patients physically located in Texas, Colorado, California, New York, or Illinois \u2014 even occasionally \u2014 have you determined which of those states\u2019 AI healthcare laws create enforceable obligations for your practice, and what specific penalties apply?",
+    note: "Texas TRAIGA: $200,000 per uncurable violation. Colorado SB 24-205: $20,000 per consumer, no aggregate cap. New York S7263 (advancing, 2026): would impose civil liability on AI chatbot deployers providing \u201Csubstantive\u201D responses in licensed professions including medicine \u2014 liability cannot be disclaimed even with AI disclosure notices. California and Illinois have separate requirements with separate penalty structures. These laws apply when you conduct telehealth encounters with patients physically located in those states.",
+    weight: 16, gapTitle: "Multi-state exposure unassessed",
+    gapRisk: "Any practice conducting telehealth follow-ups with even one patient in another state is subject to that state\u2019s AI laws for those encounters. For example, a practice in Florida treating a patient in Texas or Colorado must comply with those states\u2019 AI healthcare statutes \u2014 and the same applies in reverse. New York\u2019s advancing S7263 would make the deployer \u2014 not the model maker \u2014 civilly liable when AI provides \u201Csubstantive\u201D medical responses, and the bill explicitly prohibits disclaiming liability through disclosure notices. This requires mapping your actual telehealth patient population against enacted and advancing statutes across every jurisdiction you touch.",
+    exposureLow: 200000, exposureHigh: 800000,
+    exposureSource: "Based on enacted statutory penalties: Texas TRAIGA $200K per violation; Colorado SB 24-205 $20K per consumer, no aggregate cap; Illinois WOPR Act $10K per violation. A single multi-state telehealth practice touching 10+ patients in penalty states faces cumulative exposure in this range.",
+  },
+  {
+    id: "q7", category: "Patient Rights",
+    question: "If a patient asked your staff tomorrow to opt out of AI-assisted documentation \u2014 would they know the answer, the workflow, and the documentation requirement?",
+    note: "Several states have enacted or are advancing mandatory patient disclosure and opt-out rights for AI in healthcare. Even without a current mandate in your state, treating patients from states where these laws exist creates obligations. A one-paragraph notice is not a protocol \u2014 this requires workflow design, staff training, EHR documentation flags, and state-specific legal review.",
+    weight: 14, gapTitle: "No patient opt-out protocol",
+    gapRisk: "When a patient says \u201Cturn that off\u201D \u2014 your staff needs to know the answer, the documentation requirement, and the clinical workflow alternative. If you treat patients from states with AI opt-out laws, this isn\u2019t hypothetical. And even where it\u2019s not yet mandated, it\u2019s the standard of care that\u2019s forming.",
+    exposureLow: 50000, exposureHigh: 200000,
+    exposureSource: "Based on state disclosure/consent violation penalties and patient complaint-driven regulatory actions. Individual penalties are lower but aggregate exposure across patient population scales quickly.",
+  },
+];
+
+const SCORED = QUESTIONS.filter(q => !q.qualifying);
+
+// Baseline risk: using AI in clinical operations = inherent risk floor
+const BASELINE_RISK_PCT = 15;
+
+// Number of additional areas in full assessment (don't list specifics — proprietary)
+const FULL_CRITERIA_COUNT = 50;
+
+const Shield = ({ s = 26 }) => (
+  <svg viewBox="0 0 72 84" fill="none" width={s} height={s*84/72} style={{filter:"drop-shadow(0 4px 5px rgba(0,0,0,0.5)) drop-shadow(0 7px 10px rgba(0,0,0,0.25))"}}>
+    <defs><linearGradient id="sG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#0C1B2E"/><stop offset="48%" stopColor="#132D42"/><stop offset="52%" stopColor="#2E7A69"/><stop offset="100%" stopColor="#3D8B7A"/></linearGradient><linearGradient id="sEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="rgba(255,255,255,0.1)"/><stop offset="50%" stopColor="rgba(255,255,255,0.02)"/><stop offset="100%" stopColor="rgba(255,255,255,0.06)"/></linearGradient></defs>
+    <path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#sG)"/>
+    <path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#sEdge)" strokeWidth="0.8"/>
+    <line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" strokeWidth="0.8"/>
+    <circle cx="36" cy="40" r="13" fill="none" stroke="rgba(160,175,190,0.5)" strokeWidth="1.8"/>
+    <line x1="36" y1="25" x2="36" y2="27" stroke="rgba(160,175,190,0.5)" strokeWidth="1.5"/><line x1="36" y1="53" x2="36" y2="55" stroke="rgba(160,175,190,0.5)" strokeWidth="1.5"/><line x1="21" y1="40" x2="23" y2="40" stroke="rgba(160,175,190,0.5)" strokeWidth="1.5"/><line x1="49" y1="40" x2="51" y2="40" stroke="rgba(160,175,190,0.5)" strokeWidth="1.5"/>
+    <path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/>
+  </svg>
+);
+
+const RiskGauge = ({ score, maxScore }) => {
+  // Calculate raw risk percentage, then apply baseline floor
+  const rawPct = Math.round(((maxScore - score) / maxScore) * 100);
+  const riskPct = Math.max(rawPct, BASELINE_RISK_PCT);
+  const angle = (riskPct / 100) * 180;
+  const rad = (a) => (a * Math.PI) / 180;
+  const cx = 140, cy = 130, r = 100;
+  const x1 = cx + r * Math.cos(rad(180));
+  const y1 = cy + r * Math.sin(rad(180));
+  const x2 = cx + r * Math.cos(rad(180 + angle));
+  const y2 = cy + r * Math.sin(rad(180 + angle));
+  const color = riskPct >= 65 ? C.red : riskPct >= 35 ? C.amber : C.teal;
+  const label = riskPct >= 65 ? "HIGH RISK" : riskPct >= 35 ? "ELEVATED RISK" : riskPct >= 20 ? "MODERATE RISK" : "BASELINE RISK";
+  return (
+    <div style={{ textAlign: "center", margin: "16px auto 8px" }}>
+      <svg viewBox="0 0 280 155" width="260" height="145">
+        <path d={`M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}`} fill="none" stroke={C.ice} strokeWidth="20" strokeLinecap="round"/>
+        {angle > 0.5 && <path d={`M ${x1} ${y1} A ${r} ${r} 0 ${angle>180?1:0} 1 ${x2} ${y2}`} fill="none" stroke={color} strokeWidth="20" strokeLinecap="round"/>}
+        <text x={cx} y={cy-18} textAnchor="middle" fill={color} style={{ fontFamily: serif, fontSize: 40, fontWeight: 700 }}>{riskPct}%</text>
+        <text x={cx} y={cy+6} textAnchor="middle" fill={C.silver} style={{ fontFamily: sans, fontSize: 11, fontWeight: 700, letterSpacing: 2.5 }}>{label}</text>
+      </svg>
+    </div>
+  );
+};
+
+// IMPORTANT: Update this URL to your actual Stripe payment link
+const STRIPE_LINK = "https://sentinelriskgrp.com/#pricing"; // Sends leads to pricing section to choose their tier
+const WEBHOOK_URL = "https://hook.us2.make.com/jnrsjhrh4ye8udwyrcf07fm6rw02e4ke"; // Make.com webhook → creates Lead record in Airtable
+
+function RiskAssessment() {
+  const [phase, setPhase] = useState("intro");
+  const [qi, setQi] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [practice, setPractice] = useState("");
+  const [show, setShow] = useState(true);
+
+  const fade = (fn) => { setShow(false); setTimeout(() => { fn(); setShow(true); }, 220); };
+  const answer = (val) => {
+    const q = QUESTIONS[qi];
+    setAnswers({ ...answers, [q.id]: val });
+    if (q.qualifying && val === "no") { fade(() => setPhase("na")); return; }
+    if (qi < QUESTIONS.length - 1) fade(() => setQi(qi + 1));
+    else fade(() => setPhase("capture"));
+  };
+  const calc = () => {
+    let earned = 0, total = 0;
+    SCORED.forEach(q => { total += q.weight; if (answers[q.id] === "yes") earned += q.weight; });
+    const gaps = SCORED.filter(q => answers[q.id] !== "yes");
+    let eLow = 0, eHigh = 0;
+    gaps.forEach(q => { eLow += q.exposureLow; eHigh += q.exposureHigh; });
+    // Even with zero gaps from this screening, there's baseline exposure from using AI
+    if (gaps.length === 0) { eLow = 75000; eHigh = 250000; }
+    const rawPct = Math.round(((total - earned) / total) * 100);
+    const riskPct = Math.max(rawPct, BASELINE_RISK_PCT);
+    return { earned, total, gaps, exposureLow: eLow, exposureHigh: eHigh, riskPct };
+  };
+
+  const fmtK = (n) => n >= 1000000 ? `$${(n/1000000).toFixed(1)}M` : `$${(n/1000).toFixed(0)}K`;
+
+  const vis = { opacity: show ? 1 : 0, transform: show ? "translateY(0)" : "translateY(10px)", transition: "all 0.22s ease" };
+  const card = { background: "#fff", border: `1px solid ${C.ice}`, borderRadius: 10, padding: "28px 24px", maxWidth: 620, margin: "0 auto", ...vis };
+  const btn = { display: "inline-block", padding: "13px 32px", background: C.teal, color: "#fff", fontSize: 13, letterSpacing: 0.8, fontWeight: 600, borderRadius: 6, border: "none", cursor: "pointer", fontFamily: sans };
+  const aBtn = { flex: 1, padding: "14px 16px", borderRadius: 8, cursor: "pointer", border: `2px solid ${C.ice}`, background: "#fff", fontFamily: sans, fontSize: 14, fontWeight: 600, color: C.steel, textAlign: "center", minWidth: 80, transition: "all 0.15s" };
+  const inp = { width: "100%", padding: "10px 14px", borderRadius: 6, border: `1px solid ${C.ice}`, background: C.white, fontFamily: sans, fontSize: 14, color: C.slate, outline: "none" };
+
+  return (
+    <div style={{ minHeight: "100vh", background: C.white, fontFamily: sans }}>
+      <nav style={{ background: "#152535", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "sticky", top: 0, zIndex: 100, overflow: "hidden" }}>
+        <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse 60% 80% at 42px center, transparent 0%, rgba(4,8,14,0.3) 30%, rgba(4,8,14,0.6) 55%, rgba(4,8,14,0.85) 80%, rgba(2,4,8,0.95) 100%)", pointerEvents:"none", zIndex:0 }}/>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 20px", display: "flex", alignItems: "center", height: 60, gap: 10, position:"relative", zIndex:1 }}>
+          <Shield/><a href="index.html" style={{ fontWeight: 700, fontSize: 13, letterSpacing: 1.8, textTransform: "uppercase", color: "#fff", textDecoration: "none" }}>Sentinel Risk Group</a>
+        </div>
+      </nav>
+
+      <div style={{ background: C.navy, padding: "32px 20px 40px", textAlign: "center" }}>
+        <div style={{ fontSize: 12, letterSpacing: 3.5, textTransform: "uppercase", color: C.tealLight, fontWeight: 600, marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
+          <span style={{ width: 28, height: 1, background: C.tealLight, display: "inline-block" }}/>AI Governance Shield&trade;
+        </div>
+        <h1 style={{ fontFamily: serif, fontWeight: 400, fontSize: "clamp(22px,5vw,30px)", lineHeight: 1.2, color: "#fff", margin: "0 auto 10px", maxWidth: 520 }}>AI Governance Risk Exposure Check</h1>
+        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", maxWidth: 460, margin: "0 auto", lineHeight: 1.6 }}>7 questions. 2 minutes. See where your practice stands.</p>
+      </div>
+
+      <div className="rc">
+
+        {phase === "intro" && (
+          <div style={card}>
+            <h2 style={{ fontFamily: serif, fontSize: 22, color: C.navy, fontWeight: 600, marginBottom: 12 }}>How exposed is your practice?</h2>
+            <p style={{ fontSize: 14, color: C.steel, lineHeight: 1.7, marginBottom: 20 }}>
+              This preliminary screening evaluates your practice against several governance criteria that regulators, malpractice carriers, and plaintiff attorneys are already using to assess AI risk in healthcare.
+            </p>
+            <div style={{ textAlign: "center", marginBottom: 14 }}>
+              <button onClick={() => fade(() => setPhase("q"))} style={btn}>Start Risk Assessment &rarr;</button>
+            </div>
+            <p style={{ fontSize: 12, color: C.mist, textAlign: "center", lineHeight: 1.5 }}>
+              Preliminary screening covering a subset of the 50+ criteria in a full certification assessment. Your actual risk profile may differ.
+            </p>
+          </div>
+        )}
+
+        {phase === "na" && (
+          <div style={card}>
+            <h2 style={{ fontFamily: serif, fontSize: 22, color: C.navy, fontWeight: 600, marginBottom: 12 }}>Not Currently Applicable</h2>
+            <p style={{ fontSize: 14, color: C.steel, lineHeight: 1.7, marginBottom: 16 }}>
+              This assessment is designed for practices currently using AI tools in clinical operations. If your practice begins using AI-assisted documentation, coding, or patient communication tools, governance requirements apply from day one.
+            </p>
+            <div style={{ padding: "14px 16px", background: C.amberPale, borderRadius: 8, border: "1px solid rgba(194,125,25,0.2)", marginBottom: 12 }}>
+              <p style={{ fontSize: 13, color: C.amber, lineHeight: 1.6, margin: 0, fontWeight: 500 }}>Planning to deploy AI? Governance should be established before implementation, not after. The practices that build the framework first avoid the exposure entirely.</p>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <a href="mailto:admin@sentinelriskgrp.com" style={{ fontSize: 13, color: C.teal, fontWeight: 600, textDecoration: "none" }}>Contact us about pre-deployment governance &rarr;</a>
+            </div>
+          </div>
+        )}
+
+        {phase === "q" && (
+          <div style={card}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+              <div style={{ flex: 1, height: 4, background: C.ice, borderRadius: 4, overflow: "hidden" }}>
+                <div style={{ height: "100%", background: C.teal, borderRadius: 4, width: `${((qi+1)/QUESTIONS.length)*100}%`, transition: "width 0.4s" }}/>
+              </div>
+              <span style={{ fontSize: 12, color: C.silver, fontWeight: 600 }}>{qi+1}/{QUESTIONS.length}</span>
+            </div>
+            <div style={{ display: "inline-block", fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 700, color: C.teal, background: C.tealPale, padding: "3px 10px", borderRadius: 4, marginBottom: 12 }}>{QUESTIONS[qi].category}</div>
+            <h3 style={{ fontFamily: serif, fontSize: 19, color: C.navy, fontWeight: 600, lineHeight: 1.35, marginBottom: 10 }}>{QUESTIONS[qi].question}</h3>
+            <p style={{ fontSize: 13, color: C.silver, lineHeight: 1.6, marginBottom: 24 }}>{QUESTIONS[qi].note}</p>
+            <div className="ra-r" style={{ display: "flex", gap: 10 }}>
+              {["yes","no","unsure"].map(v => <button key={v} onClick={() => answer(v)} style={aBtn}>{v === "yes" ? "Yes" : v === "no" ? "No" : "Not Sure"}</button>)}
+            </div>
+          </div>
+        )}
+
+        {phase === "capture" && (
+          <div style={card}>
+            <h2 style={{ fontFamily: serif, fontSize: 22, color: C.navy, fontWeight: 600, marginBottom: 8 }}>Your results are ready.</h2>
+            <p style={{ fontSize: 14, color: C.steel, lineHeight: 1.7, marginBottom: 20 }}>
+              Enter your information below to <strong style={{ color: C.red }}>immediately view</strong> your risk exposure assessment.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div><label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.silver, marginBottom: 4 }}>Name *</label><input value={name} onChange={e => setName(e.target.value)} placeholder="Jane Smith" style={inp}/></div>
+              <div><label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.silver, marginBottom: 4 }}>Email *</label><input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="jane@practice.com" style={inp}/></div>
+              <div><label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.silver, marginBottom: 4 }}>Practice Name</label><input value={practice} onChange={e => setPractice(e.target.value)} placeholder="Practice or organization" style={inp}/></div>
+            </div>
+            <div style={{ marginTop: 20, textAlign: "center" }}>
+              <button onClick={() => { if(name && email) { const { earned, total, riskPct } = calc(); try { fetch(WEBHOOK_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ name, email, practice, riskScore: riskPct, governanceScore: earned + "/" + total, timestamp: new Date().toISOString(), source: "risk-assessment" }), mode:"no-cors" }); } catch(e){} fade(() => setPhase("results")); }}} disabled={!name||!email}
+                style={{ ...btn, background: name && email ? C.teal : C.mist, cursor: name && email ? "pointer" : "not-allowed" }}>View My Results &rarr;</button>
+            </div>
+            <p style={{ fontSize: 11, color: C.mist, textAlign: "center", marginTop: 10 }}>Results appear immediately on screen. No spam. No sales calls.</p>
+          </div>
+        )}
+
+        {phase === "results" && (() => {
+          const { earned, total, gaps, exposureLow, exposureHigh, riskPct } = calc();
+          const riskColor = riskPct >= 65 ? C.red : riskPct >= 35 ? C.amber : C.teal;
+          const hasGaps = gaps.length > 0;
+          return (
+            <div style={vis}>
+              <div style={{ background: "#fff", border: `1px solid ${C.ice}`, borderRadius: 10, padding: "28px 24px", marginBottom: 16 }}>
+                <h2 style={{ fontFamily: serif, fontSize: 24, color: C.navy, fontWeight: 600, textAlign: "center", marginBottom: 4 }}>Your Governance Risk Exposure</h2>
+                <p style={{ fontSize: 13, color: C.silver, textAlign: "center" }}>Based on {SCORED.length} governance criteria evaluated</p>
+                <RiskGauge score={earned} maxScore={total}/>
+                <div style={{ textAlign: "center", marginBottom: 16 }}>
+                  {hasGaps ? (
+                    <><span style={{ fontSize: 15, fontWeight: 600, color: riskColor }}>{gaps.length} of {SCORED.length} areas</span>
+                    <span style={{ fontSize: 15, color: C.steel }}> show unaddressed exposure</span></>
+                  ) : (
+                    <span style={{ fontSize: 15, fontWeight: 600, color: C.teal }}>All {SCORED.length} screened areas addressed</span>
+                  )}
+                </div>
+
+                {/* ====== EXPOSURE ESTIMATE ====== */}
+                <div style={{ padding: "20px 24px", background: C.snow, borderRadius: 8, border: `1px solid ${C.ice}`, marginBottom: 20 }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 6 }}>
+                    <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontWeight: 700, color: C.steel }}>
+                      {hasGaps ? "Estimated Liability Exposure" : "Residual Exposure \u2014 Areas Not Screened"}
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "center", marginBottom: 10 }}>
+                    <span style={{ fontFamily: serif, fontSize: 32, fontWeight: 700, color: hasGaps ? riskColor : C.amber }}>{fmtK(exposureLow)}</span>
+                    <span style={{ fontSize: 16, color: C.silver, margin: "0 8px" }}>&ndash;</span>
+                    <span style={{ fontFamily: serif, fontSize: 32, fontWeight: 700, color: hasGaps ? riskColor : C.amber }}>{fmtK(exposureHigh)}</span>
+                  </div>
+                  <div style={{ textAlign: "center", fontSize: 12, color: C.silver, lineHeight: 1.5, maxWidth: 440, margin: "0 auto 12px" }}>
+                    {hasGaps
+                      ? `Combined regulatory penalties, malpractice liability, insurance denial exposure, and payer recoupment risk across ${gaps.length} unaddressed ${gaps.length === 1 ? "area" : "areas"}.`
+                      : "Even with strong governance across these areas, using AI in clinical operations creates exposure in categories this screening does not cover."
+                    }
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "center", gap: 24, borderTop: `1px solid ${C.ice}`, paddingTop: 12 }}>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: C.silver, letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }}>Certification starts at</div>
+                      <div style={{ fontFamily: serif, fontSize: 20, fontWeight: 700, color: C.teal }}>$3,500</div>
+                    </div>
+                    <div style={{ width: 1, background: C.ice }}/>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: C.silver, letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }}>Exposure multiple</div>
+                      <div style={{ fontFamily: serif, fontSize: 20, fontWeight: 700, color: hasGaps ? riskColor : C.amber }}>{Math.round(exposureLow / 3500)}x &ndash; {Math.round(exposureHigh / 3500)}x</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ====== GAPS (if any) ====== */}
+                {hasGaps && (
+                <div style={{ borderTop: `1px solid ${C.ice}`, paddingTop: 20 }}>
+                  <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: riskColor, fontWeight: 700, marginBottom: 14 }}>Identified Gaps</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {gaps.map(q => (
+                      <div key={q.id} style={{ padding: "16px 18px", borderRadius: 8, background: riskPct >= 65 ? "rgba(220,38,38,0.03)" : C.amberPale, border: `1px solid ${riskPct >= 65 ? "rgba(220,38,38,0.1)" : "rgba(194,125,25,0.12)"}`, borderLeft: `3px solid ${riskColor}` }}>
+                        <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.8, color: riskColor, textTransform: "uppercase", marginBottom: 5 }}>{q.gapTitle}</div>
+                        <div style={{ fontSize: 13, color: C.steel, lineHeight: 1.65 }}>{q.gapRisk}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                )}
+
+                {/* ====== LOW-SCORE / ZERO-GAP MESSAGE ====== */}
+                {!hasGaps && (
+                <div style={{ borderTop: `1px solid ${C.ice}`, paddingTop: 20 }}>
+                  <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: C.amber, fontWeight: 700, marginBottom: 10 }}>What This Screening Didn&rsquo;t Cover</div>
+                  <p style={{ fontSize: 13.5, color: C.steel, lineHeight: 1.7, marginBottom: 14 }}>
+                    You addressed all {SCORED.length} areas in this screening &mdash; but this is a fraction of the {FULL_CRITERIA_COUNT}+ governance criteria in a full certification assessment. The remaining domains span regulatory, financial, operational, and vendor-specific risk areas that require practice-level analysis to evaluate. Using AI in clinical operations creates exposure across all of them.
+                  </p>
+                  <div style={{ marginTop: 12, padding: "14px 16px", borderRadius: 8, borderLeft: `3px solid ${C.amber}`, background: C.amberPale }}>
+                    <p style={{ fontSize: 13, color: C.slate, lineHeight: 1.6, margin: 0 }}>
+                      <strong style={{ color: C.navy }}>A strong screening result means you're ahead of most practices.</strong> It does not mean your governance is complete. A full assessment evaluates every domain &mdash; and documents your posture at the standard carriers, regulators, and opposing counsel actually require.
+                    </p>
+                  </div>
+                </div>
+                )}
+
+                {/* ====== MODERATE-SCORE MESSAGE (has some gaps but not high) ====== */}
+                {hasGaps && gaps.length <= 2 && (
+                <div style={{ marginTop: 16, padding: "14px 16px", borderRadius: 8, borderLeft: `3px solid ${C.amber}`, background: C.amberPale }}>
+                  <p style={{ fontSize: 13, color: C.slate, lineHeight: 1.6, margin: 0 }}>
+                    <strong style={{ color: C.navy }}>This screening evaluated {SCORED.length} of the {FULL_CRITERIA_COUNT}+ criteria in a full assessment.</strong> Even with only {gaps.length} {gaps.length === 1 ? "gap" : "gaps"} identified here, a full certification evaluates additional regulatory, financial, and operational governance domains not covered by this screening.
+                  </p>
+                </div>
+                )}
+              </div>
+
+              <div style={{ background: "#fff", border: `1px solid ${C.ice}`, borderRadius: 10, padding: "28px 24px", marginBottom: 16 }}>
+                {riskPct >= 35 && (
+                <div style={{ padding: "24px 28px", borderRadius: 8, background: C.snow, border: `1px solid ${C.ice}`, borderLeft: `3px solid ${C.navy}`, marginBottom: 20, textAlign: "center" }}>
+                  <div style={{ fontFamily: serif, fontSize: 17, fontWeight: 700, color: C.navy, marginBottom: 12, lineHeight: 1.4 }}>
+                    {riskPct >= 65 ? "This is the exposure profile plaintiff attorneys and government regulators look for." : "These gaps are exactly what regulators and carriers are starting to ask about."}
+                  </div>
+                  <div style={{ fontSize: 13.5, color: C.steel, lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
+                    {riskPct >= 65
+                      ? "Every unaddressed area above is discoverable. No policy template closes these gaps \u2014 because the gaps are in your specific systems, your specific vendor agreements, and your specific jurisdictional obligations."
+                      : "The difference between a practice with governance documentation and one without it shows up at three moments: carrier renewal, regulatory inquiry, and discovery. By then it\u2019s too late to build."
+                    }
+                  </div>
+                  {riskPct >= 65 && (
+                  <div style={{ fontFamily: serif, fontSize: 15, fontWeight: 700, color: C.navy, marginTop: 14, lineHeight: 1.5, borderTop: `1px solid ${C.ice}`, paddingTop: 14 }}>
+                    The practices that certify their governance have a defense.<br/>The ones that don&rsquo;t are exposed.
+                  </div>
+                  )}
+                </div>
+                )}
+
+                <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: C.teal, fontWeight: 700, marginBottom: 10 }}>What AI Governance Shield&trade; Certification Delivers</div>
+                <h3 style={{ fontFamily: serif, fontSize: 20, color: C.navy, fontWeight: 600, lineHeight: 1.3, marginBottom: 16 }}>Every gap above requires professional analysis &mdash; not a policy template.</h3>
+                {[
+                  { icon: "\uD83D\uDD0D", t: "Your AI systems tested against 50+ documented failure scenarios", d: "Hallucination detection, fabricated findings, clinical accuracy, coding defensibility \u2014 tested on your actual tools with a validated methodology. Results documented." },
+                  { icon: "\uD83D\uDCCB", t: "Governance policies built for your practice", d: "Written around your AI systems, your specialty, your vendor agreements, and your jurisdictional exposure. Not templates. Not downloaded. Built." },
+                  { icon: "\u2696\uFE0F", t: "The documented defense that holds up in litigation", d: "Self-attestation carries zero evidentiary weight. Independent third-party certification is what opposing counsel evaluates, what carriers accept, and what regulators recognize." },
+                  { icon: "\uD83D\uDEE1\uFE0F", t: "Documented governance that keeps you insurable", d: "AI exclusion endorsements are now available to every malpractice carrier in the US. Documented governance is what keeps your coverage intact at renewal. The practices without it are the ones finding out the hard way." },
+                  { icon: "\uD83D\uDCC4", t: "Multi-state regulatory mapping for your actual patient population", d: "Texas, Colorado, California, Illinois \u2014 each with different requirements and different penalties. We map your telehealth footprint against enacted statutes so you know exactly where you stand." },
+                  { icon: "\uD83C\uDF93", t: "Staff training module included \u2014 not sold separately", d: "Your staff can\u2019t govern what they don\u2019t understand. Every certification includes digital training covering AI override protocols, documentation requirements, and jurisdiction-specific obligations. Completion tracking and acknowledgment signatures included." },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginBottom: i < 5 ? 16 : 0 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 8, background: C.tealPale, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, flexShrink: 0 }}>{item.icon}</div>
+                    <div>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: C.navy, marginBottom: 3 }}>{item.t}</div>
+                      <div style={{ fontSize: 13, color: C.steel, lineHeight: 1.6 }}>{item.d}</div>
+                    </div>
+                  </div>
+                ))}
+                <div style={{ marginTop: 20, padding: "14px 16px", borderRadius: 8, borderLeft: `3px solid ${riskColor}`, background: riskPct >= 65 ? "rgba(220,38,38,0.03)" : C.amberPale }}>
+                  <p style={{ fontSize: 13, color: C.slate, lineHeight: 1.6, margin: 0 }}>
+                    {hasGaps
+                      ? <><strong style={{ color: C.navy }}>Your screening identified {gaps.length} unaddressed {gaps.length === 1 ? "area" : "areas"}.</strong> Each represents exposure to regulatory penalties, malpractice liability, insurance denial, or all three. A full assessment maps your exact gaps and delivers an action plan &mdash; so you can move from unaddressed exposure to documented governance with a clear pathway to certification.</>
+                      : <><strong style={{ color: C.navy }}>Your screening results are strong &mdash; but this is {SCORED.length} of 50+ criteria.</strong> A full assessment evaluates every governance domain, documents your posture comprehensively, and delivers the independent certification that carriers, regulators, and opposing counsel actually rely on.</>
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ background: C.navy, borderRadius: 10, padding: "28px 24px", textAlign: "center", marginBottom: 16 }}>
+                <h3 style={{ fontFamily: serif, fontSize: 22, color: "#fff", fontWeight: 600, marginBottom: 8 }}>Your AI documented it. Can you defend it?</h3>
+                <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, maxWidth: 460, margin: "0 auto 16px" }}>
+                  We assess your systems, map your exposure, and deliver the documentation &mdash; so when your carrier, a regulator, or opposing counsel asks, you have the answer.
+                </p>
+                {riskPct >= 65 && (
+                  <div style={{ padding: "12px 16px", borderRadius: 6, background: "rgba(220,38,38,0.08)", border: "1px solid rgba(220,38,38,0.15)", maxWidth: 440, margin: "0 auto 16px", textAlign: "left" }}>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.6 }}>
+                      <strong style={{ color: "#EF4444" }}>Your score flagged {gaps.length} of {SCORED.length} governance areas as unaddressed.</strong> Every practice that completes our assessment receives either full certification or conditional certification with an action plan. Either way, you leave with documentation &mdash; not exposure.
+                    </div>
+                  </div>
+                )}
+                <a href={STRIPE_LINK} style={{ ...btn, padding: "14px 36px", fontSize: 14, letterSpacing: 1, textDecoration: "none", display: "inline-block" }}>Start Certification &rarr;</a>
+                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 12 }}>Assessments start at $3,500* for solo and small practices.</p>
+              </div>
+
+              <div style={{ background: "#fff", border: `1px solid ${C.ice}`, borderRadius: 10, padding: "18px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: C.navy }}>Prefer to talk?</div>
+                  <div style={{ fontSize: 13, color: C.silver }}>admin@sentinelriskgrp.com</div>
+                </div>
+              </div>
+
+              <p style={{ fontSize: 11, color: C.mist, lineHeight: 1.5, textAlign: "center", padding: "0 20px" }}>
+                Preliminary screening covering {SCORED.length} of 50+ criteria in a full AI Governance Shield&trade; certification. Your risk profile may differ. Exposure estimates are illustrative ranges based on enacted statutory penalty structures (Texas TRAIGA, Colorado SB 24-205, Illinois WOPR Act), published malpractice claim data (NPDB), and AMA defense cost studies &mdash; not projections of actual liability for your practice. Not legal, insurance, or compliance advice.
+              </p>
+            </div>
+          );
+        })()}
+      </div>
+
+      <div style={{ borderTop: `1px solid ${C.ice}`, padding: 20, textAlign: "center" }}>
+        <div style={{ fontSize: 11, color: C.silver }}>2026 Sentinel Risk Group. All rights reserved. AI Governance Shield&trade; is a trademark of Sentinel Risk Group.</div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(<RiskAssessment />, document.getElementById("root"));
+</script>
+</body>
+</html>

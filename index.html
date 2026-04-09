@@ -3,55 +3,1421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sentinel Risk Group — AI Governance Certification</title>
-<meta property="og:title" content="Sentinel Risk Group — AI Governance Certification">
-<meta property="og:description" content="Independent AI governance evaluation and certification for healthcare organizations.">
+<title>Sentinel Risk Group — AI Governance Shield™</title>
+<link rel="icon" type="image/svg+xml" href="badge-certified.svg">
+<meta property="og:title" content="AI Governance Shield™ — Sentinel Risk Group">
+<meta property="og:description" content="Independent AI governance certification for healthcare practices. Your carrier can now deny any claim involving AI. Certification is the documented evidence that changes the outcome.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentinelriskgrp.com">
-<meta name="description" content="Sentinel Risk Group provides independent AI governance evaluation and certification for healthcare organizations. Protecting against regulatory, litigation, and carrier risk.">
+<meta property="og:image" content="https://sentinelriskgrp.com/og-card.png">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#0C1B2E;color:#fff;font-family:'DM Sans',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;text-align:center}
-.shield{margin-bottom:2rem}
-.company{font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:0.4rem}
-.tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:400;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:2.5rem;letter-spacing:-0.3px}
-.desc{font-size:0.92rem;color:rgba(255,255,255,0.35);line-height:1.8;max-width:520px;margin-bottom:2.5rem}
-.contact{display:inline-block;padding:12px 32px;border:1px solid rgba(46,122,105,0.4);color:#3D8B7A;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;border-radius:5px;text-decoration:none;transition:all 0.2s}
-.contact:hover{background:rgba(46,122,105,0.1);border-color:rgba(46,122,105,0.6);color:#fff}
-.footer{position:absolute;bottom:2rem;font-size:0.68rem;color:rgba(255,255,255,0.15);letter-spacing:0.5px}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@media (prefers-color-scheme: dark){html,body{background-color:#FAFBFD!important;color:#2E3F5C!important}.section-alt,.quote-strip,.law-card,.eu-card,.proc-step,.penalty-card,.price-card{background-color:#FAFBFD!important}.snow-bg{background-color:#F2F5F9!important}}
+:root{--navy:#0C1B2E;--navy-mid:#122240;--slate:#2E3F5C;--steel:#546380;--silver:#8A96A8;--mist:#B8C4D4;--cloud:#D6DDE8;--ice:#E8EDF4;--snow:#F2F5F9;--white:#FAFBFD;--teal:#2E7A69;--teal-light:#3D8B7A;--teal-pale:#E8F2EF;--blue:#1E5A9E;--amber:#C27D19;--amber-pale:#FDF6E9;--red-muted:#9B3B3B;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px;color-scheme:light only;background:#FAFBFD!important}
+body{font-family:var(--sans);background:#FAFBFD!important;color:var(--slate);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#152535;border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
+nav::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 42px center,transparent 0%,rgba(4,8,14,0.3) 30%,rgba(4,8,14,0.6) 55%,rgba(4,8,14,0.85) 80%,rgba(2,4,8,0.95) 100%);pointer-events:none;z-index:0}
+nav>*{position:relative;z-index:1}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}.nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.35)) drop-shadow(0 6px 8px rgba(0,0,0,0.15))}
+.nav-text{display:flex;flex-direction:column}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:0.85rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1}
+.nav-product{font-size:0.68rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal-light);font-weight:500}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:0.76rem;letter-spacing:0.6px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta-link{font-size:0.7rem!important;letter-spacing:1.5px!important;text-transform:uppercase;color:var(--teal-light)!important;border:1px solid rgba(61,139,122,0.35);padding:7px 16px!important;border-radius:4px;font-weight:600!important;transition:all 0.2s!important;margin-left:0.5rem}
+.nav-cta-link:hover{background:rgba(61,139,122,0.1)!important;border-color:rgba(61,139,122,0.5)!important;color:#fff!important}
+
+/* UTILITY */
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.container-narrow{max-width:780px;margin:0 auto;padding:0 2rem}
+.section{padding:3.5rem 0}.section-alt{background:#F2F5F9!important}.section-navy{background:var(--navy)}
+.eyebrow{font-size:0.72rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.6rem}
+.stitle{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;color:var(--navy);margin-bottom:0.8rem;max-width:600px;letter-spacing:-0.3px}
+.lead{font-size:1rem;line-height:1.8;color:var(--steel);max-width:660px;font-weight:400;margin-bottom:1.5rem}.lead strong{color:var(--navy);font-weight:600}
+
+/* HERO */
+#hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:104px}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(61,139,122,0.06) 0%,transparent 55%),radial-gradient(ellipse at 20% 75%,rgba(30,90,158,0.04) 0%,transparent 50%)}
+#hero::after{content:none}
+.hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-size:0.78rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--teal-light)}
+#hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4.5vw,3.4rem);line-height:1.15;color:#fff;margin-bottom:1.5rem;letter-spacing:-0.5px}
+#hero h1 em{font-style:italic;color:var(--teal-light)}
+.hero-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:2.2rem}.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:500}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-block;padding:13px 32px;background:var(--teal);color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s;font-family:var(--sans)}
+.btn-primary:hover{background:#097565}
+.btn-outline-light{display:inline-block;padding:12px 28px;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans)}
+.btn-outline-light:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+.btn-exposure:hover{background:rgba(220,38,38,0.3)!important;border-color:#EF4444!important;color:#fff!important}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2rem}
+.hero-card-label{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.3rem 1.2rem}
+.stat-num{font-family:var(--serif);font-size:1.8rem;font-weight:600;color:#EF4444;line-height:1}
+.stat-desc{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:4px;line-height:1.4}
+.hero-divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:1.5rem 0}
+.jurisdiction-tags{display:flex;flex-wrap:wrap;gap:6px}
+.jtag{font-size:0.63rem;font-weight:600;letter-spacing:0.5px;padding:4px 10px;border-radius:3px;background:rgba(61,139,122,0.12);color:var(--teal-light);border:1px solid rgba(61,139,122,0.2)}
+.jtag.alert{background:rgba(155,59,59,0.15);color:#E8827A;border-color:rgba(155,59,59,0.25)}
+
+/* QUOTE */
+.quote-strip{background:#F2F5F9!important;border-top:1px solid var(--ice);border-bottom:1px solid var(--ice);padding:2.2rem 0;text-align:center}
+.quote-text{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.5rem);font-style:italic;font-weight:400;color:var(--navy);max-width:600px;margin:0 auto;line-height:1.45}
+.quote-attr{margin-top:0.8rem;font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);font-weight:600}
+
+/* LAW CARDS */
+.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.2rem}
+.law-card{background:#fff!important;border:1px solid var(--ice);border-radius:10px;padding:1.6rem;position:relative;transition:box-shadow 0.2s}
+.law-card:hover{box-shadow:0 8px 32px rgba(12,27,46,0.08)}
+.law-card::before{content:'';position:absolute;top:0;left:2rem;right:2rem;height:2px;border-radius:0 0 2px 2px}
+.law-card.fl::before{background:var(--amber)}.law-card.tx::before{background:#DC2626}.law-card.co::before{background:#7C3AED}.law-card.wave::before{background:var(--blue)}
+.law-jur{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);font-weight:600;margin-bottom:0.3rem}
+.law-name{font-family:var(--serif);font-size:1.08rem;color:var(--navy);font-weight:600;margin-bottom:0.3rem}
+.law-status{display:inline-block;font-size:0.62rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:0.8rem}
+.s-active{background:var(--teal-pale);color:var(--teal)}.s-pending{background:var(--amber-pale);color:var(--amber)}.s-wave{background:#E8F0FE;color:var(--blue)}
+.law-desc{font-size:0.86rem;color:var(--steel);line-height:1.65}.law-desc strong{color:var(--navy);font-weight:600}
+.law-req{margin-top:0.8rem;font-size:0.78rem;color:var(--silver);line-height:1.6;padding-left:0.8rem;border-left:2px solid var(--ice)}.law-req strong{color:var(--steel);font-weight:600}
+.law-faq-link{display:inline-block;margin-top:0.8rem;font-size:0.76rem;color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px dashed var(--teal);padding-bottom:1px;transition:color 0.2s}
+.law-faq-link:hover{color:var(--teal-light)}
+
+/* EXPOSURE */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;align-items:start}
+.penalty-card{background:#F2F5F9!important;border:1px solid var(--ice);border-radius:10px;padding:2.5rem;text-align:center}
+.penalty-row{display:flex;flex-wrap:nowrap;gap:1.2rem;margin-top:1.5rem;align-items:stretch}
+.penalty-row>.penalty-card{flex:1;min-width:0}
+.penalty-num{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:0.3rem}
+.penalty-ctx{font-size:0.8rem;color:var(--silver);margin-bottom:1.5rem;font-weight:500}
+.penalty-txt{font-size:0.86rem;color:var(--steel);line-height:1.7;text-align:left}.penalty-txt strong{color:var(--navy);font-weight:600}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{padding:1rem 0;border-bottom:1px solid var(--ice);display:flex;gap:14px;align-items:flex-start}.exp-item:last-child{border-bottom:none}
+.exp-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:8px;flex-shrink:0}
+.exp-label{font-size:0.9rem;color:var(--navy);font-weight:600;margin-bottom:2px}
+.exp-desc{font-size:0.8rem;color:var(--silver);line-height:1.5}
+
+/* CASE CALLOUT */
+.case-callout{margin-top:2rem;background:#fff;border:1px solid var(--ice);border-radius:10px;padding:2rem;border-left:4px solid #DC2626}
+.case-callout .case-tag{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:0.5rem}
+.case-callout h3{font-family:var(--serif);font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:0.8rem}
+.case-callout p{font-size:0.86rem;color:var(--steel);line-height:1.7}
+.case-callout p strong{color:var(--navy);font-weight:600}
+.case-callout .case-bottom{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--ice);font-size:0.84rem;color:var(--red-muted);font-weight:600;line-height:1.6;text-align:center}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.faq-box{background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.8rem;cursor:pointer;transition:box-shadow 0.2s,border-color 0.2s}
+.faq-box:hover{box-shadow:0 4px 16px rgba(12,27,46,0.06);border-color:var(--teal)}
+.faq-q{font-family:var(--serif);font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:0.6rem;display:flex;align-items:flex-start;gap:8px}
+.faq-q::before{content:'Q';flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;background:var(--teal-pale);color:var(--teal);font-family:var(--sans);font-size:0.65rem;font-weight:700;margin-top:2px}
+.faq-a{font-size:0.84rem;color:var(--steel);line-height:1.65;display:none;padding-top:0.4rem}
+.faq-a strong{color:var(--navy);font-weight:600}
+.faq-box.open .faq-a{display:block}
+.faq-box.open{border-color:var(--teal);background:var(--teal-pale)}
+
+/* PROFESSIONAL STANDARDS */
+.std-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+.std-card{background:#fff!important;border:1px solid var(--ice);border-radius:10px;padding:2rem}
+.std-card h4{font-family:var(--serif);font-size:1.08rem;color:var(--navy);font-weight:600;margin-bottom:0.6rem}
+.std-card p{font-size:0.86rem;color:var(--steel);line-height:1.7}.std-card p strong{color:var(--navy);font-weight:600}
+.std-tag{display:inline-block;font-size:0.62rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:0.6rem}
+
+/* NIST CALLOUT */
+.nist-callout{margin-top:1.8rem;background:var(--navy);border-radius:10px;padding:2rem;color:#fff}
+.nist-callout .eyebrow{color:var(--teal-light)}
+.nist-callout h3{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;margin-bottom:0.8rem}
+.nist-callout p{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.8}
+.nist-callout p strong{color:#fff;font-weight:600}
+
+/* PROCESS - streamlined */
+.proc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+.proc-step{text-align:center;padding:2rem 1.5rem;background:#fff!important;border:1px solid var(--ice);border-radius:10px}
+.proc-num{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin:0 auto 1rem}
+.proc-step h3{font-family:var(--serif);font-size:1.05rem;color:var(--navy);font-weight:600;margin-bottom:0.5rem}
+.proc-step p{font-size:0.82rem;color:var(--silver);line-height:1.6}
+
+/* CERTIFICATION SUMMARY */
+.cert-summary{background:var(--snow);border:1px solid var(--ice);border-radius:10px;padding:2rem;margin-top:1.5rem}
+.cert-summary p{font-size:0.9rem;color:var(--steel);line-height:1.8}.cert-summary p strong{color:var(--navy);font-weight:600}
+
+/* PRICING - streamlined */
+.grid-3col-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem;align-items:start}
+.price-card{background:#fff!important;border:1px solid var(--ice);border-radius:10px;padding:1.8rem;position:relative}
+.price-card.featured{background:var(--navy)!important;border:2px solid var(--teal);transform:translateY(-8px);box-shadow:0 16px 48px rgba(12,27,46,0.2)}
+.price-tier{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem}
+.price-card.featured .price-tier{color:var(--teal-light)}
+.price-name{font-family:var(--serif);font-size:1.3rem;color:var(--navy);font-weight:600;margin-bottom:0.2rem}
+.price-card.featured .price-name{color:#fff}
+.price-desc{font-size:0.8rem;color:var(--silver);margin-bottom:1.2rem}
+.price-card.featured .price-desc{color:rgba(255,255,255,0.5)}
+.price-amount{font-family:var(--serif);font-size:2.2rem;color:var(--navy);font-weight:700;line-height:1}
+.price-card.featured .price-amount{color:#fff}
+.price-amount span{font-size:0.9rem;color:var(--silver);font-weight:400}
+.price-card.featured .price-amount span{color:rgba(255,255,255,0.5)}
+.price-per{font-size:0.72rem;color:var(--silver);margin-bottom:1rem}
+.price-card.featured .price-per{color:rgba(255,255,255,0.4)}
+.price-scope{font-size:0.82rem;color:var(--steel);line-height:1.75;border-top:1px solid var(--ice);padding-top:1.2rem}
+.price-card.featured .price-scope{color:rgba(255,255,255,0.55);border-top-color:rgba(255,255,255,0.1)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:3px 14px;border-radius:20px}
+
+/* ABOUT - streamlined */
+.about-text{font-size:0.92rem;color:var(--steel);line-height:1.8;max-width:780px}
+.about-text strong{color:var(--navy);font-weight:600}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;margin-top:2rem;align-items:start}
+.ci-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem}
+.ci-icon{width:42px;height:42px;border-radius:8px;background:rgba(61,139,122,0.08);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1rem;flex-shrink:0}
+.ci-label{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);font-weight:600}
+.ci-val{font-size:0.92rem;color:#fff;font-weight:500}
+.c-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.f-group{margin-bottom:1rem}
+.f-group label{display:block;font-size:0.76rem;font-weight:600;color:rgba(255,255,255,0.6);margin-bottom:0.3rem}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:0.7rem 1rem;border-radius:6px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;font-family:var(--sans);font-size:0.86rem;outline:none;transition:border-color 0.2s}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--teal-light)}
+.f-group select option{background:var(--navy-mid);color:#fff}
+.f-group textarea{resize:vertical;min-height:80px}
+.btn-submit{width:100%;padding:0.85rem;background:var(--teal);color:#fff;border:none;border-radius:6px;font-family:var(--sans);font-weight:700;font-size:0.86rem;cursor:pointer;transition:background 0.2s}
+.btn-submit:hover{background:#097565}
+.f-note{font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:1rem;margin-top:-0.3rem}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.04);padding:2.5rem 0 1.2rem}
+.foot-top{max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+.foot-brand-name{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600}
+.foot-tagline{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;font-style:italic}
+.foot-desc{font-size:0.78rem;color:rgba(255,255,255,0.25);margin-top:0.8rem;line-height:1.6}
+.foot-col h5{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:0.8rem}
+.foot-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.35);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s}
+.foot-col a:hover{color:rgba(255,255,255,0.7)}
+.foot-bottom{max-width:1100px;margin:0 auto;padding:0 2rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center}
+.foot-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+.foot-legal-links{display:flex;gap:1.5rem}
+.foot-legal-links a{font-size:0.7rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.foot-legal-links a:hover{color:rgba(255,255,255,0.5)}
+
+/* RESPONSIVE */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:all 0.3s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:1rem 0;z-index:999}
+.nav-mobile.open{display:block}
+.nav-mobile a{display:block;padding:0.7rem 2rem;font-size:0.86rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;transition:background 0.2s}
+.nav-mobile a:hover{background:rgba(255,255,255,0.04);color:#fff}
+.nav-mobile .nav-cta-mobile{margin:0.8rem 2rem 0.5rem;display:block;text-align:center;padding:11px 16px;background:var(--teal);color:#fff;border-radius:6px;font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none}
+
+/* INLINE GRID CLASS */
+.grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.grid-2col-penalty{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+
+/* New accordion toggle for content sections */
+.content-accordion{cursor:pointer;transition:all 0.25s}
+.content-accordion .ca-detail{display:none}
+.content-accordion.open .ca-detail{display:block}
+.content-accordion .ca-toggle{font-size:0.8rem;color:var(--teal);font-weight:600;border-bottom:1px dashed rgba(46,122,105,0.4);display:inline-block;padding-bottom:1px;margin-top:0.6rem}
+.natl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem}
+
+@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-card{display:none}.hero-mobile-stats{display:block!important}#hero{min-height:auto;padding-top:104px;padding-bottom:4rem}.law-grid,.exp-grid,.std-grid,.contact-grid,.faq-grid{grid-template-columns:1fr}.proc-steps{grid-template-columns:1fr}.nav-links{display:none}.nav-toggle{display:block}.foot-top{grid-template-columns:1fr}.foot-bottom{flex-direction:column;gap:1rem;text-align:center}.foot-legal-links{flex-wrap:wrap;justify-content:center}.grid-2col{grid-template-columns:1fr}.grid-2col-penalty{grid-template-columns:1fr}.grid-3col-pricing{grid-template-columns:1fr}.grid-3col-pricing .price-card{transform:none!important}.grid-3col-pricing .price-card:nth-child(2){border:2px solid var(--teal);margin-top:0.8rem}.penalty-jurisdictions{grid-template-columns:1fr!important}.bridge-grid{grid-template-columns:1fr!important}.bill-grid{grid-template-columns:1fr!important}.fsmb-visual{grid-template-columns:1fr!important}.fsmb-visual>div{border-radius:8px!important}.std-conv-bar{grid-template-columns:1fr!important}.std-conv-bar>div{border-right:none!important;border-bottom:1px solid rgba(255,255,255,0.1)!important;padding-bottom:0.7rem!important}.std-conv-bar>div:last-child{border-bottom:none!important}.natl-grid{grid-template-columns:1fr!important}.natl-grid>div[style*="grid-column:span 2"]{grid-column:span 1!important}.natl-grid>div[style*="grid-column:span 3"]{grid-column:span 1!important}.risk-map-grid{grid-template-columns:1fr!important}.doj-penalties{flex-direction:column;gap:1rem}.doj-card div[style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:600px){.proc-steps{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}.section{padding:2rem 0}.section-navy{padding:1.5rem 0}.eyebrow{margin-bottom:0.4rem}.stitle{font-size:1.5rem;margin-bottom:0.6rem}.lead{font-size:0.9rem;margin-bottom:1rem}#hero h1{font-size:1.8rem}.hero-sub{font-size:0.9rem}.penalty-row{gap:0.6rem}.penalty-row .penalty-card{padding:0.8rem!important}.penalty-num{font-size:1.8rem!important}.penalty-ctx{font-size:0.68rem!important;margin-bottom:0.8rem!important}.penalty-txt{font-size:0.75rem!important;line-height:1.5!important}.penalty-jurisdictions{gap:0.5rem!important;margin-top:0.8rem!important}.penalty-jurisdictions>div{padding:0.5rem!important}.penalty-jurisdictions>div>div:first-child{font-size:0.6rem!important}.penalty-jurisdictions>div>div:last-child{font-size:0.68rem!important;line-height:1.4!important}.std-grid{gap:1rem}.law-grid{gap:1rem}.law-card{padding:1.2rem}.faq-grid{gap:0.6rem}.container{padding:0 1.2rem}.container-narrow{padding:0 1.2rem}.hero-actions{flex-direction:column}.hero-actions a{text-align:center;width:100%}.btn-primary{padding:14px 20px}.btn-outline-light{padding:13px 20px}.btn-exposure{text-align:center;width:100%;padding:13px 20px!important}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.7s ease both}
+.hero-left>*:nth-child(1){animation-delay:0.05s}.hero-left>*:nth-child(2){animation-delay:0.15s}.hero-left>*:nth-child(3){animation-delay:0.25s}.hero-left>*:nth-child(4){animation-delay:0.35s}
+
+.reality-lead{display:flex;gap:1.5rem;align-items:flex-start;margin-bottom:1rem}
+.reality-num{font-family:var(--serif);font-size:2.8rem;font-weight:700;line-height:1;min-width:110px;flex-shrink:0}
+.reality-num.red{color:#DC2626}.reality-num.purple{color:#7C3AED}
+.reality-text{font-size:0.88rem;color:var(--steel);line-height:1.7}.reality-text strong{color:var(--navy)}
+.rline{display:flex;gap:10px;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.55}
+.rline:last-child{border-bottom:none}.rline strong{color:var(--navy);font-weight:600}
+.rdot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0}.rdot.r{background:#DC2626}.rdot.p{background:#7C3AED}.rdot.a{background:#C27D19}
+.doj-card{background:var(--navy);border-radius:10px;padding:2.5rem;color:#fff;margin-top:2rem;border-left:4px solid #DC2626}
+.doj-tag{font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:#E8827A;font-weight:700;margin-bottom:0.6rem}
+.doj-card h3{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;margin-bottom:0.8rem;line-height:1.3}
+.doj-card p{font-size:0.86rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:0.5rem}.doj-card strong{color:#fff}
+.doj-penalties{display:flex;gap:2rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap}
+.doj-p{display:flex;align-items:baseline;gap:0.5rem}
+.doj-p-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#E8827A;line-height:1}
+.doj-p-label{font-size:0.7rem;color:rgba(255,255,255,0.5)}
+.domain-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:2rem;border-radius:10px;overflow:hidden;border:1px solid var(--ice)}
+.domain-cell{padding:1.2rem 0.8rem;text-align:center;background:#fff;border-right:1px solid var(--ice)}
+.domain-cell:last-child{border-right:none}.domain-cell.primary{background:var(--navy)}
+.domain-weight{font-family:var(--serif);font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:0.3rem}
+.domain-cell.primary .domain-weight{color:var(--teal-light)}.domain-cell:not(.primary) .domain-weight{color:var(--teal)}
+.domain-name{font-size:0.6rem;letter-spacing:0.5px;font-weight:600;line-height:1.3}
+.domain-cell.primary .domain-name{color:rgba(255,255,255,0.7)}.domain-cell:not(.primary) .domain-name{color:var(--steel)}
+@media(max-width:900px){.reality-lead{flex-direction:column;gap:0.5rem}.reality-num{min-width:auto;font-size:2.2rem}.domain-strip{grid-template-columns:repeat(3,1fr)}.doj-penalties{gap:1rem}}
+@media(max-width:600px){.domain-strip{grid-template-columns:repeat(2,1fr)}}
+
+/* ═══════ DELOITTE-GRADE POLISH ═══════ */
+
+/* Nav — blur backdrop on scroll, tighter presence */
+nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(12,27,46,0.97)}
+
+/* Buttons — larger touch targets, refined radius, shadow on primary */
+.btn-primary{border-radius:5px;box-shadow:0 2px 8px rgba(46,122,105,0.25);letter-spacing:1.2px}
+.btn-primary:hover{box-shadow:0 4px 16px rgba(46,122,105,0.35);transform:translateY(-1px)}
+.btn-exposure{border-radius:5px!important}
+
+/* Cards — layered shadow system, consistent radii */
+.law-card{border-radius:10px;box-shadow:0 1px 3px rgba(12,27,46,0.04);transition:box-shadow 0.25s ease,transform 0.25s ease}
+.law-card:hover{box-shadow:0 12px 40px rgba(12,27,46,0.08);transform:translateY(-2px)}
+.price-card{box-shadow:0 1px 3px rgba(12,27,46,0.04);transition:box-shadow 0.25s ease,transform 0.25s ease}
+.price-card:hover{box-shadow:0 8px 32px rgba(12,27,46,0.08);transform:translateY(-2px)}
+.price-card.featured{box-shadow:0 20px 60px rgba(12,27,46,0.22)}
+.price-card.featured:hover{box-shadow:0 24px 72px rgba(12,27,46,0.28);transform:translateY(-10px)}
+.faq-box{box-shadow:0 1px 3px rgba(12,27,46,0.03);transition:box-shadow 0.25s ease,border-color 0.25s ease,transform 0.25s ease}
+.faq-box:hover{transform:translateY(-1px)}
+.proc-step{box-shadow:0 1px 3px rgba(12,27,46,0.04);transition:box-shadow 0.25s ease,transform 0.25s ease}
+.proc-step:hover{box-shadow:0 8px 28px rgba(12,27,46,0.07);transform:translateY(-2px)}
+
+/* Extension boxes — hover lift */
+.ext-box{box-shadow:0 1px 3px rgba(12,27,46,0.04);transition:box-shadow 0.25s ease,transform 0.25s ease,border-color 0.25s ease}
+.ext-box:hover{box-shadow:0 6px 24px rgba(12,27,46,0.07);transform:translateY(-1px);border-color:var(--teal)}
+
+/* Process numbers — subtle pulse on hover */
+.proc-num{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.proc-step:hover .proc-num{transform:scale(1.08);box-shadow:0 4px 12px rgba(46,122,105,0.3)}
+
+/* Hero card — subtle glass effect */
+.hero-card{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+
+/* Stat boxes — hover glow */
+.stat-box{transition:border-color 0.2s ease,box-shadow 0.2s ease}
+.stat-box:hover{border-color:rgba(239,68,68,0.15);box-shadow:0 0 16px rgba(239,68,68,0.06)}
+
+/* DOJ card — deeper shadow for weight */
+.doj-card{box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+
+/* Section title — refined optical sizing */
+.stitle{font-weight:600;letter-spacing:-0.4px}
+
+/* Penalty card — subtle elevation */
+.penalty-card{box-shadow:0 1px 3px rgba(12,27,46,0.04)}
+
+/* Case callout — elevated presence */
+.case-callout{box-shadow:0 4px 20px rgba(12,27,46,0.06)}
+
+/* Quote strip — tighter, more refined */
+.quote-text{letter-spacing:-0.2px}
+
+/* Smooth scroll-reveal animation */
+.section,.section-alt,.section-navy{animation:sectionFade 0.6s ease both}
+@keyframes sectionFade{from{opacity:0.92;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Print-friendly: strip shadows */
+@media print{*{box-shadow:none!important;text-shadow:none!important}}
+
+/* ── MOBILE FIXES ── */
+@media(max-width:700px){
+  /* Bridge tiles: 2x2 grid on tablet/phone */
+  .bridge-tiles{grid-template-columns:1fr 1fr!important}
+  .bridge-tiles>div:nth-child(2){border-right:none!important}
+  .bridge-tiles>div:nth-child(1),.bridge-tiles>div:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.07)!important}
+}
+@media(max-width:600px){
+  /* Bar chart: labels above bars on mobile so numbers don't bleed */
+  .cost-bar-row{display:block!important}
+  .cost-bar-label{width:auto!important;text-align:left!important;margin-bottom:4px!important}
+  /* Bridge button: right-sized */
+  .bridge-cta-btn{padding:14px 20px!important;max-width:300px!important;width:100%!important;display:block!important;margin:0 auto!important}
+  .bridge-cta-btn div{font-size:0.95rem!important}
+  /* Risk map: full width */
+  .risk-map-section{padding:2rem 0!important}
+  .risk-map-grid{display:block!important}
+  .risk-map-grid>div{width:100%!important;margin-bottom:1.5rem}
+  .risk-map-grid>div:last-child{margin-bottom:0}
+}
+
 </style>
 </head>
 <body>
 
-<div class="shield">
-<svg viewBox="0 0 72 84" fill="none" width="64" height="74">
-<defs>
-<linearGradient id="sg" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0%" stop-color="#1A2E45"/>
-<stop offset="48%" stop-color="#1E3A52"/>
-<stop offset="52%" stop-color="#389680"/>
-<stop offset="100%" stop-color="#4BA08E"/>
-</linearGradient>
-</defs>
-<path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#sg)"/>
-<path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-<circle cx="36" cy="40" r="13" fill="none" stroke="rgba(200,215,230,0.5)" stroke-width="1.8"/>
-<path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/>
-<path d="M36 26L40 40H32Z" fill="#fff"/>
-<circle cx="36" cy="40" r="2" fill="#fff"/>
-</svg>
+<nav><div class="nav-inner">
+<a href="#hero" class="nav-brand"><div class="nav-shield"><svg viewBox="0 0 72 84" fill="none"><defs><linearGradient id="navG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A2E45"/><stop offset="48%" stop-color="#1E3A52"/><stop offset="52%" stop-color="#389680"/><stop offset="100%" stop-color="#4BA08E"/></linearGradient><linearGradient id="navEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="rgba(255,255,255,0.02)"/><stop offset="100%" stop-color="rgba(255,255,255,0.06)"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#navG)"/><path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#navEdge)" stroke-width="0.8"/><line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/><circle cx="36" cy="40" r="13" fill="none" stroke="rgba(200,215,230,0.6)" stroke-width="1.8"/><line x1="36" y1="25" x2="36" y2="27" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="36" y1="53" x2="36" y2="55" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="21" y1="40" x2="23" y2="40" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><line x1="49" y1="40" x2="51" y2="40" stroke="rgba(200,215,230,0.6)" stroke-width="1.5"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div><div class="nav-text"><span class="nav-name">Sentinel Risk Group</span></div></a>
+<div class="nav-links"><a href="#insurance">Insurance</a><a href="#regulatory">Laws</a><a href="#telehealth">Telehealth</a><a href="#reality">Coding Risk</a><a href="#penalties">Penalties</a><a href="#faq">FAQ</a><a href="#pricing">Pricing</a><a href="risk-assessment.html" class="nav-cta-link">Start Certification</a></div>
+<button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-mobile"><a href="#insurance" onclick="this.parentElement.classList.remove('open')">Insurance</a><a href="#regulatory" onclick="this.parentElement.classList.remove('open')">Laws</a><a href="#telehealth" onclick="this.parentElement.classList.remove('open')">Telehealth</a><a href="#reality" onclick="this.parentElement.classList.remove('open')">Coding Risk</a><a href="#penalties" onclick="this.parentElement.classList.remove('open')">Penalties</a><a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a><a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a><a href="risk-assessment.html" class="nav-cta-mobile" onclick="this.parentElement.classList.remove('open')">Start Certification</a></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+<div class="hero-content">
+<div class="hero-left">
+<div class="hero-eyebrow">AI Governance Shield&trade;</div>
+<h1>Your healthcare malpractice policy may no longer <em style="white-space:nowrap">cover AI.</em></h1>
+<p class="hero-sub" style="margin-bottom:0.6rem">Your carrier can now deny any claim involving AI. As of January 2026, every malpractice insurer in the country has a pre-drafted exclusion ready to add to your policy.</p>
+<div style="border-left:3px solid var(--teal-light);background:rgba(61,139,122,0.08);padding:0.8rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:1.5rem;margin-top:1rem">
+<p style="font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.85);font-weight:500;margin:0"><strong style="color:var(--teal-light)">AI Governance Shield&trade;</strong> independently certifies that your practice governs AI responsibly — the documented evidence your carrier, your attorney, and your regulator will ask for.</p>
+</div>
+<!-- MOBILE STATS -->
+<div class="hero-mobile-stats" style="display:none;margin-bottom:1rem">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
+<div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.5rem 0.6rem;text-align:center">
+<div style="font-size:1rem;font-weight:700;color:#EF4444">$556M</div>
+<div style="font-size:0.6rem;color:rgba(255,255,255,0.4);margin-top:0.1rem">Kaiser — code inflation via analytics. AI scribes are next.</div>
+</div>
+<div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.5rem 0.6rem;text-align:center">
+<div style="font-size:1rem;font-weight:700;color:#EF4444">$200K</div>
+<div style="font-size:0.6rem;color:rgba(255,255,255,0.4);margin-top:0.1rem">Per violation — Texas TRAIGA</div>
+</div>
+<div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.5rem 0.6rem;text-align:center">
+<div style="font-size:1rem;font-weight:700;color:#EF4444">$500M</div>
+<div style="font-size:0.6rem;color:rgba(255,255,255,0.4);margin-top:0.1rem">Statutory exposure — AI scribe class action</div>
+</div>
+<div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.5rem 0.6rem;text-align:center">
+<div style="font-size:1rem;font-weight:700;color:#EF4444">5,586</div>
+<div style="font-size:0.6rem;color:rgba(255,255,255,0.4);margin-top:0.1rem">Providers lost billing — CMS CRUSH (Feb 2026)</div>
+</div>
+</div>
+</div>
+<div class="hero-actions"><a href="#pricing" class="btn-primary">Start Certification</a><a href="risk-assessment.html" class="btn-exposure" style="display:inline-block;padding:12px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)">Free Risk Assessment &rarr;</a></div>
+</div>
+<div class="hero-card">
+<div class="hero-card-label">2025–2026 Threat Landscape</div>
+<div class="stat-grid">
+<div class="stat-box"><div class="stat-num">$556M</div><div class="stat-desc">Kaiser — analytics tools inflated codes. AI scribes are the next generation of the same pattern (Jan 2026)</div></div>
+<div class="stat-box"><div class="stat-num">$200K</div><div class="stat-desc">Per violation — Texas TRAIGA (eff. Jan 1, 2026)</div></div>
+<div class="stat-box"><div class="stat-num">$500M</div><div class="stat-desc">Statutory exposure — first AI scribe class action (Sharp HealthCare, Nov 2025)</div></div>
+<div class="stat-box"><div class="stat-num">5,586</div><div class="stat-desc">Providers lost Medicare billing privileges — CMS CRUSH Initiative (Feb 2026). They're using AI to find you.</div></div>
+</div>
+</div>
+</div>
+</section>
+<div class="quote-strip">
+<div class="container-narrow">
+<p class="quote-text">"You can't opt out of AI. You can only choose whether you govern it — or get governed by it."</p>
+<p class="quote-attr">Federation of State Medical Boards — May 2024 Guidance</p>
+</div>
 </div>
 
-<div class="company">Sentinel Risk Group</div>
-<div class="tagline">Governance defines defensibility.</div>
+<!-- SEPARATOR -->
+<div style="height:3px;background:var(--navy)"></div>
 
-<div class="desc">Independent AI governance evaluation and certification for healthcare organizations. Protecting against regulatory, litigation, and carrier risk.</div>
+<!-- ═══════════ INSURANCE CLIFF — ACCORDION PATTERN ═══════════ -->
+<section id="insurance" class="section">
+<div class="container">
+<div class="eyebrow" style="color:#DC2626">Healthcare Malpractice Insurance</div>
+<h2 class="stitle">A Standard-Form AI Exclusion Now Exists — and Any Carrier Can Add It to Your Policy.</h2>
+<p class="lead">In January 2026, the organization that writes the standard policy language used by most U.S. insurers quietly issued a pre-written AI exclusion — a one-page add-on any carrier can attach to your policy at renewal. If yours includes one, <strong>an AI-related claim gets denied — and you bear the full cost.</strong> This has nothing to do with state law. It's a coverage decision your carrier can make at any renewal.</p>
 
-<a href="mailto:info@sentinelriskgrp.com" class="contact">Contact Us</a>
+<!-- DENIED VISUAL -->
+<div style="text-align:center;margin:1.5rem 0 1.5rem">
+<div style="display:inline-block;transform:rotate(-3deg)">
+<div style="font-family:var(--sans);font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:900;color:#DC2626;letter-spacing:6px;text-transform:uppercase;border:4px double #DC2626;border-radius:4px;padding:0.15em 0.5em;opacity:0.85">DENIED</div>
+</div>
+<div style="font-size:0.85rem;color:var(--steel);margin-top:0.6rem">Your claim — when AI is involved and your policy carries the exclusion</div>
+</div>
 
-<div class="footer">&copy; 2026 Sentinel Risk Group, LLC. All rights reserved.</div>
+<!-- ACCORDION CARDS -->
+<div style="display:flex;flex-direction:column;gap:0.8rem;max-width:860px;margin:0 auto">
 
+<!-- CARD 1: My Carrier Still Covers Me (first — answers the #1 reader objection) -->
+<div class="ins-accordion" style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.5rem 1.8rem;cursor:pointer;transition:all 0.25s;border-left:4px solid var(--amber);box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:0.3rem">If You Think This Doesn't Apply to You Yet</div>
+<div style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600;line-height:1.3">&ldquo;My Carrier Still Covers Me&rdquo;</div>
+<div style="font-size:0.88rem;color:var(--steel);margin-top:0.4rem;line-height:1.6">Maybe. But here's what that actually means — and <strong style="color:var(--navy)">why the window to act is now, not later.</strong></div>
+</div>
+<div style="flex-shrink:0;margin-left:1.5rem;font-size:0.78rem;color:var(--teal);font-weight:600;margin-top:0.3rem;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px" class="ins-toggle">+ Details</div>
+</div>
+<div class="ins-detail" style="display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--ice)">
+<div style="display:flex;flex-direction:column;gap:0.6rem">
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid var(--amber)">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.2rem">Your Carrier Hasn't Added It — Yet</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.6">The exclusion is optional. Your carrier may not have adopted it this cycle. But it's now a <strong>pre-drafted add-on sitting on every underwriter's desk</strong>. It can appear on your next renewal without advance notice.</div>
+</div>
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid var(--amber)">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.2rem">Your Carrier Doesn't Know You're Using AI</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.6">Many practices adopted AI scribes, chatbots, or EHR tools <strong>without notifying their carrier</strong>. When a claim involves AI, the carrier investigates. Undisclosed AI use can trigger denial for material misrepresentation — exclusion or not.</div>
+</div>
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid var(--amber)">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.2rem">You Haven't Read Your Renewal Closely</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.6">Exclusions are added as riders — supplemental pages most office managers don't read. <strong>If you can't confirm your policy has no AI exclusion, you don't know whether you're covered.</strong></div>
+</div>
+</div>
+<div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(220,38,38,0.04);border-radius:6px;border-left:3px solid #DC2626">
+<div style="font-size:0.88rem;color:var(--navy);font-weight:600;line-height:1.6">Practices with documented AI governance will be positioned for better terms at renewal. <strong style="color:#DC2626">The time to certify is before your next renewal — not after a denied claim.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- CARD 2: What Changed -->
+<div class="ins-accordion" style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.5rem 1.8rem;cursor:pointer;transition:all 0.25s;border-left:4px solid #DC2626;box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:0.3rem">What Changed &middot; January 2026</div>
+<div style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600;line-height:1.3">A Standard Exclusion Now Exists That Any Carrier Can Add to Your Policy</div>
+<div style="font-size:0.88rem;color:var(--steel);margin-top:0.4rem;line-height:1.6"><strong style="color:var(--navy)">A pre-written add-on any carrier can attach to your existing policy.</strong> Covers AI scribes, EHR algorithms, scheduling chatbots — any AI tool touching patient care.</div>
+</div>
+<div style="flex-shrink:0;margin-left:1.5rem;font-size:0.78rem;color:var(--teal);font-weight:600;margin-top:0.3rem;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px" class="ins-toggle">+ Details</div>
+</div>
+<div class="ins-detail" style="display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--ice)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div style="padding:0.8rem;background:var(--snow);border-radius:6px;border-left:3px solid #DC2626">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">What Gets Excluded</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">Bodily injury, property damage, and personal injury <strong>arising from generative AI</strong> — including third-party AI tools like scribes, EHR algorithms, and scheduling chatbots</div>
+</div>
+<div style="padding:0.8rem;background:var(--snow);border-radius:6px;border-left:3px solid #DC2626">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">What That Means</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">If your AI scribe hallucinates a medication, your chatbot gives wrong medical advice, or your EHR algorithm misflags a patient — <strong>your carrier may deny the claim entirely</strong></div>
+</div>
+<div style="padding:0.8rem;background:var(--snow);border-radius:6px;border-left:3px solid var(--amber)">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">The Pattern</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">This mirrors cybersecurity insurance from 2019–2021: carriers added exclusions first, then made documented controls a <strong>prerequisite for any coverage at all</strong></div>
+</div>
+<div style="padding:0.8rem;background:var(--snow);border-radius:6px;border-left:3px solid var(--amber)">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Industry-Wide Reach</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">The organization that issued this exclusion form provides the standard policy language used by the majority of U.S. insurers. When they publish a standard exclusion, the industry follows.</div>
+</div>
+</div>
+<div style="margin-top:0.8rem;text-align:center;font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--silver)">CG 40 47 &middot; CG 40 48 &middot; CG 35 08 — Available Now</div>
+</div>
+</div>
+
+<!-- CARD 3: Carriers Already Filing -->
+<div class="ins-accordion" style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.5rem 1.8rem;cursor:pointer;transition:all 0.25s;border-left:4px solid #DC2626;box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:0.3rem">Carriers Already Filing Their Own</div>
+<div style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600;line-height:1.3">These Aren't Waiting for the Standard Form</div>
+<div style="font-size:0.88rem;color:var(--steel);margin-top:0.4rem;line-height:1.6">Major carriers have gone beyond the standard exclusion and filed their own — <strong style="color:var(--navy)">some even broader.</strong></div>
+</div>
+<div style="flex-shrink:0;margin-left:1.5rem;font-size:0.78rem;color:var(--teal);font-weight:600;margin-top:0.3rem;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px" class="ins-toggle">+ Details</div>
+</div>
+<div class="ins-detail" style="display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--ice)">
+<div style="display:flex;flex-direction:column;gap:0.6rem">
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid #DC2626;display:flex;gap:1rem;align-items:baseline">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);white-space:nowrap">W.R. Berkley</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55"><strong>Absolute exclusion.</strong> Bars coverage for any claim involving AI use, deployment, or development — including inadequate governance policies, chatbot communications, and regulatory actions.</div>
+</div>
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid #DC2626;display:flex;gap:1rem;align-items:baseline">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);white-space:nowrap">Hamilton Select</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">Excludes all claims involving <strong>&ldquo;actual or alleged use of generative artificial intelligence&rdquo;</strong> from professional liability policies.</div>
+</div>
+<div style="padding:0.8rem 1rem;background:var(--snow);border-radius:6px;border-left:3px solid #DC2626;display:flex;gap:1rem;align-items:baseline">
+<div style="font-size:0.82rem;font-weight:700;color:var(--navy);white-space:nowrap">Phila. Indemnity</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.55">Excludes <strong>AI-generated professional content</strong> from E&amp;O and professional liability coverage.</div>
+</div>
+</div>
+<div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(46,122,105,0.06);border-radius:6px;border-left:3px solid var(--teal)">
+<div style="font-size:0.85rem;color:var(--navy);font-weight:600;line-height:1.6">Carriers are beginning to assess AI governance at renewal. <strong style="color:var(--teal)">Independent certification is how you demonstrate to your carrier that you govern AI responsibly.</strong></div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+<!-- ═══════════ STANDARD OF CARE — FSMB + CONVERGENCE MERGED ═══════════ -->
+<section id="standards" class="section section-alt">
+<div class="container">
+<div class="eyebrow">Standard of Care</div>
+<h2 class="stitle">The Profession Has Spoken.<br>Both Sides Are Exposed.</h2>
+<p class="lead">It's not just your carrier. Medical boards, accreditors, and professional bodies have established that <strong>ungoverned AI use falls below the standard of care</strong> — and that failing to adopt beneficial AI is equally negligent.</p>
+
+<!-- FSMB — EXACT COPY FROM ORIGINAL V9 -->
+<div style="margin-top:1.5rem;padding:1.4rem 1.5rem;background:#fff;border:1px solid var(--ice);border-radius:10px">
+<div style="text-align:center;margin-bottom:0.5rem">
+<div style="font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);font-weight:700;margin-bottom:0.2rem">Federation of State Medical Boards · May 2024</div>
+<div style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy)">The Standard of Care Now Cuts Both Ways</div>
+</div>
+<div class="fsmb-visual" style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch">
+<div style="padding:0.8rem 1rem;background:#F1F0EE;border:1px solid #D4D3D0;border-left:3px solid #B91C1C;border-radius:6px 0 0 6px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:0.2rem">
+<div style="font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;font-weight:700">Exposed</div>
+<div style="font-size:0.78rem;color:var(--navy);font-weight:600">Use AI Without Governance</div>
+<div style="font-size:0.7rem;color:#DC2626;font-weight:600">Below Standard of Care</div>
+</div>
+<div style="padding:0.8rem 1.2rem;background:rgba(61,139,122,0.08);border-top:1px solid rgba(61,139,122,0.2);border-bottom:1px solid rgba(61,139,122,0.2);text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0.2rem">
+<div style="width:24px;height:28px;flex-shrink:0"><svg viewBox="0 0 72 84" fill="none"><defs><linearGradient id="fG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3D8B7A"/><stop offset="45%" stop-color="#3D8B7A"/><stop offset="55%" stop-color="#6BB5A4"/><stop offset="100%" stop-color="#6BB5A4"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#fG)" opacity="0.9"/><circle cx="36" cy="40" r="14" fill="none" stroke="#fff" stroke-width="2" opacity="0.3"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div>
+<div style="font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:700">Protected</div>
+<div style="font-size:0.78rem;color:var(--navy);font-weight:600">Govern AI Properly</div>
+<div style="font-size:0.7rem;color:var(--teal);font-weight:600">Only Defensible Position</div>
+</div>
+<div style="padding:0.8rem 1rem;background:#F1F0EE;border:1px solid #D4D3D0;border-right:3px solid #B91C1C;border-radius:0 6px 6px 0;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:0.2rem">
+<div style="font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;font-weight:700">Exposed</div>
+<div style="font-size:0.78rem;color:var(--navy);font-weight:600">Refuse to Use AI</div>
+<div style="font-size:0.7rem;color:#DC2626;font-weight:600">Below Standard of Care</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:0.6rem;font-family:var(--serif);font-size:0.85rem;font-weight:600;color:var(--navy)">You cannot opt out. You can only govern it — or remain exposed on both sides.</div>
+</div>
+
+<!-- CONVERGENCE — STACKED CARDS -->
+<div style="margin-top:1.5rem">
+<div style="text-align:center;margin-bottom:0.8rem">
+<div style="font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);font-weight:700">Where the Standard Is Going</div>
+</div>
+
+<div style="display:grid;gap:0.8rem">
+<div style="padding:1.2rem 1.5rem;background:#fff;border:1px solid var(--ice);border-left:3px solid #DC2626;border-radius:8px">
+<div style="font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--navy)">Joint Commission</div>
+<div style="font-size:0.75rem;color:var(--silver);line-height:1.5;margin-top:0.2rem">7 governance elements · $46K+/yr · Built for hospital systems with full compliance departments</div>
+<div style="font-size:0.72rem;color:#DC2626;font-weight:600;margin-top:0.3rem">AI certification doesn't exist yet</div>
+</div>
+
+<div style="padding:1.2rem 1.5rem;background:#fff;border:1px solid var(--ice);border-left:3px solid var(--amber);border-radius:8px">
+<div style="font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--navy)">AMA</div>
+<div style="font-size:0.75rem;color:var(--silver);line-height:1.5;margin-top:0.2rem">8-step framework · CPT 2026 AI codes · Defines what governance should look like</div>
+<div style="font-size:0.72rem;color:var(--amber);font-weight:600;margin-top:0.3rem">Publishes standards — doesn't certify</div>
+</div>
+
+<div style="padding:1.2rem 1.5rem;background:#fff;border:1px solid var(--ice);border-left:3px solid var(--steel);border-radius:8px">
+<div style="font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--navy)">ACR ARCH-AI</div>
+<div style="font-size:0.75rem;color:var(--silver);line-height:1.5;margin-top:0.2rem">First AI accreditation program · Radiology only · Not available to general practices</div>
+<div style="font-size:0.72rem;color:var(--steel);font-weight:600;margin-top:0.3rem">Full program expected 2027</div>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:0.8rem;font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);line-height:1.5">Every Major Body Requires Independent Validation. None Offer It Today.</div>
+<div style="text-align:center;margin-top:0.6rem;font-size:1rem;font-weight:700;color:var(--teal)">We do.</div>
+
+</div>
+</section>
+
+<section id="regulatory" class="section">
+<div class="container">
+<div class="eyebrow">Regulatory Environment</div>
+<h2 class="stitle">The Laws Are Here.<br>The Lawsuits Have Started.</h2>
+<p class="lead">Beyond the insurance cliff and the evolving standard of care, <strong>21 states enacted 33 provider-facing AI laws in 2025, with 47 states introducing healthcare AI bills</strong> — and every one of them applies to practices outside their borders.</p>
+<div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
+
+<!-- FLORIDA — ACCORDION -->
+<div class="law-accordion" onclick="this.classList.toggle('open')" style="background:#fff;border-radius:10px;border-left:4px solid var(--amber);padding:1.5rem 1.8rem;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow 0.2s">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.4rem">Florida</div>
+<div style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);font-weight:700;line-height:1.35">SB 482 Stalled — But Existing Law Already Creates AI Liability</div>
+<div style="font-size:0.88rem;color:var(--steel);line-height:1.5;margin-top:0.5rem">The bill stalled in the House, but the <strong>Medical Practice Act</strong> and <strong>§ 501.171</strong> already expose practices using ungoverned clinical AI — including 3rd-degree felony risk and $500K per breach.</div>
+<div class="law-toggle" style="font-size:0.75rem;color:var(--teal);font-weight:600;margin-top:0.8rem;letter-spacing:0.5px;border-bottom:1px dashed rgba(46,122,105,0.4);display:inline-block;padding-bottom:1px">+ Details</div>
+<div class="law-detail" style="display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ice)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--teal)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">SB 482 Requirements</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Patient disclosure · Opt-out rights · Human oversight mandated · Algorithmic transparency · Non-discrimination</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--amber)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">FL Medical Practice Act — Already Enforceable</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Restricts diagnosis/treatment to licensed practitioners — AI performing clinical functions = unauthorized practice · <strong style="color:#DC2626">3rd-degree felony · 5 years + $5K/incident</strong></div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--amber)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">§ 501.171 — Already Enforceable</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">30-day breach notification when AI mishandles patient data · Up to <strong style="color:#DC2626">$500,000 per breach</strong></div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Exposure Now</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Even before SB 482 passes, existing statutes create liability for ungoverned clinical AI use</div>
+</div>
+</div>
+<a href="#faq-states" class="law-faq-link" style="display:inline-block;margin-top:0.8rem" onclick="event.stopPropagation()">→ How does this affect my practice?</a>
+</div>
+</div>
+
+<!-- COLORADO — ACCORDION -->
+<div class="law-accordion" onclick="this.classList.toggle('open')" style="background:#fff;border-radius:10px;border-left:4px solid #DC2626;padding:1.5rem 1.8rem;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow 0.2s">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.4rem">Colorado</div>
+<div style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);font-weight:700;line-height:1.35">SB 24-205 — $20,000 Per Violation, No Cap, Enforcement June 2026</div>
+<div style="font-size:0.88rem;color:var(--steel);line-height:1.5;margin-top:0.5rem">The broadest U.S. statute on AI accountability. Clinical AI qualifies as high-risk. 500 Colorado patients = <strong>$10 million exposure</strong>. AG exclusive enforcement begins June 30, 2026.</div>
+<div class="law-toggle" style="font-size:0.75rem;color:var(--teal);font-weight:600;margin-top:0.8rem;letter-spacing:0.5px;border-bottom:1px dashed rgba(46,122,105,0.4);display:inline-block;padding-bottom:1px">+ Details</div>
+<div class="law-detail" style="display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ice)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Penalty Math</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">$20K per consumer, no aggregate cap · 500 CO patients = <strong>$10 million exposure</strong> · AG exclusive enforcement</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--teal)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Requirements</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Impact assessment · Bias testing · Override capability · Incident reporting · Annual review · Consumer notification</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--teal)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">&lt;50 FTE Exemption</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Reduced requirements — but still must exercise reasonable care, disclose AI use, notify AG within 90 days of discrimination</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--amber)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Legal Exposure</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Private right of action barred — but <strong style="color:#DC2626">existing tort and negligence claims explicitly preserved</strong></div>
+</div>
+</div>
+<a href="#faq-states" class="law-faq-link" style="display:inline-block;margin-top:0.8rem" onclick="event.stopPropagation()">→ I'm in Florida or another state — why does Colorado matter?</a>
+</div>
+</div>
+
+<!-- TEXAS — ACCORDION -->
+<div class="law-accordion" onclick="this.classList.toggle('open')" style="background:#fff;border-radius:10px;border-left:4px solid #DC2626;padding:1.5rem 1.8rem;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow 0.2s">
+<div style="font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.4rem">Texas</div>
+<div style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);font-weight:700;line-height:1.35">TRAIGA + SB 1188 — Two Laws, Both Live, Up to $450K Per Violation</div>
+<div style="font-size:0.88rem;color:var(--steel);line-height:1.5;margin-top:0.5rem">Both laws are in effect with no small-practice exemptions. Combined exposure reaches <strong>$450,000 per violation</strong> when both statutes apply — and the TX AG is already enforcing.</div>
+<div class="law-toggle" style="font-size:0.75rem;color:var(--teal);font-weight:600;margin-top:0.8rem;letter-spacing:0.5px;border-bottom:1px dashed rgba(46,122,105,0.4);display:inline-block;padding-bottom:1px">+ Details</div>
+<div class="law-detail" style="display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ice)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">TRAIGA Penalties</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>$200,000</strong> per uncurable violation · $10K per curable · $2K–$40K/day continued noncompliance</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">SB 1188 Penalties</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>$5,000–$250,000</strong> per violation (intent-based) · License suspension · Applies to all AI-generated clinical records</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--teal)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Requirements</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Clinician review of all AI output · Written patient disclosure · AI system documentation · Known limitation disclosure</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--teal)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">NIST Safe Harbor</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Practices following NIST AI Risk Management Framework receive <strong>statutory protection</strong> against TRAIGA penalties</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid var(--amber)">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Already Enforcing</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">TX AG vs. Pieces Technologies (Sept 2024) — required disclosure of AI hallucination rates and known limitations</div>
+</div>
+<div style="padding:0.9rem;background:var(--snow);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.7rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Combined Exposure</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">TRAIGA + SB 1188 = up to <strong>$450,000 per violation</strong> if both statutes apply to the same conduct · No revenue threshold · No employee count exemption</div>
+</div>
+</div>
+<a href="#faq-nist" class="law-faq-link" style="display:inline-block;margin-top:0.8rem" onclick="event.stopPropagation()">→ What is the NIST safe harbor?</a>
+</div>
+</div>
+
+</div><!-- close state accordion stack -->
+
+<!-- NATIONAL LANDSCAPE — FULL-WIDTH SUMMARY (visually distinct from state accordions) -->
+<div style="margin-top:1.5rem;background:var(--teal-pale);border:1px solid rgba(46,122,105,0.15);border-radius:12px;padding:2rem 2.5rem;max-width:960px;margin-left:auto;margin-right:auto">
+<div style="text-align:center;margin-bottom:1.2rem">
+<div style="font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.4rem">National Landscape · 2025–2026</div>
+<div style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:700;line-height:1.3">47 States. 250+ Bills. The Wave Is Accelerating.</div>
+<div style="font-size:0.88rem;color:var(--steel);margin-top:0.5rem;line-height:1.55">Beyond Florida, Colorado, and Texas — these states are already in effect or advancing now:</div>
+</div>
+<div class="natl-grid">
+<div class="content-accordion" style="padding:1rem;background:#fff;border-radius:8px;border-top:3px solid #DC2626;box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">New York S7263</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>Third reading in Senate.</strong> Deployer liability — <strong style="color:#DC2626">cannot be disclaimed.</strong></div>
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.5">AI deployers civilly liable for chatbot responses in 14+ licensed professions. Private right of action + attorneys' fees.</div>
+</div>
+<div class="content-accordion" style="padding:1rem;background:#fff;border-radius:8px;border-top:3px solid var(--teal);box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">California AB 3030 / AB 489</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>In effect Jan 1, 2026.</strong> <strong style="color:#DC2626">$1,000 per violation.</strong></div>
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.5">GenAI disclaimers required. Private right of action. 5+ new bills advancing.</div>
+</div>
+<div class="content-accordion" style="padding:1rem;background:#fff;border-radius:8px;border-top:3px solid var(--teal);box-shadow:0 1px 3px rgba(12,27,46,0.04)">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Illinois HB 3773 + HB 1806</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>Two laws enacted.</strong> <strong>$10K/violation.</strong></div>
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.5">AI barred from independent therapeutic decisions in behavioral health. IHRA amendment eff. Jan 2026.</div>
+</div>
+<div style="padding:1rem 1.2rem;background:#fff;border-radius:8px;border-top:3px solid var(--amber);box-shadow:0 1px 3px rgba(12,27,46,0.04);grid-column:span 3">
+<div style="font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem">Tennessee &middot; Rhode Island &middot; Virginia &middot; Pennsylvania &middot; And Counting</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5"><strong>6+ additional states with bipartisan healthcare AI bills advancing</strong> — governance, transparency, patient consent requirements. Tennessee SB 1580 passed Senate unanimously. Every legislative session adds more. <strong style="color:var(--navy)">The question is when, not if.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- THE PATTERN — CONDENSED BANNER -->
+<div style="margin-top:1.8rem;padding:1.5rem 2rem;background:var(--navy);border-radius:10px;text-align:center">
+<div style="font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-light);font-weight:700;margin-bottom:0.4rem">The Pattern Across Every Bill</div>
+<div style="font-family:var(--serif);font-size:1.15rem;color:#E8827A;font-weight:700;font-style:italic;line-height:1.4">Every bill requires governance, disclosure, oversight, bias monitoring. The question is whether you're certified before it's mandatory.</div>
+</div>
+
+</div>
+</section>
+
+
+
+
+<!-- ═══════════ TELEHEALTH — MULTI-STATE EXPOSURE ═══════════ -->
+<section id="telehealth" class="section section-alt">
+<div class="container">
+<div class="eyebrow">Multi-State Exposure</div>
+<h2 class="stitle">Telehealth Multiplies Your<br>Regulatory Exposure</h2>
+<p class="lead">The practice of medicine occurs where the <strong>patient is physically located</strong> during the encounter — not where your office is. 71% of physicians now use telehealth weekly (AMA, 2024). Each cross-state visit can trigger the AI law of the patient's state.</p>
+
+<div class="law-grid" style="margin-top:2rem">
+
+<!-- SCENARIO 1: TX snowbird -->
+<div class="law-card tx">
+<div class="law-jur" style="color:#DC2626">Scenario</div>
+<div class="law-name">The Snowbird Follow-Up</div>
+<div class="law-desc">Your Texas patient winters in Florida. You see them in-person at your office — <strong>Florida law governs that visit.</strong> They return home to Texas. You do a telehealth follow-up. The patient is now physically in Texas.</div>
+<div style="margin-top:0.8rem;padding:0.8rem 1rem;background:#fff;border-radius:6px;border-left:3px solid #DC2626">
+<div style="font-size:0.75rem;font-weight:700;color:#DC2626;margin-bottom:0.2rem">Texas TRAIGA applies to that telehealth visit</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Written AI disclosure required. Clinician review of all AI output documented. Known limitations disclosed. <strong>$200,000 per uncurable violation.</strong></div>
+</div>
+</div>
+
+<!-- SCENARIO 2: CO retiree -->
+<div class="law-card co">
+<div class="law-jur" style="color:#7C3AED">Scenario</div>
+<div class="law-name">The Returning Retiree</div>
+<div class="law-desc">A Colorado resident visits family in your state. You see them in-person — <strong>your state's law governs.</strong> They fly home to Colorado. You conduct a telehealth check-in. The patient is now physically in Colorado.</div>
+<div style="margin-top:0.8rem;padding:0.8rem 1rem;background:#fff;border-radius:6px;border-left:3px solid #7C3AED">
+<div style="font-size:0.75rem;font-weight:700;color:#7C3AED;margin-bottom:0.2rem">Colorado SB 24-205 applies after June 30, 2026</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">Impact assessment required. Consumer notification. Bias testing. <strong>$20,000 per consumer, no aggregate cap.</strong></div>
+</div>
+</div>
+
+<!-- SCENARIO 3: IL consult -->
+<div class="law-card" style="border-left:4px solid var(--teal)">
+<div class="law-jur">Scenario</div>
+<div class="law-name">The Out-of-State Specialist Consult</div>
+<div class="law-desc">An Illinois patient requests a telehealth specialty consultation. The patient is physically in Illinois during the visit. You use AI clinical documentation during the encounter.</div>
+<div style="margin-top:0.8rem;padding:0.8rem 1rem;background:#fff;border-radius:6px;border-left:3px solid var(--teal)">
+<div style="font-size:0.75rem;font-weight:700;color:var(--teal);margin-bottom:0.2rem">Illinois WOPR Act (HB 1806) applies if behavioral health component</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.5">If the consultation involves behavioral health or therapy, AI cannot make independent therapeutic decisions. Discriminatory AI use prohibited under IHRA. <strong>$10,000 per violation.</strong></div>
+</div>
+</div>
+
+<!-- KEY DISTINCTION -->
+<div class="law-card" style="border-left:4px solid var(--amber)">
+<div class="law-jur">Key Distinction</div>
+<div class="law-name">When the Trigger Fires — and When It Doesn't</div>
+<div class="law-desc">A Texas resident treated <strong>in-person at your Florida office</strong> is governed by Florida law for that visit. TRAIGA does not apply. The exposure arises when you conduct <strong>telehealth follow-ups and virtual consultations</strong> where the patient has returned home — or is physically located in another state during the encounter.</div>
+</div>
+
+</div>
+
+<div style="margin-top:2rem;padding:1.2rem 1.5rem;background:var(--teal-pale);border-radius:10px;border-left:3px solid var(--teal)">
+<div style="font-size:0.88rem;color:var(--steel);line-height:1.7"><strong style="color:var(--navy)">This is why single-office practices need multi-state awareness.</strong> You don't need offices in multiple states. You just need patients who go home to states with AI laws — and a telehealth relationship that follows them there. AI Governance Shield&trade; maps your actual patient population against enacted and pending statutes across every jurisdiction your telehealth visits touch.</div>
+</div>
+<div style="text-align:center;margin-top:1.2rem"><a href="risk-assessment.html" style="display:inline-block;padding:10px 24px;border:2px solid #DC2626;color:#DC2626;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:5px;text-decoration:none;font-family:var(--sans)">See Your Exposure &rarr;</a></div>
+
+</div>
+</section>
+
+<!-- ═══════════ VISUAL BREAK — JURISDICTIONAL RISK MAP ═══════════ -->
+<div class="risk-map-section" style="background:var(--navy);padding:3rem 0;overflow:hidden;position:relative">
+<div class="risk-map-grid" style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:center">
+<!-- LEFT: Text -->
+<div>
+<div style="font-size:0.72rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal-light);font-weight:700;margin-bottom:0.6rem">Jurisdictional Risk</div>
+<div style="font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.9rem);color:#fff;font-weight:600;line-height:1.25;margin-bottom:1rem">Your telehealth footprint determines<br>your regulatory exposure.</div>
+<div style="font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.7">Every patient who returns home to a state with an enacted AI law extends your compliance obligations to that jurisdiction. We map your actual patient population against every statute.</div>
+</div>
+<!-- RIGHT: Abstract SVG visualization -->
+<div style="position:relative">
+<svg viewBox="0 0 480 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+<!-- Background grid -->
+<defs>
+<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/></pattern>
+</defs>
+<rect width="480" height="300" fill="url(#grid)"/>
+<!-- Abstract US outline suggestion -->
+<path d="M60 80 Q120 60 180 75 Q220 65 260 70 Q300 55 340 65 Q380 58 420 72 L430 85 Q435 100 420 120 L400 140 Q410 160 395 175 L370 180 Q360 195 340 190 L310 200 Q290 210 270 195 L240 200 Q220 210 200 200 L180 210 Q160 220 140 210 L120 200 Q100 210 85 195 L70 180 Q55 170 60 150 L55 130 Q50 110 60 80Z" fill="rgba(46,122,105,0.08)" stroke="rgba(46,122,105,0.2)" stroke-width="1"/>
+<!-- State risk nodes with ENHANCED pulsing -->
+<!-- TX - active, high risk -->
+<circle cx="220" cy="190" r="18" fill="rgba(220,38,38,0.15)" stroke="#DC2626" stroke-width="1.5"/>
+<circle cx="220" cy="190" r="8" fill="#DC2626" opacity="0.9"/>
+<circle cx="220" cy="190" r="18" fill="none" stroke="#DC2626" stroke-width="1.5" opacity="0.6">
+<animate attributeName="r" values="18;30;18" dur="2s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
+</circle>
+<circle cx="220" cy="190" r="18" fill="none" stroke="#DC2626" stroke-width="0.8" opacity="0.3">
+<animate attributeName="r" values="18;36;18" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+<animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+</circle>
+<text x="220" y="215" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">TX</text>
+<!-- CO - active, high risk -->
+<circle cx="195" cy="120" r="15" fill="rgba(124,58,237,0.15)" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="195" cy="120" r="7" fill="#7C3AED" opacity="0.9"/>
+<circle cx="195" cy="120" r="15" fill="none" stroke="#7C3AED" stroke-width="1.5" opacity="0.6">
+<animate attributeName="r" values="15;26;15" dur="2.4s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.6;0;0.6" dur="2.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="195" cy="120" r="15" fill="none" stroke="#7C3AED" stroke-width="0.8" opacity="0.3">
+<animate attributeName="r" values="15;32;15" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+<animate attributeName="opacity" values="0.3;0;0.3" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+</circle>
+<text x="195" y="142" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">CO</text>
+<!-- FL - moderate -->
+<circle cx="340" cy="195" r="16" fill="rgba(194,125,25,0.15)" stroke="#C27D19" stroke-width="1.5"/>
+<circle cx="340" cy="195" r="7" fill="#C27D19" opacity="0.9"/>
+<circle cx="340" cy="195" r="16" fill="none" stroke="#C27D19" stroke-width="1.5" opacity="0.6">
+<animate attributeName="r" values="16;27;16" dur="2.2s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.6;0;0.6" dur="2.2s" repeatCount="indefinite"/>
+</circle>
+<circle cx="340" cy="195" r="16" fill="none" stroke="#C27D19" stroke-width="0.8" opacity="0.3">
+<animate attributeName="r" values="16;34;16" dur="2.2s" repeatCount="indefinite" begin="0.5s"/>
+<animate attributeName="opacity" values="0.3;0;0.3" dur="2.2s" repeatCount="indefinite" begin="0.5s"/>
+</circle>
+<text x="340" y="218" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">FL</text>
+<!-- NY - advancing -->
+<circle cx="390" cy="95" r="14" fill="rgba(220,38,38,0.12)" stroke="#DC2626" stroke-width="1.2"/>
+<circle cx="390" cy="95" r="6" fill="#DC2626" opacity="0.8"/>
+<circle cx="390" cy="95" r="14" fill="none" stroke="#DC2626" stroke-width="1" opacity="0.5">
+<animate attributeName="r" values="14;24;14" dur="2.6s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite"/>
+</circle>
+<text x="390" y="116" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">NY</text>
+<!-- CA - active -->
+<circle cx="80" cy="140" r="15" fill="rgba(46,122,105,0.15)" stroke="#2E7A69" stroke-width="1.5"/>
+<circle cx="80" cy="140" r="7" fill="#2E7A69" opacity="0.9"/>
+<circle cx="80" cy="140" r="15" fill="none" stroke="#2E7A69" stroke-width="1" opacity="0.5">
+<animate attributeName="r" values="15;25;15" dur="2.8s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.5;0;0.5" dur="2.8s" repeatCount="indefinite"/>
+</circle>
+<text x="80" y="162" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">CA</text>
+<!-- IL - active -->
+<circle cx="305" cy="115" r="12" fill="rgba(46,122,105,0.12)" stroke="#2E7A69" stroke-width="1.2"/>
+<circle cx="305" cy="115" r="5" fill="#2E7A69" opacity="0.8"/>
+<circle cx="305" cy="115" r="12" fill="none" stroke="#2E7A69" stroke-width="1" opacity="0.5">
+<animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+</circle>
+<text x="305" y="134" text-anchor="middle" font-family="DM Sans" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="600">IL</text>
+<!-- Smaller advancing dots -->
+<circle cx="360" cy="115" r="4" fill="rgba(194,125,25,0.5)"/><text x="360" y="128" text-anchor="middle" font-family="DM Sans" font-size="7" fill="rgba(255,255,255,0.3)">PA</text>
+<circle cx="415" cy="105" r="4" fill="rgba(194,125,25,0.5)"/><text x="415" y="118" text-anchor="middle" font-family="DM Sans" font-size="7" fill="rgba(255,255,255,0.3)">RI</text>
+<circle cx="280" cy="160" r="4" fill="rgba(194,125,25,0.5)"/><text x="280" y="173" text-anchor="middle" font-family="DM Sans" font-size="7" fill="rgba(255,255,255,0.3)">TN</text>
+<circle cx="370" cy="140" r="4" fill="rgba(194,125,25,0.5)"/><text x="370" y="153" text-anchor="middle" font-family="DM Sans" font-size="7" fill="rgba(255,255,255,0.3)">VA</text>
+<!-- Connection lines (telehealth exposure) -->
+<line x1="340" y1="195" x2="220" y2="190" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="340" y1="195" x2="195" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="340" y1="195" x2="305" y2="115" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="340" y1="195" x2="390" y2="95" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+<!-- Legend -->
+<rect x="16" y="250" width="8" height="8" rx="4" fill="#DC2626"/>
+<text x="30" y="258" font-family="DM Sans" font-size="8" fill="rgba(255,255,255,0.35)">In effect</text>
+<rect x="85" y="250" width="8" height="8" rx="4" fill="#7C3AED"/>
+<text x="99" y="258" font-family="DM Sans" font-size="8" fill="rgba(255,255,255,0.35)">Enforcement pending</text>
+<rect x="210" y="250" width="8" height="8" rx="4" fill="#C27D19"/>
+<text x="224" y="258" font-family="DM Sans" font-size="8" fill="rgba(255,255,255,0.35)">Existing law exposure</text>
+<rect x="345" y="250" width="8" height="8" rx="4" fill="#2E7A69"/>
+<text x="359" y="258" font-family="DM Sans" font-size="8" fill="rgba(255,255,255,0.35)">Active &amp; enacted</text>
+<!-- "FL Practice" label with arrow -->
+<text x="348" y="185" font-family="DM Sans" font-size="7" fill="rgba(255,255,255,0.25)" font-style="italic">Your practice</text>
+</svg>
+</div>
+</div>
+</div>
+
+<!-- ═══════════ AI REALITY — COMPRESSED: CLINICAL ACCURACY + CODING ═══════════ -->
+<section id="reality" class="section">
+<div class="container">
+<div class="eyebrow" style="color:#DC2626">What Your AI Vendor Isn't Telling You</div>
+<h2 class="stitle">AI Scribes Can Make Errors and <span style="white-space:nowrap">Inflate Codes.</span><br>The DOJ Noticed.</h2>
+<p class="lead">This is why your carrier is running.</p>
+
+<!-- DOJ CARD — MOVED TO TOP -->
+<div class="doj-card doj-accordion" style="cursor:pointer;margin-top:2rem">
+<div class="doj-tag">Federal Enforcement Priority</div>
+<h3>DOJ Formed a Working Group Targeting AI-Driven EHR Manipulation. CMS Is Using AI to Scan Your Claims.</h3>
+<p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:0">AI documentation inaccuracies meet the False Claims Act&rsquo;s &ldquo;reckless disregard&rdquo; standard. <strong style="color:var(--teal-light)">They&rsquo;re using AI to catch your AI.</strong> If your codes were inflated, they&rsquo;re already looking.</p>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.1)">
+<div style="text-align:center"><div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#E8827A;line-height:1">$556M</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:0.4rem;line-height:1.4">Kaiser &middot; Jan 2026<br>AI code inflation</div></div>
+<div style="text-align:center"><div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#E8827A;line-height:1">$6.8B</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:0.4rem;line-height:1.4">FCA recoveries FY 2025<br>AI/EHR fraud named priority</div></div>
+<div style="text-align:center"><div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#E8827A;line-height:1">5,586</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:0.4rem;line-height:1.4">Providers revoked<br>CMS CRUSH &middot; Feb 2026</div></div>
+<div style="text-align:center"><div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#E8827A;line-height:1">2026</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:0.4rem;line-height:1.4">AI healthcare fraud<br>DOJ enforcement priority</div></div>
+</div>
+<div style="font-size:0.8rem;color:var(--teal-light);font-weight:600;margin-top:1.2rem;border-bottom:1px dashed rgba(61,139,122,0.4);display:inline-block;padding-bottom:1px" class="doj-toggle-btn">+ Details</div>
+<div class="doj-detail-block" style="display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1)">
+<p style="font-size:0.86rem;color:rgba(255,255,255,0.65);line-height:1.7">The DOJ and HHS-OIG created a dedicated FCA Working Group (July 2, 2025) targeting <strong style="color:#fff">&ldquo;Manipulation of Electronic Health Records systems to drive inappropriate utilization.&rdquo;</strong> Bloomberg Law confirms AI-related healthcare fraud is a named 2026 enforcement priority. Kaiser Permanente affiliates settled for $556M after data analytics tools inflated diagnosis codes &mdash; AI scribes do the same thing, faster, at scale, and your name is on every note. <strong style="color:var(--teal-light)">CMS launched the CRUSH initiative in February 2026 &mdash; using AI to scan millions of claims and revoking billing privileges for 5,586 providers.</strong> <strong style="color:#fff">If AI inflated your codes and you signed the notes, this working group is already looking for you.</strong></p>
+</div>
+</div>
+
+<!-- CATEGORY 1: CLINICAL ACCURACY -->
+<div style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:2.5rem;margin-top:2rem;border-left:4px solid #DC2626">
+<div style="font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:1rem">Clinical Accuracy</div>
+
+<div class="reality-lead">
+<div class="reality-num red">$2.8M</div>
+<div class="reality-text"><strong>Estimated annual False Claims Act exposure per provider: over $2.8 million</strong> — before malpractice liability, payer recoupment, or state penalties. 26.3% error rate across major platforms. Up to <strong>$28,619 per false claim plus treble damages</strong>.</div>
+</div>
+
+<div class="content-accordion" style="margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice);cursor:pointer">
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.6rem">
+<div class="rline"><span class="rdot r"></span><strong>26.3% error rate across five major AI scribe platforms</strong> — Mayo Clinic, JAMA Ophthalmology, 2025. While most errors were low-severity, <strong>each one is a documentation defect in a signed chart</strong> — and documentation defects are what trigger FCA exposure.</div>
+<div class="rline"><span class="rdot r"></span><strong>18.5% of safety feedback involved wrong medications</strong> — UCSF/Abridge study. Incorrect drug names, dosages, or instructions recorded in the chart you signed.</div>
+<div class="rline"><span class="rdot a"></span><strong>AI documented physical exams that never happened</strong> — Columbia University, npj Digital Medicine. Entire clinical findings fabricated from nothing.</div>
+<div class="rline"><span class="rdot a"></span><strong>50% of AI-influenced errors invisible to the clinician</strong> — every physician denied having been influenced. Measurable deskilling occurs within 90 days.</div>
+</div>
+</div>
+</div>
+
+<!-- VISUAL BREAK -->
+<div style="margin:2rem 0;padding:1.2rem 2rem;text-align:center;border-top:2px solid var(--ice);border-bottom:2px solid var(--ice)">
+<div style="font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--navy);line-height:1.4">The errors aren't the worst part.<br><span style="color:#DC2626">The billing patterns are.</span></div>
+</div>
+
+<!-- CATEGORY 2: CODING ARMS RACE -->
+<div style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:2.5rem;border-left:4px solid #7C3AED">
+<div style="font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:#7C3AED;font-weight:700;margin-bottom:1rem">The Coding Arms Race</div>
+
+<div class="reality-lead">
+<div class="reality-num purple">$90M</div>
+<div class="reality-text"><strong>Two $45M DOJ settlements — and counting.</strong> EHRs programmed to auto-upcode. AI scribes are the next generation of the same pattern — vendors now market revenue uplift, not burnout reduction. 6+ major payers already auto-downcoding AI-inflated claims.</div>
+</div>
+
+<div class="content-accordion" style="margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice);cursor:pointer">
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.6rem">
+<div class="rline"><span class="rdot p"></span><strong>+11% physician work RVUs after AI scribe deployment</strong> — Riverside Health. 14% increase in documented HCC diagnoses per encounter.</div>
+<div class="rline"><span class="rdot p"></span><strong>3.0 → 4.1 diagnoses per encounter</strong> — Texas Oncology after AI deployment. More diagnoses = higher risk-adjusted payments = payer and federal scrutiny.</div>
+<div class="rline"><span class="rdot r"></span><strong>6+ major payers now auto-downcoding AI-inflated claims</strong> — Cigna (Oct 2025), Aetna, Humana, BCBS, UnitedHealthcare, Wellcare all targeting AI documentation patterns.</div>
+<div class="rline"><span class="rdot r"></span><strong>If payers don't catch it, the DOJ will</strong> — signing AI-generated notes without meaningful review meets the False Claims Act's "reckless disregard" standard. The liability is yours.</div>
+</div>
+</div>
+</div>
+
+<!-- TEXAS AG PRECEDENT — condensed with accordion -->
+<div class="content-accordion" style="margin-top:1.5rem;background:#fff;border:1px solid var(--ice);border-radius:10px;padding:2rem;border-left:4px solid #DC2626;cursor:pointer">
+<div style="font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:0.5rem">First State Enforcement</div>
+<div style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;line-height:1.3">Texas AG v. Pieces Technologies — Vendor Claimed "&lt;0.001%" Hallucination Rate. AG Found It Deceptive.</div>
+<div style="font-size:0.86rem;color:var(--steel);line-height:1.7"><strong>If your vendor's accuracy numbers are wrong — you're the one holding the bag.</strong> Your vendor's contract shifts all liability to your practice.</div>
+<div class="ca-toggle">+ Details</div>
+<div class="ca-detail" style="margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice)">
+<div style="font-size:0.86rem;color:var(--steel);line-height:1.7">The vendor marketed a hallucination rate of "&lt;0.001%." The Texas AG found the claim was likely inaccurate and deceptive. You signed the notes. Your name is on the chart. <strong style="color:#DC2626">Your vendor's contract almost certainly shifts all compliance and regulatory liability to your practice.</strong></div>
+<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ice);text-align:center;font-size:0.9rem;color:var(--teal);font-weight:600">We can show you exactly where your vendor agreement leaves you exposed.</div>
+</div>
+</div>
+
+</div>
+</section>
+<!-- ═══════════ PENALTIES — SLIMMED ═══════════ -->
+<section id="penalties" class="section section-alt">
+<div class="container">
+<div class="eyebrow">Penalty Exposure</div>
+<h2 class="stitle">The Penalties Stack.<br>Across Every Jurisdiction.</h2>
+<p class="lead">When your carrier won't cover you, the standard of care exposes you, <strong>and</strong> the state fines you — the numbers add up fast. Certification is the documented evidence that you took this seriously before any of it hit.</p>
+
+<div style="max-width:800px;margin:0 auto">
+<div class="penalty-card" style="padding:2rem;text-align:left">
+<div style="text-align:center"><div class="penalty-num">$10K–$200K</div>
+<div class="penalty-ctx">per violation — Texas TRAIGA — curable or not, the penalties stack across every jurisdiction</div></div>
+<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-top:1.2rem">
+<div style="display:flex;gap:10px;min-width:max-content">
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid var(--teal)"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:4px">HIPAA</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">$73K</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">per violation</div><div style="font-size:0.72rem;color:var(--steel);margin-top:6px;line-height:1.4">Criminal: $250K + 10 years</div></div>
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid #DC2626"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:4px">Texas</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">$450K</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">combined per violation</div><div style="font-size:0.72rem;color:#DC2626;margin-top:6px;font-weight:600">In effect now</div></div>
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid #7C3AED"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#7C3AED;font-weight:700;margin-bottom:4px">Colorado</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">$20K</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">per consumer · no cap</div><div style="font-size:0.72rem;color:var(--steel);margin-top:6px">500 patients = $10M</div></div>
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid var(--amber)"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:4px">Florida</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">$500K</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">per breach</div><div style="font-size:0.72rem;color:var(--steel);margin-top:6px">+ 3rd-degree felony</div></div>
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid #DC2626"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#DC2626;font-weight:700;margin-bottom:4px">New York</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">Actual</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">damages + atty fees</div><div style="font-size:0.72rem;color:#DC2626;margin-top:6px;font-weight:600">Cannot be disclaimed</div></div>
+<div style="width:180px;flex-shrink:0;background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px;border-top:3px solid var(--teal)"><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:4px">Illinois</div><div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1">$10K</div><div style="font-size:0.72rem;color:var(--silver);margin-top:2px">per violation</div><div style="font-size:0.72rem;color:#DC2626;margin-top:6px;font-weight:600">In effect Aug 2025</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ADDITIONAL EXPOSURE -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem">
+<div style="padding:1.2rem;background:#fff;border:1px solid var(--ice);border-radius:10px;display:flex;gap:14px;align-items:flex-start">
+<span class="exp-dot" style="margin-top:4px"></span>
+<div><div class="exp-label">Civil Liability Exposure</div><div class="exp-desc"><strong style="color:#DC2626">Existing tort and negligence claims are explicitly preserved even where AI-specific statutes lack private rights of action.</strong></div></div>
+</div>
+<div style="padding:1.2rem;background:#fff;border:1px solid var(--ice);border-radius:10px;display:flex;gap:14px;align-items:flex-start">
+<span class="exp-dot" style="margin-top:4px"></span>
+<div><div class="exp-label">Contractual &amp; Reputational Risk</div><div class="exp-desc">Vendor liability gaps, indemnification failures, patient trust erosion, and institutional credibility damage that compounds.</div></div>
+</div>
+</div>
+<!-- IT'S ALREADY HAPPENING — Sharp HealthCare — CONDENSED -->
+<div class="case-callout" style="cursor:pointer" onclick="var d=this.querySelector('.sharp-detail');var t=this.querySelector('.sharp-toggle');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}">
+<div class="case-tag">It's Already Happening</div>
+<h3>Saucedo v. Sharp HealthCare — First AI Scribe Class Action (Nov 2025)</h3>
+<p>AI scribe recorded doctor-patient conversations <strong>without informed consent</strong>, transmitted audio to third-party cloud. Class certification sought for every California patient recorded since April 2025. <strong>Every ambient AI scribe — Abridge, DAX, Suki, Freed — carries the same risk.</strong></p>
+<div style="font-size:0.8rem;color:var(--teal);font-weight:600;margin-top:0.6rem;border-bottom:1px dashed rgba(46,122,105,0.4);display:inline-block;padding-bottom:1px" class="sharp-toggle">+ Details</div>
+<div class="sharp-detail" style="display:none;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice)">
+<p style="font-size:0.86rem;color:var(--steel);line-height:1.7">Filed in San Diego Superior Court. The plaintiff alleges Sharp HealthCare used <strong>Abridge</strong> to record doctor-patient conversations, transmitted audio to a third-party cloud for processing, and documented in the chart that the patient "consented" — when he had not. The lawsuit invokes California's <strong>Invasion of Privacy Act</strong> (wiretapping) and <strong>Confidentiality of Medical Information Act</strong>.</p>
+<p style="margin-top:0.8rem;font-size:0.86rem;color:var(--steel);line-height:1.7"><strong>The question is not whether more lawsuits are coming. It's whether your practice has the documentation to defend one.</strong></p>
+</div>
+<div class="case-bottom">Documented governance doesn't prevent lawsuits. It's the difference between a defended claim and a catastrophic one.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════ BRIDGE ═══════════ -->
+<section class="section-navy" style="padding:5rem 0">
+<div class="container" style="max-width:860px;text-align:center">
+
+<div class="bridge-tiles" style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;margin-bottom:3.5rem">
+<div style="padding:2rem 1.2rem;border-right:1px solid rgba(255,255,255,0.07);position:relative"><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#DC2626"></div><div style="font-family:var(--serif);font-size:1.15rem;color:#fff;font-weight:600;line-height:1.2">Your Carrier</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.32);letter-spacing:1px;text-transform:uppercase;margin-top:0.35rem">Malpractice coverage</div></div>
+<div style="padding:2rem 1.2rem;border-right:1px solid rgba(255,255,255,0.07);position:relative"><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#DC2626"></div><div style="font-family:var(--serif);font-size:1.15rem;color:#fff;font-weight:600;line-height:1.2">47 States</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.32);letter-spacing:1px;text-transform:uppercase;margin-top:0.35rem">Active legislation</div></div>
+<div style="padding:2rem 1.2rem;border-right:1px solid rgba(255,255,255,0.07);position:relative"><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#DC2626"></div><div style="font-family:var(--serif);font-size:1.15rem;color:#fff;font-weight:600;line-height:1.2">Plaintiffs&rsquo; Bar</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.32);letter-spacing:1px;text-transform:uppercase;margin-top:0.35rem">AI claims filed</div></div>
+<div style="padding:2rem 1.2rem;position:relative"><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#DC2626"></div><div style="font-family:var(--serif);font-size:1.15rem;color:#fff;font-weight:600;line-height:1.2">DOJ &amp; CMS</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.32);letter-spacing:1px;text-transform:uppercase;margin-top:0.35rem">Enforcement underway</div></div>
+</div>
+
+<div style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;font-weight:600;line-height:1.25;margin-bottom:2rem">None of them are waiting.<br><em style="color:var(--teal-light);font-style:italic">Neither should you.</em></div>
+
+<a href="risk-assessment.html" class="btn-primary bridge-cta-btn" style="font-size:0.88rem;padding:16px 40px;letter-spacing:1.2px;box-shadow:0 4px 20px rgba(46,122,105,0.35)">Start Certification &rarr;</a>
+
+</div>
+</section>
+<!-- ═══════════ COST COMPARISON ═══════════ -->
+<section class="section">
+<div class="container">
+<div class="eyebrow" style="color:#DC2626">One Incident vs. One Certification</div>
+<h2 class="stitle">Every bar is a single event.</h2>
+<p class="lead">In addition to the penalties, exclusions, and enforcement actions above — here is what one incident actually costs.</p>
+<div style="background:#fff;border:1px solid var(--ice);border-radius:10px;padding:24px;max-width:800px">
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px;margin-bottom:10px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:600;color:var(--steel);text-align:right;line-height:1.2">Malpractice<br>(no governance)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:72%;height:100%;background:#DC2626;border-radius:5px;display:flex;align-items:center;padding:0 10px"><span style="font-size:11px;font-weight:700;color:#fff">$150K – $500K</span></div></div></div>
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px;margin-bottom:10px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:600;color:var(--steel);text-align:right;line-height:1.2">Common law<br>negligence</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:68%;height:100%;background:#DC2626;border-radius:5px;display:flex;align-items:center;padding:0 10px"><span style="font-size:11px;font-weight:700;color:#fff">$100K – $400K</span></div></div></div>
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px;margin-bottom:10px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:600;color:var(--steel);text-align:right;line-height:1.2">PE due diligence<br>(deal repriced)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:95%;height:100%;background:#7C3AED;border-radius:5px;display:flex;align-items:center;padding:0 10px"><span style="font-size:11px;font-weight:700;color:#fff">$500K – $2M+</span></div></div></div>
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px;margin-bottom:10px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:600;color:var(--steel);text-align:right;line-height:1.2">Practice valuation<br>(ungoverned AI)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:82%;height:100%;background:#7C3AED;border-radius:5px;display:flex;align-items:center;padding:0 10px"><span style="font-size:11px;font-weight:700;color:#fff">$200K – $1M+</span></div></div></div>
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:600;color:var(--steel);text-align:right;line-height:1.2">Payer recoupment<br>(AI-inflated codes)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:55%;height:100%;background:#DC2626;border-radius:5px;display:flex;align-items:center;padding:0 10px"><span style="font-size:11px;font-weight:700;color:#fff">$75K – $300K</span></div></div></div>
+<div style="margin-top:14px;border-top:2px solid var(--teal);padding-top:12px">
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px;margin-bottom:6px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:700;color:var(--teal);text-align:right">Certification (solo)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:1.4%;height:100%;background:var(--teal);border-radius:5px;display:flex;align-items:center;padding:0 10px;min-width:65px"><span style="font-size:11px;font-weight:700;color:#fff">$3,500</span></div></div></div>
+<div class="cost-bar-row" style="display:flex;align-items:center;gap:12px"><div class="cost-bar-label" style="width:130px;font-size:11px;font-weight:700;color:var(--teal);text-align:right">Certification (group)</div><div style="flex:1;height:26px;background:var(--snow);border-radius:5px"><div style="width:3.2%;height:100%;background:var(--teal);border-radius:5px;display:flex;align-items:center;padding:0 10px;min-width:65px"><span style="font-size:11px;font-weight:700;color:#fff">$8,000</span></div></div></div>
+</div>
+</div>
+<div style="margin-top:1.5rem">
+<div class="eyebrow" style="color:#DC2626">Real-World Exposure</div>
+<div style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600;margin-bottom:4px">What it looks like when it hits your practice.</div>
+<p style="font-size:0.82rem;color:var(--steel);margin-bottom:12px">Each scenario uses enacted law, published data, or documented market behavior. None are hypothetical.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px 16px;border-left:4px solid #7C3AED;display:flex;gap:14px;align-items:center"><div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#7C3AED;line-height:1;min-width:68px">$2M+</div><div><div style="font-family:var(--serif);font-size:0.85rem;color:var(--navy);font-weight:600;line-height:1.25"><span style="color:var(--teal)">Your group</span> is being acquired. Governance gaps surface.</div><div style="font-size:9px;color:var(--silver);font-style:italic;margin-top:3px">Sheppard Mullin, Oct 2025</div></div></div>
+<div style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px 16px;border-left:4px solid #DC2626;display:flex;gap:14px;align-items:center"><div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#DC2626;line-height:1;min-width:68px">$400K</div><div><div style="font-family:var(--serif);font-size:0.85rem;color:var(--navy);font-weight:600;line-height:1.25">Patient sues <span style="color:var(--teal)">your practice</span>. No AI statute needed.</div><div style="font-size:9px;color:var(--silver);font-style:italic;margin-top:3px">FSMB, May 2024 · NPDB 2023</div></div></div>
+<div style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px 16px;border-left:4px solid #DC2626;display:flex;gap:14px;align-items:center"><div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#DC2626;line-height:1;min-width:68px">$300K</div><div><div style="font-family:var(--serif);font-size:0.85rem;color:var(--navy);font-weight:600;line-height:1.25"><span style="color:var(--teal)">Your payer</span> flags 18 months of AI-inflated codes.</div><div style="font-size:9px;color:var(--silver);font-style:italic;margin-top:3px">CMS CRUSH · Kaiser $556M</div></div></div>
+<div style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:14px 16px;border-left:4px solid #7C3AED;display:flex;gap:14px;align-items:center"><div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#7C3AED;line-height:1;min-width:68px">$1M+</div><div><div style="font-family:var(--serif);font-size:0.85rem;color:var(--navy);font-weight:600;line-height:1.25"><span style="color:var(--teal)">You're selling.</span> Buyer asks about AI governance.</div><div style="font-size:9px;color:var(--silver);font-style:italic;margin-top:3px">Grant Thornton, 2025</div></div></div>
+</div>
+<div style="text-align:center;margin-top:20px"><div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#DC2626;line-height:1">43x – 214x</div><div style="font-size:0.68rem;color:var(--silver);margin-top:2px;letter-spacing:1px;text-transform:uppercase">exposure-to-certification ratio</div><div style="margin-top:1rem"><a href="risk-assessment.html" style="display:inline-block;padding:10px 24px;border:2px solid #DC2626;color:#DC2626;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:5px;text-decoration:none;font-family:var(--sans)">See Your Exposure &rarr;</a></div></div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════ FAQ — TOP 6 ═══════════ -->
+<section id="faq" class="section section-alt">
+<div class="container">
+<div class="eyebrow">Common Questions</div>
+<h2 class="stitle">What Practice Owners Ask Us</h2>
+<p class="lead">The questions we hear most — and the answers that change the conversation.</p>
+
+<div class="faq-grid">
+
+<div id="faq-why" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">Why do I need AI governance certification?</div>
+<div class="faq-a"><strong>Three things have already happened — and none of them require a new law to hurt you.</strong><br><br><strong>First, your carrier moved.</strong> As of January 2026, standard-form AI exclusion endorsements are available to every malpractice insurer in the country. W.R. Berkley, Hamilton Select, and Philadelphia Indemnity have already adopted them. These exclusions cover AI scribes, EHR algorithms, scheduling chatbots — any AI tool touching patient care. If your policy has one, an AI-related claim gets denied. You bear the full cost.<br><br><strong>Second, the laws are already enforceable.</strong> Texas TRAIGA carries $200,000 per uncurable violation. Illinois enacted two AI laws — the IHRA AI Amendment (employment discrimination, eff. Jan 2026) and the WOPR Act (HB 1806, $10,000 per violation for AI in therapy without licensed oversight, eff. Aug 2025). Colorado SB 24-205 enforces at $20,000 per consumer with no aggregate cap starting June 30, 2026. If you conduct telehealth follow-ups with patients who have returned to any of these states — and in Florida, with its snowbird population, you almost certainly do — those states\' laws apply to those encounters. Globally, the EU AI Act now classifies healthcare AI as high-risk and requires conformity assessments — U.S. states are building on that model.<br><br><strong>Third, the standard of care shifted.</strong> The Federation of State Medical Boards established that physicians are liable for AI errors just as for any diagnostic tool — and went further: <u>both reckless use and failure to use beneficial AI can fall below the standard of care.</u> You cannot opt out. You can only govern it or remain exposed on both sides.<br><br><strong>Independent third-party certification is the documented evidence that you govern AI properly.</strong> It's what carriers evaluate at renewal, what attorneys examine in litigation, and what regulators accept as good-faith compliance. Self-attestation carries zero evidentiary weight. Certification does.</div>
+</div>
+
+<div id="faq-contract" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">Doesn't my vendor contract protect me?</div>
+<div class="faq-a"><strong>It protects the vendor. Not you.</strong> Most AI scribe contracts shift all compliance, regulatory, and clinical liability to the practice. The vendor retains broad rights to modify their software — including changing the underlying AI model — without advance notice or your consent. Accuracy warranties are typically disclaimed entirely or limited to vague "commercially reasonable" standards that wouldn't survive regulatory scrutiny.<br><br>But even if you negotiated the most favorable vendor agreement possible — full indemnification, accuracy guarantees, mandatory model update notifications — that only governs your relationship with the vendor. <strong>It does nothing for your liability to patients under malpractice law, to payers under the False Claims Act, to regulators under state AI laws, or to carriers under your insurance policy.</strong> Better vendor terms might give you a contribution claim against the vendor after you've already been sued — but they don't prevent the lawsuit, the regulatory fine, the payer recoupment, or the insurance denial.<br><br>Contracts are between you and your vendor. Governance is between you and everyone else — patients, payers, regulators, carriers. <strong>Our certification optionally includes a vendor governance assessment that identifies where your agreement leaves you exposed.</strong></div>
+</div>
+
+<div id="faq-states" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">I'm in Florida (or another state) — why do other states' AI laws apply to me?</div>
+<div class="faq-a">Because of telehealth. <strong>The practice of medicine occurs where the patient is physically located during the encounter — not where your office is.</strong> A Texas snowbird who sees you in-person at your Florida office? That visit is governed by Florida law. But when that patient returns home to Texas and you do a telehealth follow-up, <strong>Texas TRAIGA applies to that visit — $200,000 per uncurable violation</strong> — because the patient is now physically in Texas. The same logic applies to Colorado: a patient who visited Florida returns to Colorado, and your telehealth follow-up triggers SB 24-205 at <strong>$20,000 per consumer, no aggregate cap</strong>, once enforcement begins June 30, 2026. The Illinois WOPR Act (HB 1806) applies to behavioral health encounters where AI is used therapeutically — $10,000 per violation.<br><br>This is not hypothetical. <strong>71% of physicians now use telehealth weekly</strong> (AMA, 2024). If you conduct telehealth follow-ups with patients who have returned to states with enacted AI laws, those laws apply to those visits. Each cross-state telehealth encounter potentially triggers disclosure requirements, documentation obligations, and penalty exposure in the patient's state. As more states enact AI laws (47 states have introduced bills, 17 enacted in 2025 and counting), the compliance footprint for every telehealth-enabled practice expands with every out-of-state follow-up.</div>
+</div>
+
+<div id="faq-diy" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">Can't we just do this ourselves?</div>
+<div class="faq-a"><strong>Self-assessment has zero evidentiary weight when challenged.</strong> When a malpractice carrier evaluates your AI risk, when a plaintiff's attorney asks whether your governance was independently validated, when a regulator reviews your compliance posture — self-attestation is meaningless. Every credible governance standard requires independent third-party validation: SOC 2, ISO 27001, Joint Commission accreditation, HITRUST. The reason is straightforward: an independent assessor has no institutional blind spots, no incentive to overlook gaps, and produces documentation that carries legal weight precisely because it was not self-generated. <strong>Governance without independent validation is a binder on a shelf. Governance with certification is a legal defense.</strong></div>
+</div>
+
+<div id="faq-stopai" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">Can I just stop using AI?</div>
+<div class="faq-a">No — and that's the critical insight most practices miss. <u>The Federation of State Medical Boards issued guidance in May 2024 establishing that physicians are liable for AI errors just as for any diagnostic tool.</u> But FSMB went further: <strong><u>both reckless use of AI and failure to use beneficial AI can fall below the standard of care</u></strong>. This is the first licensing body to suggest that not using AI where it would benefit patients could itself be problematic. You cannot opt out. You can only choose whether you govern it properly or remain exposed on both sides.</div>
+</div>
+
+<div id="faq-exclusion" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">My carrier already added an AI exclusion. Is it too late?</div>
+<div class="faq-a">No — but the window to act is narrowing. Certification doesn't undo an existing exclusion. What it does give you is <strong>documented evidence to negotiate at renewal</strong>, a defensible governance posture to shop to competing carriers, and protection under any remaining coverage lines (E&O, cyber, general liability) that may still cover AI-adjacent claims. Carriers are rational — they exclude risks they can't evaluate. <strong>Give them something to evaluate.</strong> The cybersecurity insurance parallel is instructive: by 2022, carriers weren't just requiring security controls — they were offering better rates for documented frameworks. AI governance is on the same trajectory, roughly 12–18 months behind.</div>
+</div>
+
+<div id="faq-federal" class="faq-box" onclick="this.classList.toggle('open')">
+<div class="faq-q">The federal government is working on AI regulation. Should I wait?</div>
+<div class="faq-a"><strong>No. You're exposed right now — and waiting makes it worse.</strong><br><br>17 states have already enacted AI healthcare laws. Texas TRAIGA is in effect. Colorado SB 24-205 is in effect. Illinois, California, New York — all enforceable. These laws don't pause because Washington is drafting a framework. Your practice is subject to them today, through every telehealth visit that crosses state lines.<br><br>The federal executive order signed in December 2025 signals intent to establish a national AI standard — but <strong>an executive order does not preempt state law</strong>. Only Congress can do that through legislation, and the current legislative draft still requires governance obligations, risk assessments, and duty of care for high-risk AI in healthcare. The question isn't whether governance will be required — it's whether the framework is state, federal, or both.<br><br>Meanwhile, your malpractice carrier isn't waiting. Carrier exclusion decisions are private market decisions that no federal framework changes. The DOJ False Claims Act applies regardless. Common law negligence applies regardless. The standard of care applies regardless. None of these depend on AI-specific statutes.<br><br><strong>Practices that certify now are governed before any mandate — state or federal — requires it.</strong> When the framework arrives, you're already compliant. Practices that wait will certify under pressure, at higher cost, with less favorable terms.</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process" class="section">
+<div class="container">
+<div class="eyebrow">Methodology</div>
+<h2 class="stitle">How Certification Works</h2>
+<p class="lead"><strong>No site visits. No IT integration. Minimal disruption to your practice.</strong></p>
+
+<div class="proc-steps" style="margin-top:2rem">
+<div class="proc-step"><div class="proc-num">1</div><h3>Engage</h3><p>Define scope. Collect evidence. Tailored to your practice, your AI systems, and your patient footprint.</p></div>
+<div class="proc-step"><div class="proc-num">2</div><h3>Assess</h3><p>Independent evaluation against our governance framework — documentation accuracy, provider oversight, coding defensibility, vendor risk, regulatory alignment.</p></div>
+<div class="proc-step"><div class="proc-num">3</div><h3>Certify</h3><p>Certification report, governance policies, and implementation tools your carrier, payer, or attorney can rely on.</p></div>
+</div>
+
+<div style="margin-top:2.5rem;text-align:center;font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--teal);line-height:1.4">Where no framework existed, we built one.</div>
+
+</div>
+</section>
+
+<!-- ═══════════ CERTIFICATION DELIVERABLES — NEW ═══════════ -->
+<section style="padding:2rem 0 3rem">
+<div class="container">
+<div class="eyebrow">What Certification Gives You</div>
+<h2 class="stitle">More than a report. A defensible position.</h2>
+<p class="lead">Every certification delivers the documentation your carrier evaluates at renewal, your attorney relies on in litigation, and your regulator accepts as good-faith compliance.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:1.2rem">
+<div style="background:var(--snow);border:1px solid var(--ice);border-radius:10px;padding:28px 24px;border-top:3px solid var(--teal)">
+<div style="text-align:center;font-size:2rem;margin-bottom:1rem">⚖️</div>
+<div style="font-family:var(--serif);font-weight:700;color:var(--navy);font-size:1.1rem;margin-bottom:1rem;text-align:center">Carrier Defensibility</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.7">
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Scored governance assessment report</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Multi-jurisdiction risk mapping</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Digitally verifiable certification badge</div>
+<div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Renewal-ready compliance summary</div>
+</div>
+</div>
+<div style="background:var(--snow);border:1px solid var(--ice);border-radius:10px;padding:28px 24px;border-top:3px solid var(--teal)">
+<div style="text-align:center;margin-bottom:1rem"><svg viewBox="0 0 72 84" fill="none" style="width:2.4rem;height:2.8rem"><defs><linearGradient id="hcShield" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A2E45"/><stop offset="48%" stop-color="#1E3A52"/><stop offset="52%" stop-color="#389680"/><stop offset="100%" stop-color="#4BA08E"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#hcShield)"/><circle cx="36" cy="40" r="13" fill="none" stroke="rgba(200,215,230,0.6)" stroke-width="1.8"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div>
+<div style="font-family:var(--serif);font-weight:700;color:var(--navy);font-size:1.1rem;margin-bottom:1rem;text-align:center">Litigation Protection</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.7">
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Complete governance policy documents</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Patient-facing AI disclosure templates</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Prioritized remediation roadmap</div>
+<div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Independent third-party validation</div>
+</div>
+</div>
+<div style="background:var(--snow);border:1px solid var(--ice);border-radius:10px;padding:28px 24px;border-top:3px solid var(--teal)">
+<div style="text-align:center;font-size:2rem;margin-bottom:1rem">📋</div>
+<div style="font-family:var(--serif);font-weight:700;color:var(--navy);font-size:1.1rem;margin-bottom:1rem;text-align:center">Operational Confidence</div>
+<div style="font-size:0.82rem;color:var(--steel);line-height:1.7">
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> AI governance staff training portal</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Ongoing monitoring checklists</div>
+<div style="display:flex;gap:8px;margin-bottom:0.5rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Implementation guidance</div>
+<div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--teal);font-weight:700;flex-shrink:0">&#10003;</span> Vendor risk evaluation framework</div>
+</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:1.5rem">
+<div style="font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);line-height:1.4">Everything your carrier, attorney, and regulator will ask for — in one package.</div>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="pricing">
+<div class="container">
+<div class="eyebrow">Service Tiers</div>
+<h2 class="stitle">Assessment Packages</h2>
+<p class="lead">Pricing scales with practice size, number of AI workflows, and jurisdictional scope.</p>
+
+<div class="grid-3col-pricing">
+
+<div class="price-card">
+<div class="price-tier">Tier 1</div>
+<div class="price-name">Solo / Small Practice</div>
+<div class="price-desc">1–3 providers · 1 AI system</div>
+<div class="price-amount">$3,500<span>*</span></div>
+<div class="price-per">per assessment</div>
+<div class="price-scope" style="font-size:0.78rem;line-height:1.65">
+<strong style="color:var(--navy)">Complete governance assessment</strong> of your AI workflow against certification criteria. Multi-jurisdiction gap identification across your telehealth footprint.
+<div class="content-accordion" style="margin-top:0.6rem;cursor:pointer">
+<div class="ca-toggle" style="font-size:0.72rem;color:var(--teal)">+ What's included</div>
+<div class="ca-detail" style="font-size:0.72rem;color:var(--silver);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid var(--ice)">Full assessment or certification report with scored findings · Complete governance documentation · Patient-facing disclosure materials · AI governance staff training · Ongoing monitoring tools · Implementation guidance</div>
+</div>
+</div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/4gM28tajz5yT4Xr10W5EY02" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+</div>
+
+<div class="price-card featured">
+<div class="price-badge">Most Common</div>
+<div class="price-tier">Tier 2</div>
+<div class="price-name">Group Practice</div>
+<div class="price-desc">4–20 providers · multiple AI systems</div>
+<div class="price-amount">$8,000<span>*</span></div>
+<div class="price-per">per assessment</div>
+<div class="price-scope" style="font-size:0.78rem;line-height:1.65">
+<strong style="color:#fff">Everything in Solo, plus:</strong> Multi-system assessment, expanded workflow analysis, federal AI risk alignment, vendor governance review.
+<div class="content-accordion" style="margin-top:0.6rem;cursor:pointer">
+<div class="ca-toggle" style="font-size:0.72rem;color:var(--teal-light)">+ Full scope</div>
+<div class="ca-detail" style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid rgba(255,255,255,0.1)">Each AI system assessed individually · Provider-level workflow variance analysis · Vendor-specific risk evaluation · Phased remediation roadmap with ownership assignments · Expanded governance documentation</div>
+</div>
+</div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/8x2bJ377n8L575z4d85EY04" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+</div>
+
+<div class="price-card">
+<div class="price-tier">Tier 3</div>
+<div class="price-name">Enterprise</div>
+<div class="price-desc">20+ providers · multiple systems &amp; locations</div>
+<div class="price-amount">$25,000<span>+</span></div>
+<div class="price-per">custom scoped</div>
+<div class="price-scope" style="font-size:0.78rem;line-height:1.65">
+<strong style="color:var(--navy)">Everything in Group, plus:</strong> Multi-site governance consistency, board-ready reporting, annual recertification pathway, dedicated assessment manager.
+<div class="content-accordion" style="margin-top:0.6rem;cursor:pointer">
+<div class="ca-toggle" style="font-size:0.72rem;color:var(--teal)">+ Full scope</div>
+<div class="ca-detail" style="font-size:0.72rem;color:var(--silver);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid var(--ice)">Cross-location governance analysis · Executive-level deliverables · Ongoing advisory relationship · Named point of contact · Are different locations handling AI differently?</div>
+</div>
+</div>
+<div style="margin-top:1.2rem;text-align:center"><a href="https://buy.stripe.com/3cI6oJ77n4uP0Hb6lg5EY06" class="btn-primary" style="padding:12px 28px;font-size:0.78rem">Begin Certification &rarr;</a></div>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:1rem;font-size:0.75rem;color:var(--silver)">* Optional certification extensions available based on assessment findings. See below.</div>
+
+<!-- BRIDGE — STACKED & CENTERED -->
+<div style="text-align:center;margin-top:2rem;margin-bottom:2.5rem">
+<div style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.4">Same rigorous methodology at every tier.</div>
+<div style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--teal);line-height:1.4;margin-top:0.3rem">Nobody else is doing this at the practice level.</div>
+</div>
+
+<!-- CERTIFICATION EXTENSIONS -->
+<div style="max-width:800px;margin-left:auto;margin-right:auto">
+<div style="text-align:center;margin-bottom:1.2rem">
+<div style="font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem">What's Included &amp; Available</div>
+<div style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600">Every Certification Includes Training. Extensions Go Deeper.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:0.6rem">
+
+<!-- INCLUDED FREE — LEAD WITH VALUE -->
+<div style="background:var(--teal-pale);border:2px solid var(--teal);border-radius:8px;padding:1.4rem 1.5rem">
+<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem">
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#fff;background:var(--teal);padding:3px 10px;border-radius:4px">Included Free</div>
+<div style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);font-weight:700">AI Governance Training <span style="font-family:var(--sans);font-size:0.72rem;font-weight:600;color:var(--teal);margin-left:0.5rem">No in-person sessions · No scheduling · No disruption</span></div>
+</div>
+<div style="font-size:0.85rem;color:var(--steel);line-height:1.7">Every certification includes AI governance training your staff completes independently. Documentation review, error identification, patient disclosure, incident reporting — tracked, acknowledged, and on file. <a href="training.html" style="color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px dashed var(--teal)">Staff training portal &rarr;</a></div>
+</div>
+
+<div style="text-align:center;margin:0.4rem 0;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--silver);font-weight:600">Optional Extensions — Recommended Based on Your Findings</div>
+
+<div class="ext-box" onclick="this.classList.toggle('open')" style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all 0.2s;border-left:3px solid var(--teal)">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-family:var(--serif);font-size:1rem;color:var(--navy);font-weight:600">Vendor Contract Governance Assessment</div></div>
+<div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;margin-left:1rem"><div style="font-size:0.85rem;font-weight:700;color:var(--navy)">$1,500 – $2,500</div><div style="font-size:0.8rem;color:var(--teal);font-weight:600;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px">+ Details</div></div>
+</div>
+<div class="ext-detail" style="display:none;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.7">We review your AI vendor agreements for <strong style="color:var(--navy)">liability allocation, indemnification gaps, model change notification clauses, accuracy warranty disclaimers, and regulatory responsibility shifts</strong>. You receive a structured report identifying where your agreement leaves your practice exposed — <u>ready to hand to your attorney</u> for contract renegotiation. Most AI vendor contracts shift all clinical, regulatory, and insurance liability to the practice. This assessment shows you exactly where.</div>
+</div>
+
+<div class="ext-box" onclick="this.classList.toggle('open')" style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all 0.2s;border-left:3px solid #7C3AED">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-family:var(--serif);font-size:1rem;color:var(--navy);font-weight:600">Colorado Enhanced Governance</div></div>
+<div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;margin-left:1rem"><div style="font-size:0.85rem;font-weight:700;color:var(--navy)">$1,500 – $2,500</div><div style="font-size:0.8rem;color:var(--teal);font-weight:600;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px">+ Details</div></div>
+</div>
+<div class="ext-detail" style="display:none;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.7">For practices with <strong style="color:var(--navy)">50+ FTE or substantial Colorado patient populations</strong>. SB 24-205 requires impact assessments, bias testing, consumer notification, and incident reporting — obligations that scale with practice size. This extension maps your specific Colorado exposure and produces the documentation the AG's office will evaluate at enforcement.</div>
+</div>
+
+<div class="ext-box" onclick="this.classList.toggle('open')" style="background:#fff;border:1px solid var(--ice);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all 0.2s;border-left:3px solid var(--amber)">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-family:var(--serif);font-size:1rem;color:var(--navy);font-weight:600">Multi-State Expansion Mapping</div></div>
+<div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;margin-left:1rem"><div style="font-size:0.85rem;font-weight:700;color:var(--navy)">Scoped at assessment</div><div style="font-size:0.8rem;color:var(--teal);font-weight:600;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px">+ Details</div></div>
+</div>
+<div class="ext-detail" style="display:none;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--ice);font-size:0.82rem;color:var(--steel);line-height:1.7">Your base assessment maps the jurisdictions your patient population touches. If your telehealth footprint spans <strong style="color:var(--navy)">high-exposure states beyond your primary jurisdiction</strong>, this extension provides full statutory mapping, disclosure requirement documentation, and jurisdiction-specific governance policies for each additional state. As new laws take effect, this keeps your certification current across every state your patients call home.</div>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:1rem;font-size:0.82rem;color:var(--steel);line-height:1.6;font-style:italic">Extensions are recommended based on your assessment findings — not sold upfront. If your governance is already strong in an area, we won't recommend what you don't need.</div>
+
+<div style="text-align:center;margin-top:1.5rem">
+<div style="font-family:var(--serif);font-size:1.45rem;color:var(--navy);font-weight:600;margin-bottom:8px">Certification is preventive care for your practice.</div>
+<div style="display:flex;justify-content:center;gap:10px;align-items:center">
+<span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--teal)">Trust</span>
+<span style="color:var(--ice);font-size:1.3rem">&middot;</span>
+<span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--teal)">Reputation</span>
+<span style="color:var(--ice);font-size:1.3rem">&middot;</span>
+<span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--teal)">Value</span>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="section">
+<div class="container">
+<div class="eyebrow">Who We Are</div>
+<h2 class="stitle">Independent Evaluation Authority</h2>
+<div style="border-left:3px solid var(--teal);padding-left:1.2rem">
+<p class="about-text">Sentinel Risk Group is an independent governance evaluation firm with <strong>no vendor affiliations, no product endorsements, and a rigorous independence screening process</strong>.</p>
+<p class="about-text" style="margin-top:1rem">Led by a <strong>healthcare attorney with over 20 years of in-house experience across hospital systems, medical groups, specialty practices, and managed care organizations</strong> — spanning compliance program design, risk management, regulatory affairs, and health information governance. Our assessment methodology draws on direct experience navigating the complex regulatory frameworks we evaluate against.</p>
+<p class="about-text" style="margin-top:1rem">Our extended team includes a <strong>clinical expert witness and practicing physician</strong> who reviews AI workflow integration from the provider's perspective, <strong>enterprise consulting alumni</strong> who bring institutional-grade audit methodology, and <strong>health IT specialists</strong> who evaluate the technical architecture of AI systems in clinical environments. Certification decisions are evidence-based and methodology-driven. <strong>We certify governance structure — not technology.</strong></p>
+</div>
+<div style="display:flex;gap:10px;margin-top:1.2rem;flex-wrap:wrap">
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:4px">Independent</div>
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:4px">No Vendor Affiliations</div>
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:4px">Evidence-Based</div>
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:4px">Attorney-Led</div>
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:4px 12px;border-radius:4px">Clinical Expert Network</div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="section-navy" style="padding:3.5rem 0">
+<div class="container">
+<div class="eyebrow" style="color:var(--teal-light)">Next Step</div>
+<div style="max-width:700px;margin:0 auto;text-align:center">
+<h2 class="stitle" style="color:#fff;max-width:none;margin-bottom:0.5rem">Ready to Certify Your Practice?</h2>
+<p class="lead" style="color:rgba(255,255,255,0.5);margin-bottom:1.5rem;max-width:none">Select your tier, complete payment through our secure portal, and begin your intake. No scheduling required.</p>
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+<a href="#pricing" class="btn-primary" style="padding:14px 36px">Start Your Certification</a>
+<a href="risk-assessment.html" class="btn-exposure" style="display:inline-block;padding:13px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:4px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)">Free Risk Assessment &rarr;</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-top:1rem">
+<div style="padding:1.2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px">
+<div style="font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:0.4rem">Step 1</div>
+<div style="font-size:0.85rem;color:rgba(255,255,255,0.7);font-weight:600">Select &amp; Pay</div>
+<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;line-height:1.5">Choose your tier. Secure payment via Stripe.</div>
+</div>
+<div style="padding:1.2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px">
+<div style="font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:0.4rem">Step 2</div>
+<div style="font-size:0.85rem;color:rgba(255,255,255,0.7);font-weight:600">Complete Intake</div>
+<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;line-height:1.5">Terms, BAA, and practice intake — all in one form.</div>
+</div>
+<div style="padding:1.2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px">
+<div style="font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:0.4rem">Step 3</div>
+<div style="font-size:0.85rem;color:rgba(255,255,255,0.7);font-weight:600">Assessment Begins</div>
+<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;line-height:1.5">We begin within 48 hours of intake completion.</div>
+</div>
+</div>
+<div style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.35)">Questions? <a href="mailto:admin@sentinelriskgrp.com" style="color:var(--teal-light);text-decoration:none">admin@sentinelriskgrp.com</a></div>
+</div>
+</div>
+</section>
+
+<!-- DIVIDER — breaks dark CTA from dark footer -->
+<div style="height:4px;background:var(--snow)"></div>
+
+<!-- FOOTER -->
+<footer>
+<div class="foot-top">
+<div><div class="foot-brand-name">Sentinel Risk Group</div><div class="foot-tagline">Governance defines defensibility.</div><div class="foot-desc">Independent AI governance evaluation, clinical workflow risk assessment, and defensibility certification for healthcare organizations.</div>
+<div style="margin-top:1.2rem">
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:0.5rem">Regulatory Updates</div>
+<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:0.6rem;line-height:1.5">Monthly AI healthcare regulatory intelligence. Free.</div>
+<form style="display:flex;gap:6px" onsubmit="event.preventDefault()">
+<input type="email" placeholder="Enter your email" style="flex:1;padding:8px 12px;border-radius:5px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;font-family:var(--sans);font-size:0.8rem;outline:none">
+<button type="submit" style="padding:8px 16px;background:var(--teal);color:#fff;border:none;border-radius:5px;font-family:var(--sans);font-size:0.75rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:background 0.2s" onmouseover="this.style.background='#097565'" onmouseout="this.style.background='var(--teal)'">Subscribe</button>
+</form>
+<div style="font-size:0.62rem;color:rgba(255,255,255,0.2);margin-top:0.4rem">No spam. Unsubscribe anytime.</div>
+</div>
+</div>
+<div class="foot-col"><h5>Resources</h5><a href="advisors.html" style="color:var(--teal-light);font-weight:600">For Brokers &amp; Attorneys</a><a href="verify.html" style="color:var(--teal-light);font-weight:600">Verify Certification</a><a href="portal-help.html" style="color:var(--teal-light);font-weight:600">Portal Help</a><a href="#regulatory">Regulatory Landscape</a><a href="#about">About Our Team</a><a href="#faq">FAQ</a></div>
+<div class="foot-col"><h5>Services</h5><a href="#process">Certification Process</a><a href="#pricing">Assessment Packages</a><a href="risk-assessment.html">Free Risk Assessment</a></div>
+</div>
+<div class="foot-bottom">
+<div class="foot-copy" style="display:flex;align-items:center;gap:12px"><a href="https://instagram.com/sentinelriskgroup" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.35;transition:opacity 0.2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.35'" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#fff"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><span>2026 Sentinel Risk Group. All rights reserved. AI Governance Shield&trade; is a trademark of Sentinel Risk Group.</span></div>
+<div class="foot-legal-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+</div>
+<div style="padding:1.2rem 2rem 0;max-width:1100px;margin:0 auto">
+<p style="font-size:0.62rem;color:rgba(255,255,255,0.15);line-height:1.6"><strong>Disclaimer:</strong> The information on this website is provided for general informational purposes only and does not constitute legal, financial, insurance, or compliance advice. AI Governance Shield™ certification is an independent governance evaluation service and does not guarantee regulatory compliance, insurance coverage, legal protection, or immunity from enforcement actions. Applicable laws, regulations, and insurance policy terms vary by jurisdiction and are subject to change. Specific penalty amounts, enforcement provisions, and statutory requirements referenced on this site reflect publicly available information as of the date of publication and may have been amended. Practices should consult qualified legal counsel for advice specific to their circumstances. Sentinel Risk Group is not a law firm, insurance company, or government agency.</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#faq-"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const id=this.getAttribute('href').substring(1);const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>{if(!el.classList.contains('open'))el.classList.add('open')},400)}})});
+document.querySelectorAll('a[href^="#"]:not([href^="#faq-"])').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h.length>1){e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth'})}})});
+document.querySelectorAll('.ext-box').forEach(b=>{b.addEventListener('click',function(){const d=this.querySelector('.ext-detail');const t=this.querySelector('div[style*="flex-shrink"]');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}})});
+document.querySelectorAll('.ins-accordion').forEach(b=>{b.addEventListener('click',function(){const d=this.querySelector('.ins-detail');const t=this.querySelector('.ins-toggle');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}})});
+document.querySelectorAll('.law-accordion').forEach(b=>{b.addEventListener('click',function(){const d=this.querySelector('.law-detail');const t=this.querySelector('.law-toggle');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}})});
+/* NEW: content-accordion toggle handler */
+document.querySelectorAll('.content-accordion').forEach(b=>{b.addEventListener('click',function(){const d=this.querySelector('.ca-detail');const t=this.querySelector('.ca-toggle');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}})});
+/* NEW: DOJ card toggle handler */
+document.querySelectorAll('.doj-accordion').forEach(b=>{b.addEventListener('click',function(){const d=this.querySelector('.doj-detail-block');const t=this.querySelector('.doj-toggle-btn');if(d){d.style.display=d.style.display==='none'?'block':'none';if(t)t.textContent=d.style.display==='none'?'+ Details':'− Details'}})});
+</script>
 </body>
 </html>
