@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate of AI Governance Certification — Sentinel Risk Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: letter portrait; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f1f5f9;
+    color: #0C1B2E;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Print toolbar (hidden when printing) */
+  .toolbar {
+    width: 8.5in;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #64748B;
+  }
+  .toolbar .org { font-weight: 700; color: #0C1B2E; font-size: 14px; }
+  .toolbar button {
+    background: #0C1B2E;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .toolbar button:hover { background: #3D8B7A; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none; }
+  }
+
+  /* Certificate page */
+  .cert-page {
+    width: 8.5in;
+    height: 11in;
+    max-width: 100%;
+    position: relative;
+    background: #FAF7F2;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+
+  /* Triple border */
+  .border-outer { position: absolute; inset: 0.5in; border: 2.5px solid #0C1B2E; pointer-events: none; }
+  .border-gold  { position: absolute; inset: 0.575in; border: 0.5px solid #C9A96E; pointer-events: none; }
+  .border-inner { position: absolute; inset: 0.65in; border: 0.8px solid #3D8B7A; pointer-events: none; }
+  .corner { position: absolute; width: 6px; height: 6px; background: #3D8B7A; border-radius: 50%; }
+  .corner.tl { top: 0.62in; left: 0.62in; }
+  .corner.tr { top: 0.62in; right: 0.62in; }
+  .corner.bl { bottom: 0.62in; left: 0.62in; }
+  .corner.br { bottom: 0.62in; right: 0.62in; }
+
+  /* Upper content */
+  .content-top {
+    position: absolute;
+    top: 0.9in;
+    left: 1in; right: 1in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .company {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 15pt;
+    letter-spacing: 4px;
+    color: #0C1B2E;
+    text-transform: uppercase;
+  }
+  .divider-teal { width: 200px; height: 0.6px; background: #3D8B7A; margin: 7px 0; }
+  .product {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 3px;
+    color: #3D8B7A;
+    text-transform: uppercase;
+  }
+  .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 38pt;
+    color: #0C1B2E;
+    margin-top: 48px;
+    line-height: 1;
+  }
+  .divider-gold { width: 280px; height: 1px; background: #C9A96E; margin: 12px 0; }
+  .certifies {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    color: #64748B;
+    margin-top: 26px;
+  }
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 30pt;
+    color: #0C1B2E;
+    margin-top: 14px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid #E2E8F0;
+    min-width: 340px;
+    text-align: center;
+    max-width: 5.5in;
+  }
+  .body-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10.5pt;
+    color: #64748B;
+    line-height: 1.7;
+    text-align: center;
+    margin-top: 22px;
+    max-width: 440px;
+  }
+
+  /* Seal */
+  .seal-wrap {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5.55in;
+    width: 1.9in; height: 1.9in;
+  }
+  .seal-wrap svg { width: 100%; height: 100%; }
+
+  /* Details */
+  .details {
+    position: absolute;
+    bottom: 1.35in;
+    left: 1.1in; right: 1.1in;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid #E2E8F0;
+    padding-top: 16px;
+  }
+  .detail-item { text-align: center; }
+  .detail-item.left { text-align: left; }
+  .detail-item.right { text-align: right; }
+  .detail-label { font-size: 8.5pt; color: #64748B; font-weight: 500; letter-spacing: 0.5px; }
+  .detail-value { font-size: 10.5pt; color: #0C1B2E; font-weight: 600; margin-top: 4px; }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    bottom: 0.72in;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 7.5pt;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  /* Error state */
+  .error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 16px;
+    color: #64748B;
+  }
+  .error-state h2 { font-family: 'Cormorant Garamond', serif; font-size: 24pt; color: #0C1B2E; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <div class="org">Sentinel Risk Group — AI Governance Shield™</div>
+    <div>Your Certificate of Certification</div>
+  </div>
+  <button onclick="window.print()">Save / Print Certificate</button>
+</div>
+
+<div class="cert-page" id="certPage">
+  <div class="border-outer"></div>
+  <div class="border-gold"></div>
+  <div class="border-inner"></div>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="content-top">
+    <div class="company">Sentinel Risk Group</div>
+    <div class="divider-teal"></div>
+    <div class="product">AI Governance Shield&trade;</div>
+    <div class="title">Certificate of Certification</div>
+    <div class="divider-gold"></div>
+    <div class="certifies">This certifies that</div>
+    <div class="practice-name" id="practiceName">Loading&hellip;</div>
+    <div class="body-text">
+      has successfully completed the AI Governance Shield&trade; assessment
+      and has demonstrated compliance with responsible AI governance
+      standards for healthcare practice operations.
+    </div>
+  </div>
+
+  <div class="seal-wrap">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#0C1B2E"/>
+          <stop offset="42%" stop-color="#0C1B2E"/>
+          <stop offset="58%" stop-color="#3D8B7A"/>
+          <stop offset="100%" stop-color="#3D8B7A"/>
+        </linearGradient>
+      </defs>
+      <circle cx="200" cy="200" r="190" fill="none" stroke="#0C1B2E" stroke-width="5"/>
+      <circle cx="200" cy="200" r="178" fill="none" stroke="#3D8B7A" stroke-width="2" opacity="0.4"/>
+      <path id="topArc" d="M 42,200 A 158,158 0 0,1 358,200" fill="none"/>
+      <text font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#0C1B2E" letter-spacing="8">
+        <textPath href="#topArc" startOffset="50%" text-anchor="middle">SENTINEL RISK GROUP</textPath>
+      </text>
+      <path id="bottomArc" d="M 358,210 A 158,158 0 0,1 42,210" fill="none"/>
+      <text font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#3D8B7A" letter-spacing="7">
+        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">AI GOVERNANCE SHIELD</textPath>
+      </text>
+      <circle cx="35" cy="200" r="6" fill="#3D8B7A"/>
+      <circle cx="365" cy="200" r="6" fill="#3D8B7A"/>
+      <g transform="translate(145,100) scale(1.5)">
+        <path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#shieldGrad)"/>
+        <circle cx="36" cy="40" r="14" fill="none" stroke="#fff" stroke-width="2" opacity="0.35"/>
+        <path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M36 26L40 40H32Z" fill="#fff"/>
+        <line x1="36" y1="23" x2="36" y2="26" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="36" y1="54" x2="36" y2="57" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="19" y1="40" x2="22" y2="40" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="50" y1="40" x2="53" y2="40" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="36" cy="40" r="2.5" fill="#fff"/>
+      </g>
+      <text x="200" y="280" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0C1B2E" text-anchor="middle" letter-spacing="6">CERTIFIED</text>
+      <text x="200" y="302" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#3D8B7A" text-anchor="middle" letter-spacing="3" id="sealYear">2026</text>
+    </svg>
+  </div>
+
+  <div class="details">
+    <div class="detail-item left">
+      <div class="detail-label">Reference No.</div>
+      <div class="detail-value" id="refNum">—</div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-label">Date of Certification</div>
+      <div class="detail-value" id="certDate">—</div>
+    </div>
+    <div class="detail-item right">
+      <div class="detail-label">Valid Through</div>
+      <div class="detail-value" id="validThru">—</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    This certificate is valid for 12 months from the date of certification.<br>
+    Verify at sentinelriskgrp.com/verify &nbsp;&middot;&nbsp; &copy; 2026 Sentinel Risk Group
+  </div>
+</div>
+
+<script>
+  function getParam(name) {
+    return decodeURIComponent((new URLSearchParams(window.location.search).get(name) || '').replace(/\+/g, ' '));
+  }
+
+  const practice = getParam('name');
+  const ref      = getParam('ref');
+  const certDate = getParam('date');
+  const validThru= getParam('exp');
+  const year     = certDate ? certDate.split(' ').pop() : new Date().getFullYear();
+
+  if (practice) {
+    document.getElementById('practiceName').textContent = practice;
+    document.getElementById('refNum').textContent       = ref      || '—';
+    document.getElementById('certDate').textContent     = certDate || '—';
+    document.getElementById('validThru').textContent    = validThru|| '—';
+    document.getElementById('sealYear').textContent     = year;
+    document.title = practice + ' — AI Governance Shield™ Certificate';
+  } else {
+    document.getElementById('practiceName').textContent = '[Practice Name]';
+    document.getElementById('refNum').textContent       = 'AGS-2026-XXXX';
+    document.getElementById('certDate').textContent     = 'April 10, 2026';
+    document.getElementById('validThru').textContent    = 'April 10, 2027';
+  }
+</script>
+</body>
+</html>
