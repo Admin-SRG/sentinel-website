@@ -111,7 +111,15 @@ footer a{color:var(--teal);text-decoration:none}
 <div class="rb">
 <p>We do not have an active AI Governance Shield&trade; certification on file for this search. This may mean the practice has not yet pursued independent AI governance certification, or uses an alternative governance method not tracked in this registry.</p>
 <p><strong>If you are this practice:</strong> AI governance certification documents how your practice governs AI tools — for your insurer, your patients, and your legal protection. <a href="risk-assessment.html">See where you stand in 2 minutes &rarr;</a></p>
-<p><strong>If you are verifying this practice:</strong> The absence of a record in this registry does not indicate non-compliance. Practices may employ governance frameworks not reflected here. For questions, contact <a href="mailto:admin@sentinelriskgrp.com">admin@sentinelriskgrp.com</a>.</p>
+<p><strong>If you are verifying this practice:</strong> The absence of a record in this registry does not indicate non-compliance. Practices may employ governance frameworks not reflected here. For questions, <a href="#" onclick="event.preventDefault();document.getElementById('verify-contact').style.display=document.getElementById('verify-contact').style.display==='block'?'none':'block'" style="color:var(--teal);font-weight:600;text-decoration:underline;cursor:pointer">contact us</a>.</p>
+<div id="verify-contact" style="display:none;margin-top:12px;max-width:360px">
+<form onsubmit="event.preventDefault();var f=this;fetch('https://hook.us2.make.com/jnrsjhrh4ye8udwyrcf07fm6rw02e4ke',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:f.cname.value,email:f.cemail.value,message:f.cmsg.value,source:'verify-page',timestamp:new Date().toISOString()}),mode:'no-cors'});f.reset();f.parentElement.innerHTML='<div style=&quot;color:var(--teal);font-size:0.85rem;font-weight:600;padding:0.5rem 0&quot;>Message sent. We\'ll be in touch.</div>'">
+<input name="cname" placeholder="Your name" required style="width:100%;padding:7px 10px;margin-bottom:6px;border-radius:4px;border:1px solid #ddd;font-family:inherit;font-size:0.82rem;outline:none">
+<input name="cemail" type="email" placeholder="Your email" required style="width:100%;padding:7px 10px;margin-bottom:6px;border-radius:4px;border:1px solid #ddd;font-family:inherit;font-size:0.82rem;outline:none">
+<textarea name="cmsg" placeholder="Your question" rows="2" required style="width:100%;padding:7px 10px;margin-bottom:6px;border-radius:4px;border:1px solid #ddd;font-family:inherit;font-size:0.82rem;outline:none;resize:vertical"></textarea>
+<button type="submit" style="padding:8px 20px;background:var(--teal,#2E7A69);color:#fff;border:none;border-radius:4px;font-size:0.75rem;font-weight:700;cursor:pointer">Send</button>
+</form>
+</div>
 </div>
 </div>
 </div>

@@ -190,7 +190,7 @@ h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.4rem);color:var(--navy)
 <div class="faq-item">
 <div class="faq-q">Can I update my answers after I submit?</div>
 <div class="faq-a">
-<p>Once submitted, you can't edit the form directly. If you need to add information or correct something, email us at <strong>admin@sentinelriskgrp.com</strong> and we'll update your file before the assessment begins.</p>
+<p>Once submitted, you can't edit the form directly. If you need to add information or correct something, use the <a href="#" onclick="event.preventDefault();document.getElementById('help-contact').style.display='block';document.getElementById('help-contact').scrollIntoView({behavior:'smooth'})" style="color:var(--teal,#2E7A69);font-weight:600">contact form below</a> and we'll update your file before the assessment begins.</p>
 </div>
 </div>
 
@@ -217,7 +217,7 @@ h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.4rem);color:var(--navy)
 <div class="faq-item">
 <div class="faq-q">I didn't receive my confirmation email</div>
 <div class="faq-a">
-<p>Check your spam or junk folder first — our emails come from the sentinelriskgrp.com domain. If you still don't see it after 15 minutes, email <strong>admin@sentinelriskgrp.com</strong> with your name and the approximate time you submitted, and we'll confirm receipt.</p>
+<p>Check your spam or junk folder first — our emails come from the sentinelriskgrp.com domain. If you still don't see it after 15 minutes, <a href="#" onclick="event.preventDefault();document.getElementById('help-contact').style.display='block';document.getElementById('help-contact').scrollIntoView({behavior:'smooth'})" style="color:var(--teal,#2E7A69);font-weight:600">send us a message</a> with your name and the approximate time you submitted, and we'll confirm receipt.</p>
 </div>
 </div>
 
@@ -251,8 +251,16 @@ h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.4rem);color:var(--navy)
 <!-- STILL STUCK -->
 <div class="stuck-box">
 <h3>Still need help?</h3>
-<p>If your question isn't answered here, reach out and we'll get back to you within one business day.</p>
-<a href="mailto:admin@sentinelriskgrp.com">Email Us</a>
+<p>If your question isn't answered here, send us a message and we'll get back to you within one business day.</p>
+<button onclick="document.getElementById('help-contact').style.display=document.getElementById('help-contact').style.display==='block'?'none':'block'" style="display:inline-block;padding:10px 24px;background:var(--teal,#2E7A69);color:#fff;border:none;border-radius:5px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit">Send a Message</button>
+<div id="help-contact" style="display:none;margin-top:14px;max-width:380px;text-align:left">
+<form onsubmit="event.preventDefault();var f=this;fetch('https://hook.us2.make.com/jnrsjhrh4ye8udwyrcf07fm6rw02e4ke',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:f.cname.value,email:f.cemail.value,message:f.cmsg.value,source:'portal-help',timestamp:new Date().toISOString()}),mode:'no-cors'});f.reset();f.parentElement.innerHTML='<div style=&quot;color:var(--teal,#2E7A69);font-size:0.88rem;font-weight:600;padding:0.5rem 0&quot;>Message sent. We\'ll be in touch.</div>'">
+<input name="cname" placeholder="Your name" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:4px;border:1px solid #ddd;font-size:0.82rem;outline:none;font-family:inherit">
+<input name="cemail" type="email" placeholder="Your email" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:4px;border:1px solid #ddd;font-size:0.82rem;outline:none;font-family:inherit">
+<textarea name="cmsg" placeholder="What do you need help with?" rows="3" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:4px;border:1px solid #ddd;font-size:0.82rem;outline:none;font-family:inherit;resize:vertical"></textarea>
+<button type="submit" style="padding:8px 20px;background:var(--teal,#2E7A69);color:#fff;border:none;border-radius:4px;font-size:0.75rem;font-weight:700;cursor:pointer">Send</button>
+</form>
+</div>
 </div>
 
 </div>

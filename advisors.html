@@ -113,9 +113,16 @@ footer a{color:var(--teal);text-decoration:none}
 <p style="font-size:0.88rem;color:var(--steel);line-height:1.7;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto">No calls. No scheduling. Your client selects a tier, completes intake, and receives their certification. You get a better-positioned client at renewal or in litigation.</p>
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
 <a href="risk-assessment.html" class="btn-primary">Send a Client to the Risk Assessment &rarr;</a>
-<a href="mailto:admin@sentinelriskgrp.com?subject=Referral Inquiry" class="btn-outline">Contact Us About Referrals</a>
+<button class="btn-outline" onclick="document.getElementById('advisor-contact').style.display=document.getElementById('advisor-contact').style.display==='block'?'none':'block'" style="cursor:pointer;background:none;font-family:var(--sans)">Contact Us About Referrals</button>
 </div>
-<div style="margin-top:12px;font-size:0.78rem;color:var(--silver)">Questions? <a href="mailto:admin@sentinelriskgrp.com">admin@sentinelriskgrp.com</a></div>
+<div id="advisor-contact" style="display:none;margin-top:16px;max-width:400px;margin-left:auto;margin-right:auto;text-align:left">
+<form onsubmit="event.preventDefault();var f=this;fetch('https://hook.us2.make.com/jnrsjhrh4ye8udwyrcf07fm6rw02e4ke',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:f.cname.value,email:f.cemail.value,message:f.cmsg.value,source:'advisors-referral',timestamp:new Date().toISOString()}),mode:'no-cors'});f.reset();f.parentElement.innerHTML='<div style=&quot;color:var(--teal);font-size:0.88rem;font-weight:600;text-align:center;padding:1rem&quot;>Message sent. We\'ll be in touch.</div>'">
+<input name="cname" placeholder="Your name" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:5px;border:1px solid var(--ice);background:var(--snow);color:var(--navy);font-family:var(--sans);font-size:0.82rem;outline:none">
+<input name="cemail" type="email" placeholder="Your email" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:5px;border:1px solid var(--ice);background:var(--snow);color:var(--navy);font-family:var(--sans);font-size:0.82rem;outline:none">
+<textarea name="cmsg" placeholder="How can we help?" rows="3" required style="width:100%;padding:8px 12px;margin-bottom:8px;border-radius:5px;border:1px solid var(--ice);background:var(--snow);color:var(--navy);font-family:var(--sans);font-size:0.82rem;outline:none;resize:vertical"></textarea>
+<button type="submit" style="padding:10px 24px;background:var(--teal);color:#fff;border:none;border-radius:5px;font-family:var(--sans);font-size:0.78rem;font-weight:700;cursor:pointer;width:100%">Send Message</button>
+</form>
+</div>
 </div>
 
 </div>
