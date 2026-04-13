@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentinel Risk Group — AI Governance Shield™ for Behavioral Health</title>
+<link rel="icon" type="image/svg+xml" href="badge-certified.svg">
+<meta name="color-scheme" content="light">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@media (prefers-color-scheme: dark){html,body{background-color:#FAFBFD!important;color:#2E3F5C!important}}
+:root{--navy:#0C1B2E;--navy-mid:#122240;--slate:#2E3F5C;--steel:#546380;--silver:#8A96A8;--mist:#B8C4D4;--cloud:#D6DDE8;--ice:#E8EDF4;--snow:#F2F5F9;--white:#FAFBFD;--teal:#2E7A69;--teal-light:#3D8B7A;--teal-pale:#E8F2EF;--blue:#1E5A9E;--amber:#C27D19;--amber-pale:#FDF6E9;--red-muted:#9B3B3B;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;color-scheme:light only;background:#FAFBFD!important}
+body{font-family:var(--sans);background:#FAFBFD!important;color:var(--slate);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV — matches healthcare exactly */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(12,27,46,0.97);border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
+nav::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 42px center,transparent 0%,rgba(4,8,14,0.3) 30%,rgba(4,8,14,0.6) 55%,rgba(4,8,14,0.85) 80%,rgba(2,4,8,0.95) 100%);pointer-events:none;z-index:0}
+nav>*{position:relative;z-index:1}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}
+.nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.35)) drop-shadow(0 6px 8px rgba(0,0,0,0.15))}
+.nav-text{display:flex;flex-direction:column}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:0.95rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1;text-rendering:geometricPrecision}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{font-size:0.76rem;letter-spacing:0.6px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta-link{font-size:0.7rem!important;letter-spacing:1.5px!important;text-transform:uppercase;color:var(--teal-light)!important;border:1px solid rgba(61,139,122,0.35);padding:7px 16px!important;border-radius:4px;font-weight:600!important;transition:all 0.2s!important;margin-left:0.5rem}
+.nav-cta-link:hover{background:rgba(61,139,122,0.1)!important;border-color:rgba(61,139,122,0.5)!important;color:#fff!important}
+.nav-back{font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500;padding:0.5rem 0.8rem;transition:color 0.2s;border-right:1px solid rgba(255,255,255,0.08);margin-right:0.5rem}
+.nav-back:hover{color:rgba(255,255,255,0.7)}
+
+/* UTILITY */
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.container-narrow{max-width:780px;margin:0 auto;padding:0 2rem}
+.section{padding:3.5rem 0}.section-alt{background:#F2F5F9!important}.section-navy{background:var(--navy)}
+.eyebrow{font-size:0.72rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.6rem}
+.stitle{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;color:var(--navy);margin-bottom:0.8rem;max-width:600px;letter-spacing:-0.4px}
+.lead{font-size:1rem;line-height:1.8;color:var(--steel);max-width:660px;font-weight:400;margin-bottom:1.5rem}.lead strong{color:var(--navy);font-weight:600}
+
+/* HERO */
+#hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:104px;padding-bottom:4rem}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(61,139,122,0.06) 0%,transparent 55%),radial-gradient(ellipse at 20% 75%,rgba(30,90,158,0.04) 0%,transparent 50%)}
+.hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-size:0.78rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--teal-light)}
+#hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4vw,3rem);line-height:1.15;color:#fff;margin-bottom:1.5rem;letter-spacing:-0.5px}
+#hero h1 em{font-style:italic;color:var(--teal-light)}
+.hero-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:2.2rem}.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:500}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-block;padding:13px 32px;background:var(--teal);color:#fff;font-size:0.82rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;border-radius:5px;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s;font-family:var(--sans);box-shadow:0 2px 8px rgba(46,122,105,0.25)}
+.btn-primary:hover{background:#097565;box-shadow:0 4px 16px rgba(46,122,105,0.35);transform:translateY(-1px)}
+.btn-exposure{display:inline-block;padding:12px 28px;border:2px solid #DC2626;color:#fff;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-radius:5px;text-decoration:none;transition:all 0.2s;font-family:var(--sans);background:rgba(220,38,38,0.15)}
+.btn-exposure:hover{background:rgba(220,38,38,0.3)!important;border-color:#EF4444!important;color:#fff!important}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+.hero-card-label{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.3rem 1.2rem;transition:border-color 0.2s,box-shadow 0.2s}
+.stat-box:hover{border-color:rgba(239,68,68,0.15);box-shadow:0 0 16px rgba(239,68,68,0.06)}
+.stat-num{font-family:var(--serif);font-size:1.8rem;font-weight:600;color:#EF4444;line-height:1}
+.stat-desc{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:4px;line-height:1.4}
+
+/* QUOTE */
+.quote-strip{background:#F2F5F9!important;border-top:1px solid var(--ice);border-bottom:1px solid var(--ice);padding:2.2rem 0;text-align:center}
+.quote-text{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-style:italic;font-weight:400;color:var(--navy);max-width:600px;margin:0 auto;line-height:1.45;letter-spacing:-0.2px}
+.quote-attr{margin-top:0.8rem;font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);font-weight:600}
+
+/* ACCORDION CARDS — SB 1580 deep dive */
+.sb-accordion{background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.5rem 1.8rem;cursor:pointer;transition:all 0.25s;box-shadow:0 1px 3px rgba(12,27,46,0.04)}
+.sb-accordion:hover{box-shadow:0 8px 32px rgba(12,27,46,0.08);transform:translateY(-1px)}
+.sb-eyebrow{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:0.3rem}
+.sb-title{font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600;line-height:1.3}
+.sb-summary{font-size:0.88rem;color:var(--steel);margin-top:0.4rem;line-height:1.6}
+.sb-summary strong{color:var(--navy);font-weight:600}
+.sb-toggle{flex-shrink:0;margin-left:1.5rem;font-size:0.78rem;color:var(--teal);font-weight:600;margin-top:0.3rem;border-bottom:1px dashed rgba(46,122,105,0.4);padding-bottom:1px;white-space:nowrap}
+.sb-detail{display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--ice)}
+.sb-accordion.open .sb-detail{display:block}
+.sb-accordion.open .sb-toggle{color:var(--navy)}
+
+/* Detail cards inside accordions — ALWAYS dark text on light bg */
+.detail-card{padding:0.8rem 1rem;background:var(--snow);border-radius:6px;font-size:0.82rem;color:var(--steel);line-height:1.6}
+.detail-card strong{color:var(--navy);font-weight:600}
+.detail-card-label{font-size:0.72rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem}
+.detail-card.red-accent{border-left:3px solid #DC2626}
+.detail-card.amber-accent{border-left:3px solid var(--amber)}
+.detail-card.teal-accent{border-left:3px solid var(--teal)}
+
+/* HIPAA comparison callout */
+.doj-card{background:var(--navy);border-radius:10px;padding:2.5rem;color:#fff;margin-top:2rem;border-left:4px solid #DC2626;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.doj-tag{font-size:0.82rem;letter-spacing:2.5px;text-transform:uppercase;color:#E8827A;font-weight:700;margin-bottom:0.6rem}
+.doj-card h3{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;margin-bottom:0.8rem;line-height:1.3}
+.doj-card p{font-size:0.86rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:0.5rem}.doj-card strong{color:#fff}
+
+/* Legislation cards */
+.law-card{background:#fff;border:1px solid var(--ice);border-radius:10px;padding:1.6rem;position:relative;transition:box-shadow 0.25s,transform 0.25s;box-shadow:0 1px 3px rgba(12,27,46,0.04)}
+.law-card:hover{box-shadow:0 12px 40px rgba(12,27,46,0.08);transform:translateY(-2px)}
+.law-card::before{content:'';position:absolute;top:0;left:2rem;right:2rem;height:2px;border-radius:0 0 2px 2px}
+.law-jur{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);font-weight:600;margin-bottom:0.3rem}
+.law-name{font-family:var(--serif);font-size:1.08rem;color:var(--navy);font-weight:600;margin-bottom:0.3rem}
+.law-status{display:inline-block;font-size:0.62rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:0.8rem}
+.s-active{background:var(--teal-pale);color:var(--teal)}.s-pending{background:var(--amber-pale);color:var(--amber)}.s-signed{background:rgba(220,38,38,0.08);color:#DC2626}
+.law-desc{font-size:0.86rem;color:var(--steel);line-height:1.65}.law-desc strong{color:var(--navy);font-weight:600}
+
+/* Who cards */
+.who-card{background:var(--teal-pale);border:1px solid rgba(46,122,105,0.12);border-radius:8px;padding:1.3rem 1.5rem;text-align:center;transition:all 0.2s}
+.who-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(46,122,105,0.08)}
+.who-text{font-size:0.86rem;color:var(--navy);font-weight:500;line-height:1.5}
+
+/* Pricing */
+.grid-3col-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem;align-items:start}
+.price-card{background:#fff!important;border:1px solid var(--ice);border-radius:10px;padding:1.8rem;position:relative;box-shadow:0 1px 3px rgba(12,27,46,0.04);transition:box-shadow 0.25s,transform 0.25s}
+.price-card:hover{box-shadow:0 8px 32px rgba(12,27,46,0.08);transform:translateY(-2px)}
+.price-card.featured{background:var(--navy)!important;border:2px solid var(--teal);transform:translateY(-8px);box-shadow:0 20px 60px rgba(12,27,46,0.22)}
+.price-card.featured:hover{box-shadow:0 24px 72px rgba(12,27,46,0.28);transform:translateY(-10px)}
+.price-tier{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:0.3rem}
+.price-card.featured .price-tier{color:var(--teal-light)}
+.price-name{font-family:var(--serif);font-size:1.3rem;color:var(--navy);font-weight:600;margin-bottom:0.2rem}
+.price-card.featured .price-name{color:#fff}
+.price-desc{font-size:0.8rem;color:var(--silver);margin-bottom:1.2rem}
+.price-card.featured .price-desc{color:rgba(255,255,255,0.5)}
+.price-amount{font-family:var(--serif);font-size:2.2rem;color:var(--navy);font-weight:700;line-height:1}
+.price-card.featured .price-amount{color:#fff}
+.price-per{font-size:0.72rem;color:var(--silver);margin-bottom:1rem}
+.price-card.featured .price-per{color:rgba(255,255,255,0.4)}
+.price-scope{font-size:0.82rem;color:var(--steel);line-height:1.75;border-top:1px solid var(--ice);padding-top:1.2rem}
+.price-card.featured .price-scope{color:rgba(255,255,255,0.55);border-top-color:rgba(255,255,255,0.1)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:3px 14px;border-radius:20px}
+
+/* Contact CTA */
+.cta-section{background:var(--navy);padding:3rem 0;text-align:center}
+.cta-section h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;font-weight:600;margin-bottom:0.8rem}
+.cta-section p{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* Footer */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.04);padding:2rem 0 1.2rem}
+.foot-bottom{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.foot-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+.foot-legal-links{display:flex;gap:1.5rem}
+.foot-legal-links a{font-size:0.7rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.foot-legal-links a:hover{color:rgba(255,255,255,0.5)}
+
+/* Mobile nav */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:all 0.3s}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:1rem 0;z-index:999}
+.nav-mobile.open{display:block}
+.nav-mobile a{display:block;padding:0.7rem 2rem;font-size:0.86rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500}
+.nav-mobile a:hover{background:rgba(255,255,255,0.04);color:#fff}
+.nav-mobile .nav-cta-mobile{margin:0.8rem 2rem 0.5rem;display:block;text-align:center;padding:11px 16px;background:var(--teal);color:#fff;border-radius:6px;font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero-content{grid-template-columns:1fr}
+.hero-card{display:none}
+#hero{min-height:auto;padding-top:140px;padding-bottom:4rem}
+.nav-links{display:none}.nav-toggle{display:block}
+.grid-3col-pricing{grid-template-columns:1fr}
+.grid-3col-pricing .price-card{transform:none!important}
+.foot-bottom{flex-direction:column;gap:1rem;text-align:center}
+.foot-legal-links{flex-wrap:wrap;justify-content:center}
+}
+@media(max-width:600px){
+.section{padding:2rem 0}
+.container{padding:0 1.2rem}.container-narrow{padding:0 1.2rem}
+.hero-actions{flex-direction:column}.hero-actions a{text-align:center;width:100%}
+.sb-accordion{padding:1.2rem 1.4rem}
+.detail-card{padding:0.6rem 0.8rem}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.7s ease both}
+.hero-left>*:nth-child(1){animation-delay:0.05s}.hero-left>*:nth-child(2){animation-delay:0.15s}.hero-left>*:nth-child(3){animation-delay:0.25s}.hero-left>*:nth-child(4){animation-delay:0.35s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav><div class="nav-inner">
+<a href="#hero" class="nav-brand"><div class="nav-shield"><svg viewBox="0 0 72 84" fill="none"><defs><linearGradient id="navG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A2E45"/><stop offset="48%" stop-color="#1E3A52"/><stop offset="52%" stop-color="#389680"/><stop offset="100%" stop-color="#4BA08E"/></linearGradient><linearGradient id="navEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="rgba(255,255,255,0.02)"/><stop offset="100%" stop-color="rgba(255,255,255,0.06)"/></linearGradient></defs><path d="M36 4L6 17V41C6 57 19 72 36 80C53 72 66 57 66 41V17L36 4Z" fill="url(#navG)"/><path d="M36 5.5L7.5 17.5V41C7.5 56 20 70.5 36 78.5C52 70.5 64.5 56 64.5 41V17.5L36 5.5Z" fill="none" stroke="url(#navEdge)" stroke-width="0.8"/><line x1="36" y1="7" x2="36" y2="78" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/><circle cx="36" cy="40" r="13" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/><line x1="36" y1="24" x2="36" y2="27" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><line x1="36" y1="53" x2="36" y2="56" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><line x1="20" y1="40" x2="23" y2="40" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><line x1="49" y1="40" x2="52" y2="40" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><path d="M36 26L40 40L36 54L32 40Z" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.8" stroke-linejoin="round"/><path d="M36 26L40 40H32Z" fill="#fff"/><circle cx="36" cy="40" r="2" fill="#fff"/></svg></div><div class="nav-text"><span class="nav-name">Sentinel Risk Group</span></div></a>
+<div class="nav-links"><a href="index.html" class="nav-back">&larr; Healthcare</a><a href="#enforcement">Enforcement</a><a href="#legislation">Legislation</a><a href="#who">Who This Is For</a><a href="#pricing">Pricing</a><a href="#pricing" class="nav-cta-link">Get Certified</a></div>
+<button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="nav-mobile"><a href="index.html" onclick="this.parentElement.classList.remove('open')">&larr; Healthcare Site</a><a href="#enforcement" onclick="this.parentElement.classList.remove('open')">Enforcement</a><a href="#legislation" onclick="this.parentElement.classList.remove('open')">Legislation</a><a href="#who" onclick="this.parentElement.classList.remove('open')">Who This Is For</a><a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a><a href="#pricing" class="nav-cta-mobile" onclick="this.parentElement.classList.remove('open')">Get Certified</a></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+<div class="hero-content">
+<div class="hero-left">
+<div class="hero-eyebrow">AI Governance Shield&trade; &mdash; Behavioral Health</div>
+<h1>Tennessee just created a <em>private cause of action</em> for mental health AI. Every patient is a plaintiff.</h1>
+<p class="hero-sub">SB 1580 — signed April 1, 2026. Effective <strong>July 1, 2026.</strong> $5,000 per violation. Treble damages if willful. No annual cap. Individual lawsuits stack. And your malpractice carrier may not cover it.</p>
+<div class="hero-actions"><a href="#pricing" class="btn-primary">Get Certified Before July 1</a><a href="risk-assessment.html?source=mental-health" class="btn-exposure">Free Risk Assessment &rarr;</a></div>
+</div>
+<div class="hero-card">
+<div class="hero-card-label">SB 1580 — Exposure Per Practice</div>
+<div class="stat-grid">
+<div class="stat-box"><div class="stat-num">$5K</div><div class="stat-desc">Per violation — base fine under Tennessee Consumer Protection Act</div></div>
+<div class="stat-box"><div class="stat-num">3&times;</div><div class="stat-desc">Treble damages if violation is willful or knowing</div></div>
+<div class="stat-box"><div class="stat-num">$4.5M</div><div class="stat-desc">Realistic exposure — 300 patients &times; $15K trebled &times; 6 months</div></div>
+<div class="stat-box"><div class="stat-num">&infin;</div><div class="stat-desc">No annual cap on fines. No limit on private lawsuits. They stack.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-strip">
+<div class="container-narrow">
+<p class="quote-text">"Both reckless use of AI and failure to use beneficial AI can fall below the standard of care."</p>
+<p class="quote-attr">Federation of State Medical Boards &mdash; May 2024 Guidance</p>
+</div>
+</div>
+<div style="height:3px;background:var(--navy)"></div>
+
+<!-- ═══════════ TENNESSEE DEEP DIVE ═══════════ -->
+<section id="enforcement" class="section">
+<div class="container">
+<div class="eyebrow" style="color:#DC2626">Tennessee SB 1580</div>
+<h2 class="stitle">This Is Not a $5,000 Fine.<br>This Is Compounding, Uncapped Liability.</h2>
+<p class="lead">A practice might look at $5K per violation and calculate the risk is manageable. <strong>Here's what that calculation actually looks like.</strong></p>
+
+<div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:0.8rem">
+
+<!-- ACCORDION 1: The Math -->
+<div class="sb-accordion" style="border-left:4px solid #DC2626" onclick="this.classList.toggle('open')">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div class="sb-eyebrow" style="color:#DC2626">&ldquo;It&rsquo;s Only $5K &mdash; I&rsquo;ll Take My Chances&rdquo;</div>
+<div class="sb-title">The Penalty Math Practices Aren&rsquo;t Running</div>
+<div class="sb-summary">50 patients/month &times; 6 months = 300 violations &times; $5K = <strong>$1.5M base. Trebled if willful: $4.5M.</strong> And that&rsquo;s before private lawsuits.</div>
+</div>
+<div class="sb-toggle">+ Details</div>
+</div>
+<div class="sb-detail">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div class="detail-card red-accent">
+<div class="detail-card-label">Base Calculation</div>
+50 patients/month &times; 6 months undetected = <strong>300 violations</strong><br>300 &times; $5,000 = <strong style="color:#DC2626">$1,500,000</strong>
+</div>
+<div class="detail-card red-accent">
+<div class="detail-card-label">Treble Damages (Willful)</div>
+If violation is knowing or willful: <strong>3&times; multiplier</strong><br>$1.5M &times; 3 = <strong style="color:#DC2626">$4,500,000</strong>
+</div>
+<div class="detail-card amber-accent">
+<div class="detail-card-label">Private Lawsuits Stack On Top</div>
+Each patient can sue individually for actual damages + attorney&rsquo;s fees. 300 patients = 300 potential lawsuits. <strong>No class action &mdash; each requires separate defense.</strong>
+</div>
+<div class="detail-card amber-accent">
+<div class="detail-card-label">AG Enforcement Runs Parallel</div>
+Tennessee AG enforces via Consumer Protection Act &mdash; <strong>simultaneously with private suits.</strong> They don&rsquo;t preempt each other. Both channels stack.
+</div>
+</div>
+<div style="margin-top:0.8rem;padding:0.8rem 1rem;background:rgba(220,38,38,0.04);border-radius:6px;border-left:3px solid #DC2626">
+<div style="font-size:0.88rem;color:var(--navy);font-weight:600;line-height:1.6"><strong style="color:#DC2626">Realistic total exposure: $5M&ndash;$10M+</strong> &mdash; before accounting for uninsured liability from carrier exclusions. Compare to $3,500 certification.</div>
+</div>
+</div>
+</div>
+
+<!-- ACCORDION 2: Who Enforces -->
+<div class="sb-accordion" style="border-left:4px solid var(--amber)" onclick="this.classList.toggle('open')">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div class="sb-eyebrow" style="color:var(--amber)">Enforcement Channels</div>
+<div class="sb-title">Who Enforces This &mdash; And How It Compounds</div>
+<div class="sb-summary">Tennessee AG + every affected patient. <strong>Two enforcement channels, both active, both stacking.</strong></div>
+</div>
+<div class="sb-toggle">+ Details</div>
+</div>
+<div class="sb-detail">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div class="detail-card red-accent">
+<div class="detail-card-label">Tennessee Attorney General</div>
+Enforces via Consumer Protection Act (&sect; 47-18-109). Receives complaints, investigates, initiates legal proceedings. <strong>Can seek injunctions stopping your use of AI tools entirely.</strong>
+</div>
+<div class="detail-card red-accent">
+<div class="detail-card-label">Private Right of Action</div>
+Individual patients sue directly. Must show: AI was represented as qualified professional, they relied on it, actual damages occurred. <strong>Attorney&rsquo;s fees awarded to prevailing plaintiffs.</strong>
+</div>
+<div class="detail-card amber-accent">
+<div class="detail-card-label">No Class Actions &mdash; That&rsquo;s Worse, Not Better</div>
+TCPA framework prohibits class actions. But 300 individual lawsuits are <strong>more expensive to defend</strong> than one class action. Each requires separate counsel, discovery, and resolution.
+</div>
+<div class="detail-card teal-accent">
+<div class="detail-card-label">Treble Damages Mechanism</div>
+Under &sect; 47-18-109, if violations are <strong>&ldquo;willful or knowing,&rdquo;</strong> courts award triple actual damages. Using AI without governance and awareness of SB 1580 = arguable willfulness.
+</div>
+</div>
+</div>
+</div>
+
+<!-- ACCORDION 3: Insurance Gap -->
+<div class="sb-accordion" style="border-left:4px solid #DC2626" onclick="this.classList.toggle('open')">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div class="sb-eyebrow" style="color:#DC2626">The Coverage Gap</div>
+<div class="sb-title">Your Malpractice Carrier May Not Cover This</div>
+<div class="sb-summary">Verisk rolled out AI exclusion endorsements January 2026. <strong>If your carrier adopted one, you bear the full cost of an SB 1580 claim.</strong></div>
+</div>
+<div class="sb-toggle">+ Details</div>
+</div>
+<div class="sb-detail">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div class="detail-card red-accent">
+<div class="detail-card-label">Standard Exclusions Now Exist</div>
+Verisk (the organization that writes standard policy language for most U.S. insurers) published AI exclusion endorsements: <strong>CG 40 47, CG 40 48, CG 35 08.</strong> Any carrier can attach these at renewal.
+</div>
+<div class="detail-card red-accent">
+<div class="detail-card-label">Carriers Already Filing Their Own</div>
+<strong>W.R. Berkley:</strong> Absolute exclusion &mdash; bars any claim involving AI use, deployment, or governance.<br><strong>Hamilton Select:</strong> Excludes &ldquo;actual or alleged use of generative AI.&rdquo;<br><strong>Philadelphia Indemnity:</strong> Excludes AI-generated professional content.
+</div>
+<div class="detail-card amber-accent">
+<div class="detail-card-label">The Compound Effect</div>
+SB 1580 violation + carrier exclusion = <strong>fully uninsured liability.</strong> You pay the $4.5M+ in fines, the private lawsuit damages, and the defense costs &mdash; all out of pocket.
+</div>
+<div class="detail-card teal-accent">
+<div class="detail-card-label">How Certification Changes This</div>
+Carriers are beginning to assess AI governance at renewal. <strong>Documented certification = evidence your carrier evaluates to narrow or remove exclusions.</strong> Same pattern as cybersecurity insurance 2019&ndash;2021.
+</div>
+</div>
+</div>
+</div>
+
+<!-- ACCORDION 4: License Risk -->
+<div class="sb-accordion" style="border-left:4px solid var(--amber)" onclick="this.classList.toggle('open')">
+<div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div>
+<div class="sb-eyebrow" style="color:var(--amber)">Cascading Risk</div>
+<div class="sb-title">What Happens to Your License</div>
+<div class="sb-summary">SB 1580 violation &rarr; AG enforcement &rarr; potential licensing board investigation &rarr; <strong>disciplinary action against your medical license.</strong></div>
+</div>
+<div class="sb-toggle">+ Details</div>
+</div>
+<div class="sb-detail">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+<div class="detail-card amber-accent">
+<div class="detail-card-label">SB 1580 Doesn&rsquo;t Revoke Licenses Directly</div>
+The statute itself doesn&rsquo;t include license suspension. But it doesn&rsquo;t need to. <strong>The enforcement cascade does that work.</strong>
+</div>
+<div class="detail-card red-accent">
+<div class="detail-card-label">The Cascade Pattern</div>
+AG enforcement action &rarr; public record &rarr; state licensing board opens investigation &rarr; board finds conduct inconsistent with professional standards &rarr; <strong>discipline, probation, or suspension.</strong>
+</div>
+<div class="detail-card amber-accent">
+<div class="detail-card-label">HIPAA Precedent</div>
+This is exactly how HIPAA violations trigger license action. OCR enforcement routinely leads to state board investigations. <strong>SB 1580 enforcement will follow the same pattern.</strong>
+</div>
+<div class="detail-card teal-accent">
+<div class="detail-card-label">Reputational Destruction</div>
+AG actions and private lawsuits become public record. <strong>Even before any board acts, the reputational damage to a behavioral health practice is severe.</strong> Patients leave. Referrals stop.
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- close accordion stack -->
+
+<!-- HIPAA COMPARISON -->
+<div class="doj-card" style="max-width:860px;margin:2rem auto 0">
+<div class="doj-tag">Reference Point</div>
+<h3>How This Compares to HIPAA &mdash; The Framework Practices Already Know</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.2rem">
+<div style="padding:1.2rem;background:rgba(255,255,255,0.06);border-radius:8px;border-left:3px solid rgba(255,255,255,0.15)">
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:700;margin-bottom:0.5rem">HIPAA</div>
+<div style="font-size:0.86rem;color:rgba(255,255,255,0.7);line-height:1.7">
+<strong style="color:#fff">Up to $73,011</strong> per violation (Tiers 1&ndash;3)<br>
+Annual cap: <strong style="color:#fff">$36K&ndash;$365K</strong> (most practices)<br>
+Private right of action: <strong style="color:#fff">No</strong><br>
+Enforcement: <strong style="color:#fff">Government only (OCR)</strong>
+</div>
+</div>
+<div style="padding:1.2rem;background:rgba(220,38,38,0.08);border-radius:8px;border-left:3px solid #DC2626">
+<div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:#E8827A;font-weight:700;margin-bottom:0.5rem">Tennessee SB 1580</div>
+<div style="font-size:0.86rem;color:rgba(255,255,255,0.7);line-height:1.7">
+<strong style="color:#fff">$5K</strong> per violation (trebled: <strong style="color:#E8827A">$15K</strong>)<br>
+Annual cap: <strong style="color:#E8827A">None</strong><br>
+Private right of action: <strong style="color:#E8827A">Yes &mdash; every patient</strong><br>
+Enforcement: <strong style="color:#E8827A">AG + individual lawsuits</strong>
+</div>
+</div>
+</div>
+<div style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.7;text-align:center;font-weight:500">HIPAA is expensive but <strong>bounded</strong>. SB 1580 is <strong style="color:#E8827A">unbounded</strong>. And unlike HIPAA, <strong>every patient is a potential plaintiff.</strong></div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════ LEGISLATION WAVE ═══════════ -->
+<section id="legislation" class="section section-alt">
+<div class="container">
+<div class="eyebrow">National Momentum</div>
+<h2 class="stitle">Tennessee Is First.<br>It Won&rsquo;t Be Last.</h2>
+<p class="lead">Mental health AI legislation is accelerating across the country. <strong>Five states have already enacted or are advancing behavioral health AI laws.</strong></p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;max-width:860px">
+
+<div class="law-card" style="border-left:4px solid #DC2626">
+<div class="law-jur" style="color:#DC2626">Tennessee</div>
+<div class="law-name">SB 1580</div>
+<div class="law-status s-signed">Signed &mdash; Eff. July 1, 2026</div>
+<div class="law-desc">First state healthcare AI law with <strong>private right of action</strong>. $5K/violation, treble if willful, no cap. Prohibits representing AI as qualified mental health professional.</div>
+</div>
+
+<div class="law-card" style="border-left:4px solid var(--amber)">
+<div class="law-jur">Maine</div>
+<div class="law-name">LD 2082</div>
+<div class="law-status s-pending">On Governor&rsquo;s Desk</div>
+<div class="law-desc"><strong>AI therapy ban.</strong> Would prohibit AI systems from independently providing therapeutic services without licensed professional oversight.</div>
+</div>
+
+<div class="law-card" style="border-left:4px solid var(--teal)">
+<div class="law-jur">Illinois</div>
+<div class="law-name">HB 1806</div>
+<div class="law-status s-active">Enacted</div>
+<div class="law-desc">AI barred from <strong>independent therapeutic decisions</strong> in behavioral health. $10K/violation. IHRA amendment effective January 2026.</div>
+</div>
+
+<div class="law-card" style="border-left:4px solid var(--amber)">
+<div class="law-jur">Missouri</div>
+<div class="law-name">HB 2372</div>
+<div class="law-status s-pending">Advancing</div>
+<div class="law-desc">Behavioral health AI governance requirements. <strong>Provider oversight mandated</strong> for any AI system involved in mental health assessment or treatment.</div>
+</div>
+
+<div class="law-card" style="border-left:4px solid var(--teal)">
+<div class="law-jur">California</div>
+<div class="law-name">AB 489</div>
+<div class="law-status s-active">In Effect</div>
+<div class="law-desc">GenAI disclaimers required. <strong>$1K/violation. Private right of action.</strong> Broader than mental health but directly applicable.</div>
+</div>
+
+<div class="law-card" style="border-left:4px solid var(--blue)">
+<div class="law-jur">Multi-State</div>
+<div class="law-name">Telehealth Implications</div>
+<div class="law-status" style="background:#E8F0FE;color:var(--blue)">Applies Now</div>
+<div class="law-desc">If you have <strong>Tennessee patients via telehealth, SB 1580 applies to you</strong> regardless of where your office is. Same with Maine, Illinois, California.</div>
+</div>
+
+</div>
+
+<!-- PATTERN -->
+<div style="margin-top:1.8rem;padding:1.5rem 2rem;background:var(--navy);border-radius:10px;text-align:center;max-width:860px">
+<div style="font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-light);font-weight:700;margin-bottom:0.4rem">The Pattern</div>
+<div style="font-family:var(--serif);font-size:1.15rem;color:#E8827A;font-weight:700;font-style:italic;line-height:1.4">Every bill requires governance, disclosure, oversight. The question is whether you&rsquo;re certified before it&rsquo;s mandatory.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════ WHO THIS IS FOR ═══════════ -->
+<section id="who" class="section">
+<div class="container">
+<div class="eyebrow">Who Needs This</div>
+<h2 class="stitle">If You Deploy AI in Behavioral Health,<br>This Applies to You.</h2>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;max-width:860px">
+<div class="who-card"><div class="who-text">Psychiatric practices using AI scribes</div></div>
+<div class="who-card"><div class="who-text">Therapy practices with AI scheduling or intake</div></div>
+<div class="who-card"><div class="who-text">Behavioral health groups with EHR AI tools</div></div>
+<div class="who-card"><div class="who-text">Telehealth mental health platforms</div></div>
+<div class="who-card"><div class="who-text">Substance abuse treatment centers using AI</div></div>
+<div class="who-card"><div class="who-text">Any practice with Tennessee patients via telehealth</div></div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section id="pricing" class="section section-alt">
+<div class="container">
+<div class="eyebrow">Pricing</div>
+<h2 class="stitle">Choose Your Certification Tier</h2>
+<p class="lead">Same proven framework as healthcare. <strong>Mental health compliance module included in all tiers.</strong></p>
+
+<div class="grid-3col-pricing" style="max-width:960px">
+<div class="price-card">
+<div class="price-tier">Tier 1</div>
+<div class="price-name">Solo</div>
+<div class="price-desc">1&ndash;3 providers, 1 AI system</div>
+<div class="price-amount">$3,500</div>
+<div class="price-per">one-time assessment</div>
+<div class="price-scope">Full behavioral health governance assessment. SB 1580 compliance documentation. Certification report + governance policies + implementation tools.</div>
+</div>
+<div class="price-card featured">
+<div class="price-badge">Most Common</div>
+<div class="price-tier">Tier 2</div>
+<div class="price-name">Group</div>
+<div class="price-desc">4&ndash;20 providers, multiple AI systems</div>
+<div class="price-amount">$8,000</div>
+<div class="price-per">one-time assessment</div>
+<div class="price-scope">Multi-system assessment + SB 1580 compliance documentation + vendor governance review + multi-state behavioral health regulatory mapping.</div>
+</div>
+<div class="price-card">
+<div class="price-tier">Tier 3</div>
+<div class="price-name">Enterprise</div>
+<div class="price-desc">20+ providers, multi-site</div>
+<div class="price-amount">$25,000<span style="font-size:0.9rem;color:var(--silver);font-weight:400">+</span></div>
+<div class="price-per">custom scope</div>
+<div class="price-scope">Board-ready reporting + multi-state behavioral health regulatory mapping + annual recertification pathway + dedicated governance advisor.</div>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:1.5rem;font-size:0.86rem;color:var(--steel);line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto">50% deposit to begin. Balance due upon report delivery. Certification valid 12 months. <strong style="color:var(--navy)">Renewal pricing reduced for returning clients.</strong></div>
+
+</div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-section">
+<div class="container">
+<h2>SB 1580 takes effect July 1, 2026.</h2>
+<p>Every day without governance is another day of compounding exposure. Certification takes weeks, not months. Start now.</p>
+<a href="#pricing" class="btn-primary" style="font-size:0.86rem;padding:15px 40px">Get Certified</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="foot-bottom">
+<div class="foot-copy">&copy; 2026 Sentinel Risk Group. All rights reserved.</div>
+<div class="foot-legal-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+</div>
+</footer>
+
+</body>
+</html>
