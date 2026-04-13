@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificate of AI Governance Certification — Sentinel Risk Group</title>
+<title>Certificate of AI Governance — Sentinel Risk Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -139,9 +139,10 @@
     color: var(--steel);
     line-height: 1.7;
     margin-top: 22px;
-    max-width: 440px;
+    max-width: 470px;
     margin-left: auto;
     margin-right: auto;
+    text-wrap: balance;
   }
 
   /* Seal */
@@ -185,10 +186,12 @@
 
   /* Print */
   @media print {
-    body { background: #fff; padding: 0; }
+    body { background: #fff; padding: 0; margin: 0; }
     .toolbar { display: none; }
-    .cert-page { box-shadow: none; max-width: 8.5in; }
-    .cert-innermost { padding: 60px 48px 48px; }
+    .cert-page { box-shadow: none; width: 8.5in; max-width: 8.5in; height: 11in; }
+    .cert-inner { height: calc(100% - 24px); }
+    .cert-innermost { padding: 60px 48px 48px; height: calc(100% - 20px); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .cert-innermost .details { width: 100%; }
   }
 
   /* Mobile refinements */
@@ -206,7 +209,7 @@
 <div class="toolbar">
   <div>
     <div class="org">Sentinel Risk Group — AI Governance Shield™</div>
-    <div>Your Certificate of Certification</div>
+    <div>Your Certificate of AI Governance</div>
   </div>
   <button onclick="window.print()">Save / Print Certificate</button>
 </div>
@@ -219,7 +222,7 @@
       <div class="divider-teal"></div>
       <div class="product">AI Governance Shield&trade;</div>
 
-      <div class="title">Certificate of Certification</div>
+      <div class="title">Certificate of AI Governance</div>
       <div class="divider-gold"></div>
 
       <div class="certifies">This certifies that</div>
@@ -228,7 +231,7 @@
       <div class="body-text">
         has successfully completed the AI Governance Shield&trade; assessment
         and has demonstrated compliance with responsible AI governance
-        standards for healthcare practice operations.
+        standards for practice operations.
       </div>
 
       <!-- Seal -->
