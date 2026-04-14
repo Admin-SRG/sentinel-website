@@ -18,14 +18,14 @@ body{font-family:var(--sans);background:#FAFBFD!important;color:var(--slate);lin
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(12,27,46,0.97);border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
 nav::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 42px center,transparent 0%,rgba(4,8,14,0.3) 30%,rgba(4,8,14,0.6) 55%,rgba(4,8,14,0.85) 80%,rgba(2,4,8,0.95) 100%);pointer-events:none;z-index:0}
 nav>*{position:relative;z-index:1}
-.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:68px;position:relative}
 .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-shield{width:38px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}
 .nav-shield svg{width:100%;height:100%;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.35)) drop-shadow(0 6px 8px rgba(0,0,0,0.15))}
 .nav-text{display:flex;flex-direction:column}
 .nav-name{font-family:var(--serif);font-weight:700;font-size:0.95rem;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.1;text-rendering:geometricPrecision}
-.nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{font-size:0.76rem;letter-spacing:0.6px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s}
+.nav-links{display:flex;gap:0;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-size:0.72rem;letter-spacing:0.5px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:500;padding:0.5rem 0.75rem;transition:color 0.2s;white-space:nowrap}
 .nav-links a:hover{color:#fff}
 .nav-cta-link{font-size:0.7rem!important;letter-spacing:1.5px!important;text-transform:uppercase;color:var(--teal-light)!important;border:1px solid rgba(74,175,149,0.35);padding:7px 16px!important;border-radius:4px;font-weight:600!important;transition:all 0.2s!important;margin-left:0.5rem}
 .nav-cta-link:hover{background:rgba(74,175,149,0.1)!important;border-color:rgba(74,175,149,0.5)!important;color:#fff!important}
