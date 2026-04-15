@@ -144,13 +144,15 @@ var certData = [];
   fetch(VERIFY_PROXY)
   .then(function(res) { return res.json(); })
   .then(function(data) {
-    certData = (Array.isArray(data) ? data : []).map(function(r) {
+    var records = data.records || (Array.isArray(data) ? data : []);
+    certData = records.map(function(r) {
+      var f = r.fields || r;
       return {
-        name: r.name || "",
-        location: r.location || "",
-        cert: r.cert || "",
-        date: r.date || "",
-        expiry: r.expiry || "",
+        name: f["Practice Name"] || f.name || "",
+        location: f["Primary State"] || f.location || "",
+        cert: f["Reference Number"] || f.cert || "",
+        date: f["Certification Date"] || f.date || "",
+        expiry: f["Expiration Date"] || f.expiry || "",
         status: "Active"
       };
     });

@@ -143,6 +143,9 @@ const RiskGauge = ({ score, maxScore }) => {
 const STRIPE_LINK = "https://sentinelriskgrp.com/#pricing"; // Sends leads to pricing section to choose their tier
 const WEBHOOK_URL = "https://hook.us2.make.com/jnrsjhrh4ye8udwyrcf07fm6rw02e4ke"; // Make.com webhook → creates Lead record in Airtable
 
+// Detect source from URL parameter (e.g., ?source=mental-health)
+const SOURCE = new URLSearchParams(window.location.search).get("source") || "healthcare";
+
 function RiskAssessment() {
   const [phase, setPhase] = useState("intro");
   const [qi, setQi] = useState(0);
@@ -259,7 +262,7 @@ function RiskAssessment() {
               <div><label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.silver, marginBottom: 4 }}>Practice Name</label><input value={practice} onChange={e => setPractice(e.target.value)} placeholder="Practice or organization" style={inp}/></div>
             </div>
             <div style={{ marginTop: 20, textAlign: "center" }}>
-              <button onClick={() => { if(name && email) { const { earned, total, riskPct } = calc(); try { fetch(WEBHOOK_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ name, email, practice, riskScore: riskPct, governanceScore: earned + "/" + total, timestamp: new Date().toISOString(), source: "risk-assessment" }), mode:"no-cors" }); } catch(e){} fade(() => setPhase("results")); }}} disabled={!name||!email}
+              <button onClick={() => { if(name && email) { const { earned, total, riskPct } = calc(); try { fetch(WEBHOOK_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ name, email, practice, riskScore: riskPct, governanceScore: earned + "/" + total, timestamp: new Date().toISOString(), source: SOURCE, industry: SOURCE === "mental-health" ? "Behavioral Health" : "Healthcare" }), mode:"no-cors" }); } catch(e){} fade(() => setPhase("results")); }}} disabled={!name||!email}
                 style={{ ...btn, background: name && email ? C.teal : C.mist, cursor: name && email ? "pointer" : "not-allowed" }}>View My Results &rarr;</button>
             </div>
             <p style={{ fontSize: 11, color: C.mist, textAlign: "center", marginTop: 10 }}>Results appear immediately on screen. No spam. No sales calls.</p>
